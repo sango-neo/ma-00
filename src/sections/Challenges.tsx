@@ -1,9 +1,13 @@
 "use client"
 
 import MAIcon from "@/icons/ma-icon.svg";
+import { ValueAnimationTransition, animate, motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import Image from "next/image";
+import { ComponentPropsWithoutRef, useEffect, useRef, useState } from "react";
 
 const Challenges = () => {
+    const [hoveredCard, setHoveredCard] = useState(0);
+
   return (
     <section className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative">
         <Image src="/assets/images/ma-bg-africa.png" alt="ma-africa background icon" width={610} height={667} className="absolute -top-[40px] -right-[100px] w-2/3 md:w-auto" />
@@ -17,8 +21,8 @@ const Challenges = () => {
                 {/* Cards Grid */}
                 <section className="relative grid grid-cols-1 justify-items-center gap-8 w-full lg:grid-cols-2 lg:grid-rows-2">
                     {challengesList && 
-                        challengesList.map((card) => (
-                            <ChallengesCard key={card.title} title={card.title} description={card.description} />
+                        challengesList.map((card, cardIdx) => (
+                            <Card key={card.title} {...card} selected={hoveredCard === cardIdx} onMouseEnter={() => setHoveredCard(cardIdx)} />
                         ))
                     }
                     {/* first iteration */}
@@ -52,6 +56,73 @@ const ChallengesCard = ({ title, description }: ChallengesCardProps) => {
     </div>
   )
 }
+
+
+// Challenges Card with Framer Motion border effects:
+
+const Card = (props: (typeof challengesList)[number] & ComponentPropsWithoutRef<"div"> & { selected: boolean }) => {
+    const cardRef = useRef<HTMLDivElement>(null);
+
+    const xPercentage = useMotionValue(50);
+    const yPercentage = useMotionValue(50);
+
+    const maskImage = useMotionTemplate`radial-gradient(280px 280px at ${xPercentage}% ${yPercentage}%,black,transparent)`;
+
+    useEffect(() => {
+        if (!cardRef.current || !props.selected) return;
+
+        // xPercentage.set(0);
+        // yPercentage.set(0);
+
+        const { height, width } = cardRef.current.getBoundingClientRect();
+        const circumference = height * 2 + width * 2;
+
+        const times = [
+            0,
+            width/circumference,
+            (width + height)/circumference,
+            (width*2 + height)/circumference,
+            1,
+        ];
+
+        const options: ValueAnimationTransition = {
+            times,
+            duration: 10,
+            repeat: Infinity,
+            ease: "linear",
+            repeatType: "loop",
+        };
+
+        animate(xPercentage, [0,100,100,0,0], options);
+        animate(yPercentage, [0,0,100,100,0], options);
+
+    }, [props.selected]);
+
+    return (
+        <div
+            ref={cardRef}
+            key={props.title}
+            onMouseEnter={props.onMouseEnter}
+            className="border border-white/15 flex flex-col p-5 rounded-lg gap-5 items-center text-center max-w-[315px] relative transition-all"
+        >
+            {props.selected && (
+                <motion.div 
+                className="absolute transition-all inset-0 -m-px border border-ma_accent rounded-xl"
+                style={{
+                    maskImage,
+                    WebkitMaskImage: maskImage,
+                }}
+                ></motion.div>
+            )}
+            <MAIcon width={51} height={51} className="fill-ma_transBlue/60" />
+            <div className="text-xl font-semibold tracking-tight leading-tight">{props.title}</div>
+            <p>{props.description}</p>
+        </div>
+    )
+}
+
+
+// Ends
 
 
 const challengesList = [

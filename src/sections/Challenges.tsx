@@ -36,7 +36,7 @@ const Challenges = () => {
     };
 
     return (
-        <section className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative">
+        <section className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative overflow-x-clip">
             <Image
                 src="/assets/images/ma-bg-africa.png"
                 alt="ma-africa background icon"

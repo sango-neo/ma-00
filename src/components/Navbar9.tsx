@@ -2,6 +2,7 @@
 
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { AnimatePresence, motion } from "framer-motion";
+import Image from "next/image";
 import { useState, ComponentPropsWithoutRef, Fragment,  } from "react";
 
 type ImageProps = {
@@ -58,7 +59,7 @@ export const Navbar9 = (props: Navbar9Props) => {
     <nav className="relative z-[999] flex min-h-20 w-full items-center bg-white px-[5%] md:min-h-18 shadow-2xl shadow-gray-400/10">
       <div className="mx-auto flex size-full max-w-7xl items-center justify-between">
         <a href={logo.url}>
-          <img src={logo.src} alt={logo.alt} />
+          <Image src={logo.src} alt={logo.alt!} width={150} height={36} />
         </a>
         <div className="absolute hidden h-[calc(100vh-80px)] overflow-auto bg-white px-[5%] pb-24 pt-4 md:pb-0 xl:static xl:ml-6 xl:flex xl:h-auto xl:flex-1 xl:items-center xl:justify-end xl:gap-32 xl:border-none xl:bg-none xl:px-0 xl:pt-0">
           <div className="flex flex-col items-center xl:flex-row">
@@ -219,10 +220,12 @@ const SubMenu = ({
                           className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
                         >
                           <div className="flex size-6 flex-col items-center justify-center">
-                            <img
+                            <Image
                               src={subMenuLink.image.src}
-                              alt={subMenuLink.image.alt}
+                              alt={subMenuLink.image.alt!}
                               className="shrink-0"
+                              width={50}
+                              height={50}
                             />
                           </div>
                           <div className="flex flex-col items-start justify-center">

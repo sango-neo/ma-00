@@ -16,6 +16,7 @@ type SubMenuLink = {
   image: ImageProps;
   title: string;
   description: string;
+  animation: string;
 };
 
 type LinkGroup = {
@@ -206,7 +207,7 @@ const SubMenu = ({
             initial="close"
             exit="close"
             transition={{ duration: 0.2 }}
-            className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-ma_transBlue xl:absolute xl:w-screen xl:border-b xl:border-border-primary xl:px-[5%] xl:[--height-close:auto]"
+            className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-white xl:absolute xl:w-screen xl:border-b xl:border-border-primary xl:px-[5%] xl:[--height-close:auto] shadow-xl shadow-ma_darkBlue/5"
           >
             <div className="mx-auto flex size-full max-w-full items-center justify-between">
               <div className="flex w-full flex-col xl:flex-row">
@@ -217,7 +218,7 @@ const SubMenu = ({
                         <a
                           key={index}
                           href={subMenuLink.url}
-                          className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2"
+                          className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2 xl:border-r xl:border-r-gray-200 xl:last:border-none xl:pr-3"
                         >
                           <div className="flex size-6 flex-col items-center justify-center">
                             <Image
@@ -231,6 +232,9 @@ const SubMenu = ({
                           <div className="flex flex-col items-start justify-center">
                             <h5 className="font-semibold">{subMenuLink.title}</h5>
                             <p className="hidden text-sm md:block">{subMenuLink.description}</p>
+                          </div>
+                          <div className="self-end justify-self-stretch">
+                          <video src={subMenuLink.animation} width={60} height={60} muted controls={false} autoPlay></video>
                           </div>
                         </a>
                       ))}
@@ -278,20 +282,8 @@ export const Navbar9Defaults: Navbar9Props = {
                 alt: "Icon 1",
                 },
                 title: "Asset Management",
-                description: "Fixed Asset Management solutions.",
-            },
-            ],
-        },
-        {
-            subMenuLinks: [
-            {
-                url: "/services/project-management",
-                image: {
-                src: "/assets/images/ma-icon.svg",
-                alt: "Icon 2",
-                },
-                title: "Project Management",
-                description: "Programme & Project Management solutions.",
+                description: "Fixed and Movable Asset Management solutions.",
+                animation: "/assets/animated/project.mp4",
             },
             ],
         },
@@ -301,10 +293,25 @@ export const Navbar9Defaults: Navbar9Props = {
                 url: "/services/operations-maintenance",
                 image: {
                 src: "/assets/images/ma-icon.svg",
+                alt: "Icon 2",
+                },
+                title: "Operations and Maintenance",
+                description: "Financial Facility Management services",
+                animation: "/assets/animated/gears.mp4",
+            },
+            ],
+        },
+        {
+            subMenuLinks: [
+            {
+                url: "/services/project-management",
+                image: {
+                src: "/assets/images/ma-icon.svg",
                 alt: "Icon 3",
                 },
-                title: "Operations & Maintenance",
-                description: "Facility Management services and more.",
+                title: "Integrated Services and Support",
+                description: "Financial management services and more.",
+                animation: "/assets/animated/chart.mp4"
             },
             ],
         },
@@ -317,7 +324,8 @@ export const Navbar9Defaults: Navbar9Props = {
                 alt: "Icon 4",
                 },
                 title: "WIS - Web-based Integrated System",
-                description: "",
+                description: "Integrated Call Centre and Other Support services.",
+                animation: "/assets/animated/cloud.mp4"
             },
             ],
         },

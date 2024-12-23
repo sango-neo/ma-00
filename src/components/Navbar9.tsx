@@ -80,7 +80,7 @@ useEffect( () => {
 
 
   return (
-    <nav className={`fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] md:min-h-18 shadow-2xl shadow-gray-400/10 ${visible ? '' : '-translate-y-full'} transition duration-300`}>
+    <nav className={`fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] text-black md:min-h-18 shadow-2xl shadow-gray-400/10 ${visible ? '' : '-translate-y-full'} transition duration-300`}>
       <div className="mx-auto flex size-full max-w-7xl items-center justify-between">
         <a href={logo.url}>
           <Image src={logo.src} alt={logo.alt!} width={150} height={36} />
@@ -235,7 +235,7 @@ const SubMenu = ({
           >
             <div className="mx-auto flex size-full max-w-full items-center justify-between">
               <div className="flex w-full flex-col xl:flex-row">
-                <div className="grid flex-1 grid-cols-1 content-start items-start gap-x-8 gap-y-2 py-4 md:grid-cols-2 md:gap-y-6 md:py-8 xl:auto-cols-fr xl:grid-cols-4 xl:content-stretch xl:items-stretch xl:gap-y-0">
+                <div className="grid flex-1 grid-cols-1 content-start items-start gap-x-8 gap-y-2 py-4 px-4 md:grid-cols-2 md:gap-y-6 md:py-8 xl:auto-cols-fr xl:grid-cols-4 xl:content-stretch xl:items-stretch xl:gap-y-0">
                   {megaMenu.linkGroups.map((linkGroup, index) => (
                     <Fragment key={index}>
                       {linkGroup.subMenuLinks.map((subMenuLink, index) => (

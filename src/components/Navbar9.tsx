@@ -3,7 +3,7 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import { useState, ComponentPropsWithoutRef, Fragment,  } from "react";
+import { useState, ComponentPropsWithoutRef, Fragment, useEffect,  } from "react";
 
 type ImageProps = {
   url?: string;
@@ -56,8 +56,31 @@ export const Navbar9 = (props: Navbar9Props) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const isMobile = useMediaQuery("(max-width: 1281px)");
 
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+  const [visible, setVisible] = useState(true);
+
+  const handleScroll = () => {
+    const currentScrollPos = window.scrollY
+
+    if(currentScrollPos > prevScrollPos && currentScrollPos > 200){
+        setVisible(false)
+    }else{
+        setVisible(true)
+    }
+
+    setPrevScrollPos(currentScrollPos)
+};
+
+useEffect( () => {
+  window.addEventListener('scroll', handleScroll);
+
+  return () => window.removeEventListener('scroll', handleScroll)
+});
+
+
+
   return (
-    <nav className="fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] md:min-h-18 shadow-2xl shadow-gray-400/10">
+    <nav className={`fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] md:min-h-18 shadow-2xl shadow-gray-400/10 ${visible ? '' : '-translate-y-full'} transition duration-300`}>
       <div className="mx-auto flex size-full max-w-7xl items-center justify-between">
         <a href={logo.url}>
           <Image src={logo.src} alt={logo.alt!} width={150} height={36} />
@@ -208,7 +231,7 @@ const SubMenu = ({
             initial="close"
             exit="close"
             transition={{ duration: 0.2 }}
-            className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-ma_transBlue/85 backdrop-blur-2xl xl:absolute xl:w-screen xl:border-b xl:border-border-primary xl:px-[5%] xl:[--height-close:auto] shadow-xl shadow-ma_darkBlue/5"
+            className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-gradient-to-br from-white/85 to-ma_transBlue/85 backdrop-blur-2xl xl:absolute xl:w-screen xl:border-b xl:border-border-primary xl:px-[5%] xl:[--height-close:auto] shadow-xl shadow-ma_darkBlue/5"
           >
             <div className="mx-auto flex size-full max-w-full items-center justify-between">
               <div className="flex w-full flex-col xl:flex-row">
@@ -219,7 +242,7 @@ const SubMenu = ({
                         <a
                           key={index}
                           href={subMenuLink.url}
-                          className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-transparent hover:bg-gray-200/15 hover:border-ma_blue/20"
+                          className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-transparent hover:bg-ma_transBlue/30 hover:border-ma_blue/20"
                         >
                           <div className="flex size-6 flex-col items-center justify-center">
                             <Image

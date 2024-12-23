@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <section className="px-[5%] py-20  mx-auto bg-ma_transBlue/5">
+    <section className="px-[5%] py-20  mx-auto bg-ma_transBlue/5 pt-40">
         <div className="container w-full mx-auto max-w-7xl">
           <div className="w-full flex flex-col gap-6 md:flex-row md:justify-between max-w-5xl mx-auto text-[#444]">
             <div className="md:max-w-lg md:w-full">

@@ -57,7 +57,7 @@ export const Navbar9 = (props: Navbar9Props) => {
   const isMobile = useMediaQuery("(max-width: 1281px)");
 
   return (
-    <nav className="relative z-[999] flex min-h-20 w-full items-center bg-white px-[5%] md:min-h-18 shadow-2xl shadow-gray-400/10">
+    <nav className="fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] md:min-h-18 shadow-2xl shadow-gray-400/10">
       <div className="mx-auto flex size-full max-w-7xl items-center justify-between">
         <a href={logo.url}>
           <Image src={logo.src} alt={logo.alt!} width={150} height={36} />
@@ -71,7 +71,7 @@ export const Navbar9 = (props: Navbar9Props) => {
                 ) : (
                   <a
                     href={navLink.url}
-                    className="relative block w-auto py-3 text-md xl:inline-block xl:px-4 xl:py-6 xl:text-base"
+                    className="relative block w-auto py-3 text-md xl:inline-block xl:px-4 xl:py-6 xl:text-base hover:text-ma_blue"
                   >
                     {navLink.title}
                   </a>
@@ -80,7 +80,7 @@ export const Navbar9 = (props: Navbar9Props) => {
             ))}
           </div>
           <div className="flex items-center gap-4">
-            <button className="border border-ma_darkBlue py-2 px-4 rounded">Contact Us</button>
+            <button className="border border-ma_accent py-2 px-4 rounded text-ma_accent hover:text-white hover:bg-ma_accent transition ">Contact Us</button>
           </div>
         </div>
         <button
@@ -171,9 +171,10 @@ const SubMenu = ({
     <div
       onMouseEnter={() => !isMobile && setIsDropdownOpen(true)}
       onMouseLeave={() => !isMobile && setIsDropdownOpen(false)}
+      className="group"
     >
       <button
-        className="relative flex w-full items-center justify-between whitespace-nowrap py-3 text-md xl:w-auto xl:justify-start xl:gap-2 xl:px-4 xl:py-6 xl:text-base"
+        className="relative flex w-full items-center justify-between whitespace-nowrap py-3 text-md xl:w-auto xl:justify-start xl:gap-2 xl:px-4 xl:py-6 xl:text-base group-hover:text-ma_blue group-hover:fill-ma_blue"
         onClick={() => setIsDropdownOpen((prev) => !prev)}
       >
         <span>{title}</span>
@@ -207,7 +208,7 @@ const SubMenu = ({
             initial="close"
             exit="close"
             transition={{ duration: 0.2 }}
-            className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-white xl:absolute xl:w-screen xl:border-b xl:border-border-primary xl:px-[5%] xl:[--height-close:auto] shadow-xl shadow-ma_darkBlue/5"
+            className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-ma_transBlue/85 backdrop-blur-2xl xl:absolute xl:w-screen xl:border-b xl:border-border-primary xl:px-[5%] xl:[--height-close:auto] shadow-xl shadow-ma_darkBlue/5"
           >
             <div className="mx-auto flex size-full max-w-full items-center justify-between">
               <div className="flex w-full flex-col xl:flex-row">
@@ -218,7 +219,7 @@ const SubMenu = ({
                         <a
                           key={index}
                           href={subMenuLink.url}
-                          className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 py-2 xl:border-r xl:border-r-gray-200 xl:last:border-none xl:pr-3"
+                          className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-transparent hover:bg-gray-200/15 hover:border-ma_blue/20"
                         >
                           <div className="flex size-6 flex-col items-center justify-center">
                             <Image
@@ -230,11 +231,11 @@ const SubMenu = ({
                             />
                           </div>
                           <div className="flex flex-col items-start justify-center">
-                            <h5 className="font-semibold">{subMenuLink.title}</h5>
+                            <h5 className="font-semibold mb-4 tracking-tighter text-ma_darkBlue">{subMenuLink.title}</h5>
                             <p className="hidden text-sm md:block">{subMenuLink.description}</p>
                           </div>
-                          <div className="self-end justify-self-stretch">
-                          <video src={subMenuLink.animation} width={60} height={60} muted controls={false} autoPlay></video>
+                          <div className="self-end justify-self-stretch col-span-2">
+                          <Image src={subMenuLink.animation} width={60} height={60} alt="submenu link icon" />
                           </div>
                         </a>
                       ))}
@@ -283,7 +284,7 @@ export const Navbar9Defaults: Navbar9Props = {
                 },
                 title: "Asset Management",
                 description: "Fixed and Movable Asset Management solutions.",
-                animation: "/assets/animated/project.mp4",
+                animation: "/assets/animated/project-once.gif",
             },
             ],
         },
@@ -297,7 +298,7 @@ export const Navbar9Defaults: Navbar9Props = {
                 },
                 title: "Operations and Maintenance",
                 description: "Financial Facility Management services",
-                animation: "/assets/animated/gears.mp4",
+                animation: "/assets/animated/gears-once.gif",
             },
             ],
         },
@@ -311,7 +312,7 @@ export const Navbar9Defaults: Navbar9Props = {
                 },
                 title: "Integrated Services and Support",
                 description: "Financial management services and more.",
-                animation: "/assets/animated/chart.mp4"
+                animation: "/assets/animated/chart-once.gif"
             },
             ],
         },
@@ -325,7 +326,7 @@ export const Navbar9Defaults: Navbar9Props = {
                 },
                 title: "WIS - Web-based Integrated System",
                 description: "Integrated Call Centre and Other Support services.",
-                animation: "/assets/animated/cloud.mp4"
+                animation: "/assets/animated/cloud-once.gif"
             },
             ],
         },

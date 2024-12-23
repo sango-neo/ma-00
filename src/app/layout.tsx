@@ -23,7 +23,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${interVF.variable} antialiased font-sans bg-white`}
+        className={`${interVF.variable} antialiased font-sans bg-white text-[#222]`}
       >
         <Navbar9 />
         {children}

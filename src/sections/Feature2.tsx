@@ -133,7 +133,7 @@ const FeatureSectionContent = ({
 
 export const Feature2Defaults: Props = {
   heading: "Leverage real-time asset tracking capabilities",
-  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  description: "",
   featureSections: [
     {
       heading: "Eliminate unnecessary costs",

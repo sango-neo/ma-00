@@ -1,0 +1,170 @@
+"use client";
+
+import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { MotionValue, useMotionValue, motion, useScroll, useTransform } from "framer-motion";
+import React, { useRef } from "react";
+import { cn } from "@/utils/utils";
+import Image from "next/image";
+
+type ImageProps = {
+  src: string;
+  alt: string;
+};
+
+type FeatureSectionProps = {
+  heading: string;
+  description: string;
+  image: ImageProps;
+  classNames: string;
+};
+
+type Props = {
+  heading: string;
+  description: string;
+  featureSections: FeatureSectionProps[];
+};
+
+export type Feature2Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+
+const calculateScales = (totalSections: number, scrollYProgress: MotionValue<number>) => {
+  return Array.from({ length: totalSections }, (_, index) => {
+    const sectionFraction = 1 / totalSections;
+    const start = sectionFraction * index;
+    const end = sectionFraction * (index + 1);
+
+    return index < totalSections - 1
+      ? useTransform(scrollYProgress, [start, end], [1, 0.8])
+      : useMotionValue(1);
+  });
+};
+
+export const Feature2 = (props: Feature2Props) => {
+  const { heading, description, featureSections } = {
+    ...Feature2Defaults,
+    ...props,
+  };
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end 60%"],
+  });
+
+  const scales = calculateScales(featureSections.length, scrollYProgress);
+
+  return (
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_transBlue">
+      <div className="container max-w-7xl mx-auto">
+        <div className="mx-auto mb-12 w-full max-w-md text-center md:mb-18 lg:mb-20 xl:max-w-xl">
+          <h2 className="mb-5 text-2xl font-semibold text-ma_darkBlue tracking-tighter md:mb-6 lg:text-3xl xl:text-4xl">{heading}</h2>
+          <p className="md:text-md">{description}</p>
+        </div>
+        <div ref={containerRef} className="sticky top-0 grid grid-cols-1 gap-6 md:gap-0">
+          {featureSections.map((featureSection, index) => (
+            <FeatureSection key={index} {...featureSection} scale={scales[index]} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FeatureSection = ({
+  scale,
+  index,
+  ...featureSection
+}: FeatureSectionProps & {
+  scale: MotionValue<number>;
+  index: number;
+}) => {
+  const isMobile = useMediaQuery("(max-width: 767px)");
+
+  return (
+    <React.Fragment>
+      {isMobile ? (
+        <div className="static grid grid-cols-1 content-center overflow-hidden rounded-2xl bg-white shadow-xl shadow-black/5 mx-16">
+          <div className="m-6 border rounded-lg grid content-center grid-cols-1 border-ma_blue bg-ma_transBlue shadow-md shadow-black/5">
+            <FeatureSectionContent {...featureSection} />
+          </div>
+        </div>
+      ) : (
+        <motion.div
+          className={cn("static overflow-hidden flex md:sticky md:top-[10%] md:mb-[10vh] md:h-[80vh]",
+            "rounded-2xl bg-white shadow-xl shadow-black/5 mx-16"
+          )}
+          style={{ scale }}
+        >
+          <div className={cn("m-6 border border-black rounded-lg grid content-center grid-cols-1 md:grid-cols-2",
+            "border-ma_blue bg-ma_transBlue shadow-md shadow-black/5"
+          )}>
+            <FeatureSectionContent {...featureSection} />
+          </div>
+        </motion.div>
+      )}
+    </React.Fragment>
+  );
+};
+
+const FeatureSectionContent = ({
+  ...featureSection
+}: FeatureSectionProps) => (
+  <React.Fragment>
+    <div
+      className={cn(
+        "flex flex-col items-center justify-center",
+      )}
+    >
+      <Image src={featureSection.image.src} alt={featureSection.image.alt} width={160} height={160} />
+    </div>
+    <div
+      className={cn(
+        "flex flex-col justify-center p-6 md:p-8 lg:p-12",
+        "bg"
+      )}
+    >
+      <div className="mt-6 flex flex-col items-center md:items-start gap-x-4 md:mt-0">
+        <h2 className="font-semibold text-2xl lg:text-3xl tracking-tight mb-4">{featureSection.heading}</h2>
+        <p>{featureSection.description}</p>
+      </div>
+    </div>
+  </React.Fragment>
+);
+
+export const Feature2Defaults: Props = {
+  heading: "Leverage real-time asset tracking capabilities",
+  description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  featureSections: [
+    {
+      heading: "Eliminate unnecessary costs",
+      description:
+        "Stay well within budget. With a holistic view of all assets, align and coordinate expenditure according to organisational priorities.",
+      image: {
+        src: "/assets/animated/save-money.gif",
+        alt: "save-money benefit image",
+      },
+      classNames: "",
+    },
+    {
+      heading: "Optimize resource utilisation",
+      description:
+        "Stay well within budget. With a holistic view of all assets, align and coordinate expenditure according to organisational priorities.",
+      image: {
+        src: "/assets/animated/resources.gif",
+        alt: "resources benefit image",
+      },
+      classNames: "",
+    },
+    {
+      heading: "Enhanced Asset Visibility and Control",
+      description:
+        "Stay well within budget. With a holistic view of all assets, align and coordinate expenditure according to organisational priorities.",
+      image: {
+        src: "/assets/animated/control.gif",
+        alt: "control and visibility benefit image",
+      },
+      classNames: "",
+      
+    },
+  ],
+};

@@ -57,7 +57,7 @@ export const Footer8 = (props: Footer8Props) => {
   };
 
   return (
-    <footer className="px-[5%] py-12 md:py-18 lg:py-20">
+    <footer className="px-[5%] py-12 md:py-18 lg:py-20 border">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 items-start justify-between gap-x-[8vw] gap-y-12 pb-12 sm:gap-y-10 md:gap-y-14 md:pb-18 lg:grid-cols-[1fr_0.5fr] lg:pb-20">
           <div className="flex flex-col items-start">

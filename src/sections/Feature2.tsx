@@ -48,7 +48,7 @@ export const Feature2 = (props: Feature2Props) => {
 
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start start", "end 60%"],
+    offset: ["start start", "end 70%"],
   });
 
   const scales = calculateScales(featureSections.length, scrollYProgress);
@@ -58,7 +58,7 @@ export const Feature2 = (props: Feature2Props) => {
       <div className="container max-w-7xl mx-auto">
         <div className="mx-auto mb-12 w-full max-w-md text-center md:mb-18 lg:mb-20 xl:max-w-xl">
           <h2 className="mb-5 text-2xl font-semibold text-ma_darkBlue tracking-tighter md:mb-6 lg:text-3xl xl:text-4xl">{heading}</h2>
-          <p className="md:text-md">{description}</p>
+          {/* <p className="md:text-md">{description}</p> */}
         </div>
         <div ref={containerRef} className="sticky top-0 grid grid-cols-1 gap-6 md:gap-0">
           {featureSections.map((featureSection, index) => (
@@ -83,20 +83,22 @@ const FeatureSection = ({
   return (
     <React.Fragment>
       {isMobile ? (
-        <div className="static grid grid-cols-1 content-center overflow-hidden rounded-2xl bg-white shadow-xl shadow-black/5 mx-16">
-          <div className="m-6 border rounded-lg grid content-center grid-cols-1 border-ma_blue bg-ma_transBlue shadow-md shadow-black/5">
+        <div className="static grid grid-cols-1 content-center overflow-hidden rounded-2xl bg-white shadow-xl shadow-black/5 md:mx-16 min-w-44">
+          <div className={cn("m-6 border rounded-lg grid content-center grid-cols-1 shadow-md shadow-black/5",
+            featureSection.classNames
+          )}>
             <FeatureSectionContent {...featureSection} />
           </div>
         </div>
       ) : (
         <motion.div
-          className={cn("static overflow-hidden flex md:sticky md:top-[10%] md:mb-[10vh] md:h-[80vh]",
-            "rounded-2xl bg-white shadow-xl shadow-black/5 mx-16"
+          className={cn("static overflow-hidden flex md:sticky md:top-[10%] md:mb-[10vh] md:h-[70vh]",
+            "rounded-2xl bg-white shadow-xl shadow-black/5 md:mx-16 min-w-44"
           )}
           style={{ scale }}
         >
-          <div className={cn("m-6 border border-black rounded-lg grid content-center grid-cols-1 md:grid-cols-2",
-            "border-ma_blue bg-ma_transBlue shadow-md shadow-black/5"
+          <div className={cn("m-6 border border-black rounded-lg grid content-center grid-cols-1 md:grid-cols-2 shadow-md shadow-black/5",
+            featureSection.classNames
           )}>
             <FeatureSectionContent {...featureSection} />
           </div>
@@ -111,11 +113,9 @@ const FeatureSectionContent = ({
 }: FeatureSectionProps) => (
   <React.Fragment>
     <div
-      className={cn(
-        "flex flex-col items-center justify-center",
-      )}
+      className="flex flex-col items-center justify-center mt-4 md:mt-0"
     >
-      <Image src={featureSection.image.src} alt={featureSection.image.alt} width={160} height={160} />
+      <Image src={featureSection.image.src} alt={featureSection.image.alt} width={200} height={200} />
     </div>
     <div
       className={cn(
@@ -123,9 +123,9 @@ const FeatureSectionContent = ({
         "bg"
       )}
     >
-      <div className="mt-6 flex flex-col items-center md:items-start gap-x-4 md:mt-0">
+      <div className="text-center my-4 flex flex-col items-center gap-x-4 md:items-start md:my-0 md:text-start">
         <h2 className="font-semibold text-2xl lg:text-3xl tracking-tight mb-4">{featureSection.heading}</h2>
-        <p>{featureSection.description}</p>
+        <p className="lg:text-xl">{featureSection.description}</p>
       </div>
     </div>
   </React.Fragment>
@@ -143,27 +143,27 @@ export const Feature2Defaults: Props = {
         src: "/assets/animated/save-money.gif",
         alt: "save-money benefit image",
       },
-      classNames: "",
+      classNames: "bg-ma_transBlue border-ma_blue text-black",
     },
     {
       heading: "Optimize resource utilisation",
       description:
-        "Stay well within budget. With a holistic view of all assets, align and coordinate expenditure according to organisational priorities.",
+        "Quickly identify overburdened or underutilised equipment and infrastructure so that you can allocate  resources appropriately and maximize asset lifecycles.",
       image: {
         src: "/assets/animated/resources.gif",
         alt: "resources benefit image",
       },
-      classNames: "",
+      classNames: "bg-ma_blue border-[#33CCCC] text-white",
     },
     {
       heading: "Enhanced Asset Visibility and Control",
       description:
-        "Stay well within budget. With a holistic view of all assets, align and coordinate expenditure according to organisational priorities.",
+        "With an encompassing view of asset performance, you will acquire greater control over planning for future resource requirements for your asset portfolio.",
       image: {
         src: "/assets/animated/control.gif",
         alt: "control and visibility benefit image",
       },
-      classNames: "",
+      classNames: "bg-white border-ma_accent text-black",
       
     },
   ],

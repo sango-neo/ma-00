@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@relume_io/relume-tailwind": "^1.0.0",
+    "@relume_io/relume-ui": "^1.0.1",
     "@svgr/webpack": "^8.1.0",
     "clsx": "^2.1.1",
     "framer-motion": "^11.12.0",

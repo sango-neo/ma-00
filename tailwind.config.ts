@@ -24,6 +24,12 @@ const config: Config = {
       }
     },
   },
+  variants: {
+    extend: {
+      display: ['group-hover', 'hover'],
+      block: ['group-hover', 'hover'],
+    }
+  },
   plugins: [],
   presets: [require("@relume_io/relume-tailwind")],
 };

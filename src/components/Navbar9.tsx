@@ -220,7 +220,7 @@ const SubMenu = ({
             variants={{
               open: {
                 opacity: 1,
-                height: "var(--height-open, auto)",
+                height: "var(--height-open, fit-content)",
               },
               close: {
                 opacity: 0,
@@ -231,7 +231,7 @@ const SubMenu = ({
             initial="close"
             exit="close"
             transition={{ duration: 0.2 }}
-            className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-gradient-to-br from-white/85 to-ma_transBlue/85 backdrop-blur-2xl xl:absolute xl:w-screen xl:border-b xl:border-border-primary xl:px-[5%] xl:[--height-close:auto] shadow-xl shadow-ma_darkBlue/5"
+            className="bottom-auto left-0 top-full w-full min-w-full max-w-full overflow-hidden bg-gradient-to-br from-white/85 to-ma_transBlue/85 backdrop-blur-2xl xl:absolute xl:w-screen xl:px-[5%] xl:[--height-close:auto] shadow-xl shadow-ma_darkBlue/10"
           >
             <div className="mx-auto flex size-full max-w-full items-center justify-between">
               <div className="flex w-full flex-col xl:flex-row">
@@ -239,28 +239,38 @@ const SubMenu = ({
                   {megaMenu.linkGroups.map((linkGroup, index) => (
                     <Fragment key={index}>
                       {linkGroup.subMenuLinks.map((subMenuLink, index) => (
-                        <a
-                          key={index}
-                          href={subMenuLink.url}
-                          className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-transparent hover:bg-ma_transBlue/30 hover:border-ma_blue/20"
-                        >
-                          <div className="flex size-6 flex-col items-center justify-center">
-                            <Image
-                              src={subMenuLink.image.src}
-                              alt={subMenuLink.image.alt!}
-                              className="shrink-0"
-                              width={50}
-                              height={50}
-                            />
-                          </div>
-                          <div className="flex flex-col items-start justify-center">
-                            <h5 className="font-semibold mb-4 tracking-tighter text-ma_darkBlue">{subMenuLink.title}</h5>
-                            <p className="hidden text-sm md:block">{subMenuLink.description}</p>
-                          </div>
-                          <div className="self-end justify-self-stretch col-span-2">
-                          <Image src={subMenuLink.animation} width={60} height={60} alt="submenu link icon" />
-                          </div>
-                        </a>
+                        <div className="relative group/item">
+                          <a
+                            key={index}
+                            href={subMenuLink.url}
+                            className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-ma_blue/20 md:border-transparent hover:bg-ma_transBlue/30 hover:border-ma_blue/20"
+                          >
+                              <div className="flex size-6 flex-col items-center justify-center">
+                                <Image
+                                  src={subMenuLink.image.src}
+                                  alt={subMenuLink.image.alt!}
+                                  className="shrink-0"
+                                  width={50}
+                                  height={50}
+                                />
+                              </div>
+                              <div className="flex flex-col items-start justify-center">
+                                <h5 className="font-semibold mb-4 tracking-tighter text-ma_darkBlue">{subMenuLink.title}</h5>
+                                <p className="hidden text-sm md:block">{subMenuLink.description}</p>
+                              </div>
+                              <div className="self-end justify-self-stretch col-span-2">
+                                <Image src={subMenuLink.animation} width={60} height={60} alt="submenu link icon" />
+                              </div>
+                          </a>
+                          {/* <motion.div className="z-20 hidden h-0 border border-black group-hover/item:block group-hover/item:h-fit transition-all">
+                              <ul>
+                                <li>Item 1</li>
+                                <li>Item 2</li>
+                                <li>Item 3</li>
+                                <li>Item 4</li>
+                              </ul>
+                          </motion.div> */}
+                        </div>
                       ))}
                     </Fragment>
                   ))}

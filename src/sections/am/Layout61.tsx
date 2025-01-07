@@ -33,13 +33,13 @@ export const Layout61 = (props: Layout61Props) => {
         <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           <div>
             <p className="mb-3 font-semibold text-white/60 text-sm md:mb-4">{tagline}</p>
-            <h2 className="text-2xl text-white md:text-3xl lg:text-4xl">
+            <h2 className="text-white text-3xl lg:text-4xl mb-5">
               {heading}
             </h2>
           </div>
           <div>
             <p className="mb-6 text-white md:mb-8">{description}</p>
-            <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
+            <div className="mt-10 md:mt-0 grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               {subHeadings.map((subHeading, index) => (
                 <div key={index}>
                   <h6 className="mb-3 text-md font-semibold leading-[1.4] text-white md:mb-4 md:text-xl">
@@ -50,7 +50,7 @@ export const Layout61 = (props: Layout61Props) => {
               ))}
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="px-6 py-3 rounded-md bg-ma_accent text-white">Learn more</button>
+              <button className="px-6 py-3 w-full md:w-fit rounded bg-ma_accent text-white">Learn more</button>
             </div>
           </div>
         </div>

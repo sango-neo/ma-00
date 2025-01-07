@@ -1,6 +1,7 @@
 "use client";
 
 import { useMediaQuery } from "@/hooks/useMediaQuery";
+import { cn } from "@/utils/utils";
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
 import { useState, ComponentPropsWithoutRef, Fragment, useEffect,  } from "react";
@@ -80,7 +81,7 @@ useEffect( () => {
 
 
   return (
-    <nav className={`fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] text-black md:min-h-18 shadow-2xl shadow-gray-400/10 ${visible ? '' : '-translate-y-full'} transition duration-300`}>
+    <nav className={cn(`fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] text-black md:min-h-18 shadow-4xl shadow-gray-400/20 transition duration-300`, visible ? '' : '-translate-y-full')}>
       <div className="mx-auto flex size-full max-w-7xl items-center justify-between">
         <a href={logo.url}>
           <Image src={logo.src} alt={logo.alt!} width={150} height={36} />

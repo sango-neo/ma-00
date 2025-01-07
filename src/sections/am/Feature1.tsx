@@ -47,9 +47,9 @@ export const Layout494 = (props: Layout494Props) => {
       <div className="container">
         <div className="relative flex flex-col md:flex-row">
           <div className="w-full md:w-1/2 md:pr-6 lg:pr-10">
-            <div className="mb-8 md:hidden">
-              <p className="mb-3 font-semibold md:mb-4">{tagline}</p>
-              <h1 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h1>
+            <div className="mb-8 text-center md:hidden">
+              <p className="mb-3 font-medium md:mb-4 text-sm text-gray-300">{tagline}</p>
+              <h2 className="mb-5 text-2xl leading-[1.1] font-semibold md:mb-6 md:text-3xl lg:text-4xl tracking-tight text-ma_darkBlue">{heading}</h2>
               <p className="md:text-md">{description}</p>
             </div>
             <AnimatePresence mode="wait" initial={false}>
@@ -68,7 +68,7 @@ export const Layout494 = (props: Layout494Props) => {
                       <img
                         src={tab.image.src}
                         alt={tab.image.alt}
-                        className="mb-6 size-full md:mb-0 rounded-lg"
+                        className="mb-6 w-full md:mb-0 rounded-lg"
                       />
                     )}
                     {/* {tab.video && (
@@ -95,7 +95,7 @@ export const Layout494 = (props: Layout494Props) => {
           <div className="w-full md:w-1/2 md:pl-6 lg:pl-10">
             <div className="mb-8 hidden md:block">
               <p className="mb-3 font-medium md:mb-4 text-sm text-gray-300">{tagline}</p>
-              <h2 className="mb-5 text-2xl font-semibold md:mb-6 md:text-3xl lg:text-4xl tracking-tight text-ma_darkBlue">{heading}</h2>
+              <h2 className="mb-5 text-2xl font-semibold md:mb-6 md:text-3xl lg:text-4xl tracking-tight text-ma_darkBlue leading-[1.1]">{heading}</h2>
               <p className="md:text-md">{description}</p>
             </div>
             <div className="static flex flex-col flex-wrap justify-stretch md:block">
@@ -126,7 +126,7 @@ export const Layout494 = (props: Layout494Props) => {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="px-6 py-3 rounded-lg bg-ma_darkBlue text-white font-medium">Schedule consultation</button>
+              <button className="w-full md:w-fit mt-5 px-6 py-3 rounded bg-ma_darkBlue text-white font-medium">Schedule consultation</button>
             </div>
           </div>
         </div>
@@ -155,7 +155,7 @@ export const Layout494Defaults: Props = {
       description:
         "Our system provides detailed analytics on asset performance, lifecycle costs, and maintenance trends, empowering you to make informed decisions that align with your goals.",
         image: {
-          src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-video-thumbnail.svg",
+          src: "/assets/images/am-performance.jpg",
           alt: "placeholder image 2",
         },
     },

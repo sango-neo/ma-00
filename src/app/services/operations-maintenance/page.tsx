@@ -1,10 +1,17 @@
+import { Contact2 } from "@/sections/HomeContact";
+import { Layout438 } from "@/sections/om/Feature1";
+import { Header139 } from "@/sections/om/HeaderOM";
+
 const OpsMaintenancePage = () => {
   return (
     <>
-      <div className="h-screen flex justify-center items-center bg-slate-200">
-        <h1 className="text-3xl font-semibold text-blue-600">Maintenance Page.</h1>
-      </div>
-      </>
+      <Header139 />
+      <Layout438 />
+      <section className="bg-ma_altBlue h-[500px] text-ma_darkBlue flex justify-center items-center">
+        placeholder
+      </section>
+      <Contact2 />
+    </>
   )
 }
 

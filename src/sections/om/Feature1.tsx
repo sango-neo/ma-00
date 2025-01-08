@@ -26,7 +26,7 @@ export const Layout438 = (props: Layout438Props) => {
     <section className="px-[5%] py-28 pb-0">
       <div className="container">
         <div className="grid grid-cols-1 items-start gap-x-16 gap-y-6 sm:gap-y-12 md:grid-cols-[1fr_0.75fr_0.5fr]">
-          <div className="order-last md:order-first">
+          <div className="order-last md:order-first md:self-end">
             <img
               src={firstImage.src}
               className="w-full"
@@ -36,6 +36,9 @@ export const Layout438 = (props: Layout438Props) => {
           <div className="flex h-full flex-col justify-between">
             <div>
               <p className="text-ma_darkBlue text-xl text-center md:text-start">{description}</p>
+            </div>
+            <div className="my-10 md:mb-20">
+                <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">Schedule consultation</button>
             </div>
           </div>
           <img

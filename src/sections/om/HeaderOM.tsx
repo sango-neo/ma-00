@@ -27,8 +27,8 @@ export const Header139 = (props: Header139Props) => {
 
   const containerMotion = {
     y: useTransform(scrollYProgress, [0, 0.4], ["0vh", "-5vh"]),
-    width: useTransform(scrollYProgress, [0, 0.4], ["90%", "100%"]),
-    height: useTransform(scrollYProgress, [0, 0.4], ["90vh", "100vh"]),
+    width: useTransform(scrollYProgress, [0, 0.4], ["90%", "120%"]),
+    height: useTransform(scrollYProgress, [0, 0.4], ["70vh", "100vh"]),
   };
 
   const imageTranslate = {
@@ -42,13 +42,13 @@ export const Header139 = (props: Header139Props) => {
   return (
     <section id="relume" className="relative flex h-fit flex-col items-center">
       <motion.div
-        className="sticky z-10 mb-[-5vh] mt-[5vh] flex h-[90vh] w-[90%] flex-col items-start justify-center overflow-hidden"
+        className="sticky z-10 mb-[-5vh] flex h-[70vh] w-[90%] flex-col items-start justify-center overflow-hidden"
         style={containerMotion}
       >
         <div className="px-[5%] py-16 md:py-24 lg:py-28">
           <div className="container">
             <div className="max-w-[540px]">
-              <h1 className="mb-5 text-3xl text-white lg:text-7xl text-center md:text-start">
+              <h1 className="mb-5 text-3xl text-white lg:text-6xl text-center md:text-start mt-20">
                 {heading}
               </h1>
             </div>

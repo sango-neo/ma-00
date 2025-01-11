@@ -43,7 +43,7 @@ export const Layout494 = (props: Layout494Props) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-36 lg:pb-56">
+    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-36">
       <div className="container">
         <div className="relative flex flex-col md:flex-row">
           <div className="w-full md:w-1/2 md:pr-6 lg:pr-10">

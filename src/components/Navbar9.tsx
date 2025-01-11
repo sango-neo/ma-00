@@ -236,7 +236,7 @@ const SubMenu = ({
           >
             <div className="mx-auto flex size-full max-w-full items-center justify-between">
               <div className="flex w-full flex-col xl:flex-row">
-                <div className="grid flex-1 grid-cols-1 content-start items-start gap-x-8 gap-y-2 py-4 px-4 md:grid-cols-2 md:gap-y-6 md:py-8 xl:auto-cols-fr xl:grid-cols-4 xl:content-stretch xl:items-stretch xl:gap-y-0">
+                <div className="grid flex-1 grid-cols-1 content-start items-start gap-x-8 gap-y-2 py-4 px-4 md:grid-cols-2 md:gap-y-6 md:py-8 xl:auto-cols-fr xl:grid-cols-3 xl:content-stretch xl:items-stretch xl:gap-y-0">
                   {megaMenu.linkGroups.map((linkGroup, index) => (
                     <Fragment key={index}>
                       {linkGroup.subMenuLinks.map((subMenuLink, index) => (
@@ -337,32 +337,60 @@ export const Navbar9Defaults: Navbar9Props = {
             ],
         },
         {
-            subMenuLinks: [
-            {
-                url: "/services/project-management",
-                image: {
-                src: "/assets/images/ma-icon.svg",
-                alt: "Icon 3",
-                },
-                title: "Integrated Services and Support",
-                description: "Financial management services and more.",
-                animation: "/assets/animated/chart-once.gif"
-            },
-            ],
+          subMenuLinks: [
+          {
+              url: "/services/finance-management",
+              image: {
+              src: "/assets/images/ma-icon.svg",
+              alt: "Icon 2",
+              },
+              title: "Finance Management",
+              description: "Financial Facility Management services",
+              animation: "/assets/animated/finance.gif",
+          },
+          ],
+        },
+        {
+          subMenuLinks: [
+          {
+              url: "/services/procurement-support",
+              image: {
+              src: "/assets/images/ma-icon.svg",
+              alt: "Icon 2",
+              },
+              title: "Procurement Support and Supplier Database",
+              description: "Services and products supporting the procurement process",
+              animation: "/assets/animated/procurement.gif",
+          },
+          ],
         },
         {
             subMenuLinks: [
             {
-                url: "/services/wis",
+                url: "/services/call-center",
                 image: {
                 src: "/assets/images/ma-icon.svg",
                 alt: "Icon 4",
                 },
-                title: "WIS - Web-based Integrated System",
+                title: "Call Center",
                 description: "Integrated Call Centre and Other Support services.",
-                animation: "/assets/animated/cloud-once.gif"
+                animation: "/assets/animated/call-center.gif"
             },
             ],
+        },
+        {
+          subMenuLinks: [
+          {
+              url: "/services/project-management",
+              image: {
+              src: "/assets/images/ma-icon.svg",
+              alt: "Icon 3",
+              },
+              title: "Project Management",
+              description: "Project management services and more.",
+              animation: "/assets/animated/proj-management.gif"
+          },
+          ],
         },
         ],
         dropdownFooter: {

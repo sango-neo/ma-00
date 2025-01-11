@@ -35,7 +35,13 @@ export const Layout438 = (props: Layout438Props) => {
           </div>
           <div className="flex h-full flex-col justify-between">
             <div>
-              <p className="text-ma_darkBlue text-xl text-center md:text-start">{description}</p>
+              <div className="text-ma_darkBlue text-xl text-center md:text-start">
+                <p>With Moago’s integrated system, you are able to implement a proactive streamlined maintenance process that is aimed at ensuring managed assets are:</p>
+                <ul className="text-base mt-6 leading-[1]">
+                  <li className="flex gap-1 justify-start"><span className="flex-shrink-0"><img src="/assets/images/ma-icon.svg" alt="bullet icon" className="inline-block w-5 h-5" />&nbsp;-&nbsp;</span><span>Kept at satisfactory performance levels.</span></li>
+                  <li className="flex gap-1 justify-start mt-4"><span className="flex-shrink-0"><img src="/assets/images/ma-icon.svg" alt="bullet icon" className="inline-block w-5 h-5" />&nbsp;-&nbsp;</span><span className="">Repaired timeously during unexpected breakdowns {"(improved reactive maintenance)."}</span></li>
+                </ul>
+              </div>
             </div>
             <div className="my-10 md:mb-20">
                 <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">Schedule consultation</button>
@@ -43,7 +49,7 @@ export const Layout438 = (props: Layout438Props) => {
           </div>
           <img
             src={secondImage.src}
-            className="order-last aspect-square w-1/2 object-cover hidden md:block"
+            className="order-last aspect-square w-1/2 max-w-[120px] object-cover hidden md:block"
             alt={secondImage.alt}
           />
         </div>
@@ -61,7 +67,7 @@ export const Layout438Defaults: Props = {
     alt: "Maintenance man",
   },
   secondImage: {
-    src: "/assets/images/clock-unscreen.gif",
+    src: "/assets/animated/clock.gif",
     alt: "Maintenance time",
   },
 };

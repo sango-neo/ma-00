@@ -31,10 +31,10 @@ export const Layout16 = (props: Layout16Props) => {
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_transBlue/20">
       <div className="container">
-        <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
+        <div className="grid grid-cols-1 gap-y-12 lg:grid-cols-2 lg:items-center md:gap-x-12 lg:gap-x-20">
           <div>
             <p className="mb-3 font-semibold md:mb-4 text-ma_blue">{tagline}</p>
-            <h2 className="mb-5 text-2xl font-semibold md:mb-6 md:text-3xl lg:text-4xl tracking-tight text-ma_darkBlue leading-[1.1]">{heading}</h2>
+            <h2 className="mb-5 text-2xl font-semibold md:mb-6 md:text-3xl tracking-tight text-ma_darkBlue leading-[1.1]">{heading}</h2>
             <p className="mb-5 text-base md:mb-6 md:text-md">{description}</p>
             <p className="mb-5">The FPI is determined by three critical factors: </p>
             <ul className="grid grid-cols-1 gap-4 py-2">
@@ -48,7 +48,7 @@ export const Layout16 = (props: Layout16Props) => {
               ))}
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full md:w-fit">Schedule consultation</button>
+              <button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full lg:w-fit">Schedule consultation</button>
             </div>
           </div>
           <div>

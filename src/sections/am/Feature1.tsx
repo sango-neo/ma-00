@@ -3,10 +3,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Button, Dialog, DialogContent, DialogTrigger, VideoIframe } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
-import { RxChevronRight } from "react-icons/rx";
-import { FaCirclePlay } from "react-icons/fa6";
 
 type ImageProps = {
   src: string;
@@ -49,7 +46,7 @@ export const Layout494 = (props: Layout494Props) => {
           <div className="w-full md:w-1/2 md:pr-6 lg:pr-10">
             <div className="mb-8 text-center md:hidden">
               <p className="mb-3 font-medium md:mb-4 text-sm text-gray-300">{tagline}</p>
-              <h2 className="mb-5 text-2xl leading-[1.1] font-semibold md:mb-6 md:text-3xl lg:text-4xl tracking-tight text-ma_darkBlue">{heading}</h2>
+              <h2 className="mb-5 text-2xl leading-[1.1] font-semibold md:mb-6 md:text-3xl tracking-tight text-ma_darkBlue">{heading}</h2>
               <p className="md:text-md">{description}</p>
             </div>
             <AnimatePresence mode="wait" initial={false}>
@@ -94,7 +91,7 @@ export const Layout494 = (props: Layout494Props) => {
           </div>
           <div className="w-full md:w-1/2 md:pl-6 lg:pl-10">
             <div className="mb-8 hidden md:block">
-              <p className="mb-3 font-medium md:mb-4 text-sm text-gray-300">{tagline}</p>
+              <p className="mb-3 font-medium md:mb-4 text-sm text-gray-400">{tagline}</p>
               <h2 className="mb-5 text-2xl font-semibold md:mb-6 md:text-3xl lg:text-4xl tracking-tight text-ma_darkBlue leading-[1.1]">{heading}</h2>
               <p className="md:text-md">{description}</p>
             </div>
@@ -137,7 +134,7 @@ export const Layout494 = (props: Layout494Props) => {
 
 export const Layout494Defaults: Props = {
   tagline: "ASSET REGISTER",
-  heading: "Not Just a Spreadsheet of Assets",
+  heading: "More than a Spreadsheet",
   description:
     "",
   tabs: [

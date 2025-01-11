@@ -28,16 +28,16 @@ type ImageProps = {
     return (
       <section className="px-[5%] py-16 md:py-24 lg:py-28">
         <div className="container">
-          <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-x-20">
-            <div className="order-2 md:order-1">
+          <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2 lg:gap-x-20">
+            <div className="order-2 lg:order-1">
               <HorizontalBarChart />
             </div>
-            <div className="order-1 md:order-2">
-              <h2 className="mb-5 text-2xl font-semibold md:mb-6 md:text-3xl lg:text-4xl tracking-tight text-ma_blue leading-[1.1]">
+            <div className="order-1 lg:order-2">
+              <h2 className="mb-5 text-2xl font-semibold lg:mb-6 md:text-3xl tracking-tight text-ma_blue leading-[1.1]">
                 {heading}
               </h2>
-              <p className="mb-5 md:mb-6 md:text-md">{description}</p>
-              <p className="mb-5 md:mb-6 md:text-md font-semibold text-ma_darkBlue">Key Benefits: </p>
+              <p className="mb-5 lg:mb-6 lg:text-md">{description}</p>
+              <p className="mb-5 lg:mb-6 lg:text-md font-semibold text-ma_darkBlue">Key Benefits: </p>
               <div className="grid grid-cols-1 gap-4 py-2">
                 {features.map((feature, index) => (
                   <div key={index} className="flex self-start">

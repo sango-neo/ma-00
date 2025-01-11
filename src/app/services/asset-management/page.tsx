@@ -1,6 +1,7 @@
 import { Contact2 } from "@/sections/HomeContact";
 import { Layout494 } from "@/sections/am/Feature1";
 import { Layout16 } from "@/sections/am/Feature2";
+import { Layout209 } from "@/sections/am/Feature3";
 import HeaderAM from "@/sections/am/Header";
 import { Layout61 } from "@/sections/am/Layout61";
 import Image from "next/image";
@@ -12,6 +13,7 @@ const AssetManagementPage = () => {
       <HeaderAM />
       <Layout494 /> 
       <Layout16 />
+      <Layout209 />
       <Layout61 />
       <Contact2 />
     </>

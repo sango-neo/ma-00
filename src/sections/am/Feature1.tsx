@@ -126,7 +126,7 @@ export const Layout494 = (props: Layout494Props) => {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="w-full md:w-fit mt-5 px-6 py-3 rounded bg-ma_darkBlue text-white font-medium">Schedule consultation</button>
+              <button className="w-full md:w-fit mt-5 px-6 py-3 rounded bg-ma_blue text-white font-medium">Schedule consultation</button>
             </div>
           </div>
         </div>

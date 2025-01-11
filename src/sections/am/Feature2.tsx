@@ -43,12 +43,12 @@ export const Layout16 = (props: Layout16Props) => {
                   <div className="mr-4 flex-none self-start">
                     <img src={feature.icon.src} alt={feature.icon.alt} className="size-6" />
                   </div>
-                  <span>{feature.paragraph}</span>
+                  <span><span className="font-semibold odd:text-ma_darkBlue">{feature.paragraphTopic}: </span>{feature.paragraph}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="px-6 py-3  bg-ma_blue text-white rounded w-full md:w-fit">Schedule consultation</button>
+              <button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full md:w-fit">Schedule consultation</button>
             </div>
           </div>
           <div>

@@ -50,7 +50,7 @@ export const Layout61 = (props: Layout61Props) => {
               ))}
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="px-6 py-3 w-full md:w-fit rounded bg-ma_accent text-white">Learn more</button>
+              <button className="px-6 py-3 w-full md:w-fit rounded bg-ma_accent text-white">Schedule consultation</button>
             </div>
           </div>
         </div>

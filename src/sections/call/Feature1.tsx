@@ -98,7 +98,7 @@ export function Layout30() {
               <FaCirclePlay className="absolute z-20 size-16 text-white" />
             </DialogTrigger>
             <DialogContent>
-              <VideoIframe video="https://www.youtube.com/embed/8DKLYsikxTs?si=Ch9W0KrDWWUiCMMW" />
+              <VideoIframe video="" />
             </DialogContent>
           </Dialog>
         </div>

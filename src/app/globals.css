@@ -76,3 +76,17 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+@layer components {
+  .heading-1 {
+    @apply mb-5 text-3xl font-semibold md:mb-6 md:text-4xl lg:text-5xl text-ma_darkBlue;
+  }
+
+  .heading-2 {
+    @apply mb-5 text-2xl font-semibold text-ma_darkBlue tracking-tighter md:mb-6 xl:text-3xl;
+  }
+
+  .ma-primary-btn {
+    @apply py-3 px-6 bg-ma_darkBlue text-white rounded md:w-fit w-full;
+  }
+}

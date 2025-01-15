@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import { cn } from "@/lib/utils";
 
 type ImageProps = {
   src: string;
@@ -42,7 +43,7 @@ export const Layout348 = (props: Layout348Props) => {
   }, []);
 
   return (
-    <section className="px-[5%]">
+    <section className="px-[5%] scroll-smooth">
       <div className="container">
         <div className="relative grid gap-x-12 py-16 sm:gap-y-12 md:grid-cols-2 md:py-0 lg:gap-x-20">
           <div className="sticky top-0 hidden h-screen md:flex md:flex-col md:items-center md:justify-center">
@@ -75,10 +76,10 @@ export const Layout348 = (props: Layout348Props) => {
                     <img src={content.image.src} className="w-full" alt={content.image.alt} />
                   </div>
                   <div
-                    className={clsx(
+                    className={cn(
                       "fixed inset-0 -z-10 bg-ma_transBlue transition-opacity duration-300",
                       {
-                        "opacity-100": activeSection === 0 || activeSection === 2,
+                        "opacity-100": activeSection === 0 || activeSection === 2 || activeSection === 4,
                         "opacity-0": activeSection !== 0 && activeSection !== 2,
                       },
                     )}
@@ -95,6 +96,28 @@ export const Layout348 = (props: Layout348Props) => {
 
 export const Layout348Defaults: Props = {
   contents: [
+    {
+      tagline: "",
+      heading: "Our Vision",
+      description:
+        "To make a visible and positive impact on infrastructure planning and management by exceeding service delivery goals and fostering sustainable development across Africa.",
+      
+      image: {
+        src: "/assets/images/vision.png",
+        alt: "Relume placeholder image 4",
+      },
+    },
+    {
+        tagline: "",
+        heading: "Our Mission",
+        description:
+          "To deliver professional services that facilitate, support, and implement innovative Engineering and Technology (ET) solutions, enhancing decision-making processes and improving service delivery in both the government and private sectors.",
+        
+        image: {
+          src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-3.svg",
+          alt: "Relume placeholder image 4",
+        },
+      },
     {
       tagline: "",
       heading: "Who We Are",
@@ -128,28 +151,6 @@ export const Layout348Defaults: Props = {
         alt: "Relume placeholder image 3",
       },
     },
-    {
-      tagline: "",
-      heading: "Our Vision",
-      description:
-        "To make a visible and positive impact on infrastructure planning and management by exceeding service delivery goals and fostering sustainable development across Africa.",
-      
-      image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-3.svg",
-        alt: "Relume placeholder image 4",
-      },
-    },
-    {
-        tagline: "",
-        heading: "Our Mission",
-        description:
-          "To deliver professional services that facilitate, support, and implement innovative Engineering and Technology (ET) solutions, enhancing decision-making processes and improving service delivery in both the government and private sectors.",
-        
-        image: {
-          src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-3.svg",
-          alt: "Relume placeholder image 4",
-        },
-      },
   ],
   images: [
     {

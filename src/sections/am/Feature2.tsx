@@ -83,7 +83,7 @@ export const Layout16Defaults: Props = {
     },
   ],
   image: {
-    src: "/assets/images/fpi-map.jpg",
+    src: "/assets/images/fpi-map-update.jpg",
     alt: "FPI - Asset location map image",
   },
 };

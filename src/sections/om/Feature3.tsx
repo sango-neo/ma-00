@@ -55,7 +55,7 @@ export function Layout12() {
           </div>
           <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+              src="/assets/images/proactive-maintenance.jpg"
               className="w-full object-cover"
               alt=" placeholder image"
             />

@@ -1,3 +1,4 @@
+import { ContactForm } from "@/components/ContactForm";
 import Challenges from "@/sections/Challenges";
 import { Feature1 } from "@/sections/Feature1";
 import { Feature2 } from "@/sections/Feature2";
@@ -14,7 +15,7 @@ export default function Home() {
       <Feature1 />
       <Feature2 />
       <Feature3 />
-      <Contact2 />
+      <ContactForm />
     </div>
   );
 }

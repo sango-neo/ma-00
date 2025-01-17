@@ -1,4 +1,6 @@
+"use client";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 type ImageProps = {
   src: string;
@@ -14,10 +16,11 @@ type Props = {
 export type Feature1Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
 export const Feature1 = (props: Feature1Props) => {
-  const {heading, description, image } = {
+  const { heading, description, image } = {
     ...Feature1Defaults,
     ...props,
   };
+  
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-48">
       <div className="container max-w-7xl mx-auto">
@@ -35,10 +38,17 @@ export const Feature1 = (props: Feature1Props) => {
           </div>
           <div>
             <div className="relative w-full inline-flex justify-end items-center">
-                <img src={image.src} className="w-full object-cover rounded-lg z-0" alt={image.alt} />
-                <div className="hidden border-2 border-ma_accent rounded-xl w-full absolute right-[10%] h-[80%] -z-20 md:block" />
-                <div className="hidden bg-ma_darkBlue rounded-xl w-full absolute right-[5%] h-[120%] -z-10 md:block" />
-                
+                <img 
+                  src={image.src} 
+                  className="w-full object-cover rounded-lg z-0" 
+                  alt={image.alt} 
+                />
+                <div 
+                  className="hidden border-2 border-ma_accent rounded-xl w-full absolute right-[10%] h-[80%] -z-20 md:block" 
+                />
+                <div 
+                  className="hidden bg-ma_darkBlue rounded-xl w-full absolute right-[5%] h-[120%] -z-10 md:block" 
+                />
             </div>
           </div>
         </div>

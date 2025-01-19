@@ -99,9 +99,9 @@ export function ContactForm() {
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full max-w-[800px] mx-auto px-4 lg:px-0 my-16"
+        className="w-full max-w-[1024px] mx-auto px-4 lg:px-0 my-16"
         >
-        <div className="w-full bg-white rounded-2xl shadow-[0_4px_12px_rgba(0,0,0,0.05),0_1px_3px_rgba(0,0,0,0.1)] overflow-hidden">
+        <div className="w-full bg-white rounded-2xl shadow-large hover:shadow-xlarge hover:scale-[1.01] transition-all duration-150 overflow-hidden">
             {/* Progress indicator */}
             <div className="p-6 bg-white border-b border-ma_grey/10">
             <div className="flex items-center justify-center gap-4 mb-2">
@@ -137,7 +137,7 @@ export function ContactForm() {
 
             <div className="p-8 lg:p-10">
             {/* Step header */}
-            <div className="mb-14 text-center">
+            <div className="mb-10 text-center">
                 <motion.h2 
                 key={`title-${currentStep}`}
                 initial={{ opacity: 0, y: -10 }}

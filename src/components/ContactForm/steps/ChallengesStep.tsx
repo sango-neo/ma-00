@@ -28,7 +28,7 @@ export function ChallengesStep({ form }: ChallengesStepProps) {
             <FormLabel>
               Select Your Challenges <span className="text-red-500">*</span>
             </FormLabel>
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
               {PREDEFINED_CHALLENGES.map((challenge) => (
                 <FormField
                   key={challenge}
@@ -39,7 +39,7 @@ export function ChallengesStep({ form }: ChallengesStepProps) {
                       key={challenge}
                       className={cn(
                         "flex items-center space-x-3 space-y-0",
-                        "p-4 rounded-2xl border border-ma_grey/20",
+                        "p-4 rounded-xl border border-ma_grey/20",
                         "hover:border-ma_lightBlue/50 transition-colors",
                         "bg-white hover:bg-slate-50/50"
                       )}

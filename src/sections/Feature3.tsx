@@ -31,7 +31,7 @@ export const Feature3 = (props: Feature3Props) => {
             <div>
             <div className="relative w-full inline-flex justify-end items-center">
                 
-                <div className="hidden bg-black rounded-2xl w-full absolute right-[10%] h-[140%] md:block" />
+                <div className="hidden bg-gradient-to-br from-ma_accent via-transparent to-transparent rounded-2xl w-full absolute right-[10%] h-[140%] md:block" />
                 <div className="hidden bg-ma_darkBlue rounded-2xl w-full absolute right-[5%] h-[120%] md:block" />
                 <img src={image.src} className="w-full object-cover object-left-bottom rounded-2xl z-0" alt={image.alt} />
             </div>

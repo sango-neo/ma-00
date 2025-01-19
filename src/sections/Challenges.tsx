@@ -155,7 +155,7 @@ const Card = (props: (typeof challengesList)[number] & { selected: boolean; onMo
             ref={cardRef}
             onMouseEnter={props.onMouseEnter}
             onMouseLeave={props.onMouseLeave}
-            className="border border-white/15 flex flex-col p-5 rounded-lg gap-5 items-center text-center max-w-[315px] relative transition-all"
+            className="border border-white/15 flex flex-col p-5 rounded-xl gap-5 items-center text-center max-w-[315px] relative transition-all"
         >
             {props.selected && (
                 <motion.div

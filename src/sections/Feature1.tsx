@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
-import { motion } from "framer-motion";
+import { motion, useMotionTemplate, useMotionValue, useInView, animate, ValueAnimationTransition } from "framer-motion";
+import { useEffect, useRef } from "react";
 
 type ImageProps = {
   src: string;
@@ -20,6 +21,36 @@ export const Feature1 = (props: Feature1Props) => {
     ...Feature1Defaults,
     ...props,
   };
+
+  const decorativeRef = useRef<HTMLDivElement>(null);
+  const isInView = useInView(decorativeRef, { once: true, margin: "-100px" });
+  
+  const xPercentage = useMotionValue(0);
+  const yPercentage = useMotionValue(0);
+  const maskImage = useMotionTemplate`radial-gradient(250px 250px at ${xPercentage}% ${yPercentage}%, black, transparent)`;
+
+
+  useEffect(() => {
+    if (!decorativeRef.current || !isInView) return;
+
+    const { height, width } = decorativeRef.current.getBoundingClientRect();
+    const circumference = height * 2 + width * 2;
+
+    const times = [0, width / circumference, (width + height) / circumference, (width * 2 + height) / circumference, 1];
+
+    const options:ValueAnimationTransition = {
+      times,
+      duration: 2.5,
+      ease: "easeInOut",
+    };
+
+    // Animate the border drawing
+    xPercentage.set(0);
+    yPercentage.set(0);
+
+    animate(xPercentage, [0, 100, 100, 0, 0], options);
+    animate(yPercentage, [0, 0, 100, 100, 0], options);
+  }, [isInView]);
   
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-48">
@@ -40,11 +71,16 @@ export const Feature1 = (props: Feature1Props) => {
             <div className="relative w-full inline-flex justify-end items-center">
                 <img 
                   src={image.src} 
-                  className="w-full object-cover rounded-lg z-0" 
+                  className="w-full object-cover rounded-2xl z-0" 
                   alt={image.alt} 
                 />
-                <div 
-                  className="hidden border-2 border-ma_accent rounded-xl w-full absolute right-[10%] h-[80%] -z-20 md:block" 
+                <motion.div 
+                  ref={decorativeRef}
+                  className="hidden border-[3px] border-ma_accent rounded-xl w-full absolute right-[10%] h-[80%] -z-20 md:block"
+                  style={{
+                    maskImage,
+                    WebkitMaskImage: maskImage
+                  }}
                 />
                 <div 
                   className="hidden bg-ma_darkBlue rounded-xl w-full absolute right-[5%] h-[120%] -z-10 md:block" 

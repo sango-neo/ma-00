@@ -165,9 +165,9 @@ useEffect( () => {
                         isMobile={isMobile}
                       />
                     ) : (
-                      <Link href={navLink.url} className="block py-3 text-md">
+                      <a href={navLink.url} className="block py-3 text-md">
                         {navLink.title}
-                      </Link>
+                      </a>
                     )}
                   </div>
                 ))}
@@ -244,7 +244,7 @@ const SubMenu = ({
                     <Fragment key={index}>
                       {linkGroup.subMenuLinks.map((subMenuLink, index) => (
                         <div className="relative group/item">
-                          <Link
+                          <a
                             key={index}
                             href={subMenuLink.url}
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-ma_blue/20 md:border-transparent hover:bg-ma_transBlue/30 hover:border-ma_blue/20"
@@ -265,7 +265,7 @@ const SubMenu = ({
                               <div className="self-end justify-self-stretch col-span-2">
                                 <Image src={subMenuLink.animation} width={60} height={60} alt="submenu link icon" />
                               </div>
-                          </Link>
+                          </a>
                           {/* <motion.div className="z-20 hidden h-0 border border-black group-hover/item:block group-hover/item:h-fit transition-all">
                               <ul>
                                 <li>Item 1</li>

@@ -93,13 +93,13 @@ export function ContactForm() {
   const CurrentStepComponent = FORM_STEPS[currentStep].component
 
   return (
-    <section className="px-[5%] bg-gray-50/20 relative overflow-hidden">
+    <section className="px-[5%] bg-gray-50/20 relative my-10 overflow-hidden">
         <motion.div 
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full max-w-[1024px] mx-auto px-4 lg:px-0 my-16"
+        className="w-full mx-auto px-4 lg:px-0 my-16 lg:max-h-screen lg:max-w-[1024px]"
         >
         <div className="w-full bg-white rounded-2xl shadow-large hover:shadow-xlarge hover:scale-[1.01] transition-all duration-150 overflow-hidden">
             {/* Progress indicator */}
@@ -143,7 +143,7 @@ export function ContactForm() {
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: 10 }}
-                className="text-2xl font-semibold text-ma_darkBlue mb-2"
+                className="text-2xl font-semibold text-ma_darkBlue mb-2 lg:text-3xl"
                 >
                 {FORM_STEPS[currentStep].title}
                 </motion.h2>

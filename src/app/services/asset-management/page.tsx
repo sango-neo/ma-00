@@ -1,4 +1,4 @@
-import { Contact2 } from "@/sections/HomeContact";
+import { ContactForm } from "@/components/ContactForm";
 import { Layout494 } from "@/sections/am/Feature1";
 import { Layout16 } from "@/sections/am/Feature2";
 import { Layout209 } from "@/sections/am/Feature3";
@@ -15,7 +15,7 @@ const AssetManagementPage = () => {
       <Layout16 />
       <Layout209 />
       <Layout61 />
-      <Contact2 />
+      <ContactForm />
     </>
   )
 }

@@ -3,6 +3,7 @@
 import MAIcon from "@/icons/ma-icon.svg";
 import { ValueAnimationTransition, animate, motion, useMotionTemplate, useMotionValue } from "framer-motion";
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const Challenges = () => {
@@ -74,7 +75,7 @@ const Challenges = () => {
                                 <Image
                                     src="/assets/images/maintenance.jpg"
                                     alt="Maintenance image"
-                                    className="rounded-lg aspect-square"
+                                    className="rounded-xl aspect-square"
                                     width={315}
                                     height={315}
                                 />
@@ -89,9 +90,9 @@ const Challenges = () => {
                         </div>
                     </section>
                     {/* CTA */}
-                    <a href="/services/asset-management" className="text-white text-center py-2 px-4 bg-ma_accent rounded w-full sm:w-fit">
+                    <Link href="/services/asset-management" className="text-white text-center py-2 px-4 bg-ma_accent rounded w-full sm:w-fit">
                         View Services
-                    </a>
+                    </Link>
                 </div>
             </div>
         </section>

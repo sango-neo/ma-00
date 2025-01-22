@@ -1,5 +1,6 @@
 import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
+import Link from "next/link";
 import { RxChevronRight } from "react-icons/rx";
 
 type ImageProps = {
@@ -48,7 +49,7 @@ export const Layout16 = (props: Layout16Props) => {
               ))}
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full lg:w-fit">Schedule consultation</button>
+              <Link href={"/contact-us"}><button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full lg:w-fit">Schedule consultation</button></Link>
             </div>
           </div>
           <div>
@@ -83,7 +84,7 @@ export const Layout16Defaults: Props = {
     },
   ],
   image: {
-    src: "/assets/images/fpi-map-update.jpg",
+    src: "/assets/images/condition-map.jpg",
     alt: "FPI - Asset location map image",
   },
 };

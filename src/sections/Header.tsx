@@ -80,7 +80,7 @@ const Header = () => {
                 Moago Africa presents a cutting-edge, innovative system that provides a comprehensive solution for optimizing both movable and immovable assets while enhancing operational efficiency.
               </p>
               <motion.a 
-                href="/contact" 
+                href="/contact-us" 
                 className="mt-8 text-center block py-2 text-white bg-ma_blue w-full rounded md:w-fit md:px-4 md:mt-4"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}

@@ -47,7 +47,7 @@ export const Header139 = (props: Header139Props) => {
       >
         <div className="px-[5%] py-16 md:py-24 lg:py-28">
           <div className="container">
-            <div className="max-w-[540px]">
+            <div className="max-w-[600px]">
               <h1 className="mb-5 text-3xl text-white lg:text-6xl text-center md:text-start mt-20">
                 {heading}
               </h1>

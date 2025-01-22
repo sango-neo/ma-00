@@ -8,6 +8,7 @@ export const contactFormSchema = z.object({
   // Company Info
   companyName: z.string().min(2, "Company name must be at least 2 characters"),
   industry: z.string().min(2, "Please select an industry"),
+  sector: z.string().min(2, "Please select a sector"),
   jobTitle: z.string().optional(),
   companySize: z.string().optional(),
   
@@ -25,8 +26,7 @@ export const INDUSTRY_OPTIONS = [
   { label: "Manufacturing", value: "manufacturing" },
   { label: "Healthcare", value: "healthcare" },
   { label: "Education", value: "education" },
-  { label: "Government", value: "government" },
-  { label: "Technology", value: "technology" },
+    { label: "Technology", value: "technology" },
   { label: "Construction", value: "construction" },
   { label: "Transportation", value: "transportation" },
   { label: "Other", value: "other" },
@@ -54,4 +54,10 @@ export const PREDEFINED_CHALLENGES = [
   "Poor maintenance plan",
   "Misinformed or outdated maintenance priority list",
   "Delayed or reactive maintenance work"
+]
+
+export const SECTOR_OPTIONS = [
+  { label: "Government", value: "government" },
+  { label: "Private", value: "private" },
+  { label: "State Entity", value: "state-entity" },
 ]

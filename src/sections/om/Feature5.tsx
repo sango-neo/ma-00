@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@relume_io/relume-ui";
+import Link from "next/link";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 
@@ -53,7 +54,7 @@ export function Layout16() {
               </li>
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="ma-primary-btn">Schedule consultation</button>
+              <Link href={"/contact-us"}><button className="ma-primary-btn">Schedule consultation</button></Link>
             </div>
           </div>
           <div>

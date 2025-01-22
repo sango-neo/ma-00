@@ -1,5 +1,6 @@
 import { Button } from "@relume_io/relume-ui";
 import type { ButtonProps } from "@relume_io/relume-ui";
+import Link from "next/link";
 
 type ImageProps = {
   src: string;
@@ -50,7 +51,7 @@ export const Layout61 = (props: Layout61Props) => {
               ))}
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="px-6 py-3 w-full md:w-fit rounded bg-ma_accent text-white">Schedule consultation</button>
+              <Link href={"/contact-us"}><button className="px-6 py-3 w-full md:w-fit rounded bg-ma_accent text-white">Schedule consultation</button></Link>
             </div>
           </div>
         </div>

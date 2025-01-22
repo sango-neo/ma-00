@@ -4,7 +4,7 @@ import React from "react";
 
 export function Layout12() {
   return (
-    <section id="" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="" className="px-[5%] py-16 md:py-24 lg:py-28 bg-[#fafafa]">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div>
@@ -55,7 +55,7 @@ export function Layout12() {
           </div>
           <div>
             <img
-              src="/assets/images/proactive-maintenance.jpg"
+              src="/assets/images/rail-maintenance.png"
               className="w-full object-cover"
               alt=" placeholder image"
             />

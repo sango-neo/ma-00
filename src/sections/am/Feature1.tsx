@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import type { ButtonProps } from "@relume_io/relume-ui";
+import Link from "next/link";
 
 type ImageProps = {
   src: string;
@@ -123,7 +124,7 @@ export const Layout494 = (props: Layout494Props) => {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="w-full md:w-fit mt-5 px-6 py-3 rounded bg-ma_blue text-white font-medium">Schedule consultation</button>
+              <Link href={"/contact-us"}><button className="w-full md:w-fit mt-5 px-6 py-3 rounded bg-ma_blue text-white font-medium">Schedule consultation</button></Link>
             </div>
           </div>
         </div>

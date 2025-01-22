@@ -1,15 +1,5 @@
 "use client";
 
-import {
-  Button,
-  Dialog,
-  DialogContent,
-  DialogTrigger,
-  VideoIframe,
-} from "@relume_io/relume-ui";
-import React from "react";
-import { FaCirclePlay } from "react-icons/fa6";
-import { RxChevronRight } from "react-icons/rx";
 import { motion } from "framer-motion";
 
 export function Layout30() {
@@ -78,7 +68,7 @@ export function Layout30() {
             </motion.div>
           </motion.div>
           <motion.img
-            src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+            src="/assets/images/call-center-4.png"
             alt="Feature illustration"
             className="w-full h-auto object-cover rounded-lg"
             initial={{ opacity: 0, x: 50 }}

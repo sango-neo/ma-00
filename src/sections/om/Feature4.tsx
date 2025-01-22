@@ -9,7 +9,7 @@ export function Layout3() {
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
             <div>
             <img
-              src="https://d22po4pjz3o32e.cloudfront.net/placeholder-image.svg"
+              src="/assets/images/om-expense.png"
               className="w-full object-cover"
               alt=" placeholder image"
             />

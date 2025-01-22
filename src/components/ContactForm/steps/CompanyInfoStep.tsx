@@ -1,7 +1,7 @@
 "use client"
 
 import { UseFormReturn } from "react-hook-form"
-import { ContactFormData, INDUSTRY_OPTIONS, COMPANY_SIZE_OPTIONS } from "@/lib/schemas/contact-form-schema"
+import { ContactFormData, INDUSTRY_OPTIONS, COMPANY_SIZE_OPTIONS, SECTOR_OPTIONS } from "@/lib/schemas/contact-form-schema"
 import {
   FormField,
   FormItem,
@@ -36,6 +36,33 @@ export function CompanyInfoStep({ form }: CompanyInfoStepProps) {
             <FormControl>
               <Input placeholder="Enter your company name" {...field} />
             </FormControl>
+            <FormMessage />
+          </FormItem>
+        )}
+      />
+
+      <FormField
+        control={form.control}
+        name="sector"
+        render={({ field }) => (
+          <FormItem>
+            <FormLabel>
+              Sector <span className="text-red-500">*</span>
+            </FormLabel>
+            <Select onValueChange={field.onChange} defaultValue={field.value}>
+              <FormControl>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select your sector" />
+                </SelectTrigger>
+              </FormControl>
+              <SelectContent>
+                {SECTOR_OPTIONS.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
             <FormMessage />
           </FormItem>
         )}
@@ -106,6 +133,8 @@ export function CompanyInfoStep({ form }: CompanyInfoStepProps) {
           </FormItem>
         )}
       />
+
+      
     </div>
   )
 }

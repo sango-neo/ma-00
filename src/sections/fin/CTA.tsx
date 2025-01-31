@@ -7,11 +7,11 @@ export function CTA() {
   return (
     <section id="" className="relative px-[5%] py-16 md:pTA lg:py-28">
       <div className="container max-w-[600px] text-center">
-        <h2 className="heading-1 text-white lg:text-6xl">
-            See the Full Suite of Features
+        <h2 className="heading-2 text-white lg:text-5xl">
+          Unlock Enhanced Financial Control Today
         </h2>
         <p className="text-white/70">
-            Experience seamless communication and efficient issue resolution with our integrated Call Center solution.
+          Discover how MOAGO can transform your financial management with real-time insights and accountability.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
           <Link href={"/contact-us"}><button className="ma-primary-btn border border-white text-white bg-transparent">Schedule consultation</button></Link>

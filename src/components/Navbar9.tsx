@@ -60,26 +60,31 @@ export const Navbar9 = (props: Navbar9Props) => {
 
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const [upScrollCount, setUpScrollCount] = useState(0);
 
   const handleScroll = () => {
-    const currentScrollPos = window.scrollY
-
-    if(currentScrollPos > prevScrollPos && currentScrollPos > 200){
-        setVisible(false)
-    }else{
-        setVisible(true)
+    const currentScrollPos = window.scrollY;
+    if (currentScrollPos < 200) {
+      setVisible(true);
+  }else if (currentScrollPos > prevScrollPos && currentScrollPos > 200) {
+      setVisible(false);
+      setUpScrollCount(0);
+    } else {
+      if (!visible) {
+        setUpScrollCount(prev => prev + 1);
+        if (upScrollCount >= 20) {
+          setVisible(true);
+        }
+      }
     }
 
-    setPrevScrollPos(currentScrollPos)
-};
+    setPrevScrollPos(currentScrollPos);
+  };
 
-useEffect( () => {
-  window.addEventListener('scroll', handleScroll);
-
-  return () => window.removeEventListener('scroll', handleScroll)
-});
-
-
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  });
 
   return (
     <nav className={cn(`fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] border-b border-ma_darkBlue/5 text-black md:min-h-18 shadow-4xl shadow-gray-400/20 transition duration-300`, visible ? '' : '-translate-y-full')}>
@@ -334,7 +339,7 @@ export const Navbar9Defaults: Navbar9Props = {
                 alt: "Icon 2",
                 },
                 title: "Operations and Maintenance",
-                description: "Financial Facility Management services",
+                description: "Operations and Maintenance Management Services",
                 animation: "/assets/animated/gears-once.gif",
             },
             ],

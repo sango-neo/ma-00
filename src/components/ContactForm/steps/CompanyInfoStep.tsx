@@ -24,7 +24,7 @@ interface CompanyInfoStepProps {
 
 export function CompanyInfoStep({ form }: CompanyInfoStepProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-2">
       <FormField
         control={form.control}
         name="companyName"

@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -83,7 +87,7 @@ body {
   }
 
   .heading-2 {
-    @apply mb-5 text-2xl font-semibold text-ma_darkBlue tracking-tighter md:mb-6 xl:text-3xl;
+    @apply mb-5 text-2xl font-semibold text-ma_darkBlue tracking-tight md:mb-6 xl:text-3xl;
   }
 
   .ma-primary-btn {

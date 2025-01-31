@@ -19,16 +19,16 @@ interface ChallengesStepProps {
 
 export function ChallengesStep({ form }: ChallengesStepProps) {
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 mx-auto">
       <FormField
         control={form.control}
         name="predefinedChallenges"
         render={() => (
           <FormItem>
-            <FormLabel>
+            <FormLabel className="text-ma_darkBlue/60">
               Select Your Challenges <span className="text-red-500">*</span>
             </FormLabel>
-            <div className="grid grid-cols-1 items-stretch sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 scale-[0.98] mx-auto items-stretch md:grid-cols-3 md:scale-100 lg:grid-cols-5 gap-4">
               {PREDEFINED_CHALLENGES.map((challenge) => (
                 <FormField
                   key={challenge}
@@ -55,7 +55,7 @@ export function ChallengesStep({ form }: ChallengesStepProps) {
                               field.onChange(value.filter((v) => v !== challenge))
                             }
                           }}
-                          className="translate-y-[1px]"
+                          className="translate-y-[1px] rounded-[2px]"
                         />
                       </FormControl>
                       <FormLabel className="font-normal text-sm leading-tight cursor-pointer pt-0 flex-1">
@@ -80,7 +80,7 @@ export function ChallengesStep({ form }: ChallengesStepProps) {
             <FormControl>
               <Textarea
                 placeholder="Please describe any other challenges your organization is facing..."
-                className="min-h-[100px] resize-none rounded-2xl"
+                className="min-h-[50px] max-w-lg resize-none rounded-xl"
                 {...field}
               />
             </FormControl>

@@ -93,18 +93,18 @@ export function ContactForm() {
   const CurrentStepComponent = FORM_STEPS[currentStep].component
 
   return (
-    <section className="px-[5%] bg-gray-50/20 relative my-10 overflow-hidden">
+    <section className="px-[5%] relative my-10 overflow-x-hidden bg-gray-50">
         <motion.div 
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full mx-auto px-4 lg:px-0 my-16 lg:max-h-screen lg:max-w-[1024px]"
+        className="w-full mx-auto px-4 my-16 lg:px-0 lg:min-h-screen"
         >
         <div className="w-full bg-white rounded-2xl shadow-large hover:shadow-xlarge hover:scale-[1.01] transition-all duration-150 overflow-hidden">
             {/* Progress indicator */}
-            <div className="p-6 bg-white border-b border-ma_grey/10">
-            <div className="flex items-center justify-center gap-4 mb-2">
+            <div className="px-6 py-3 bg-white">
+            <div className="flex items-center justify-center mb-2 w-fit p-4 mx-auto">
                 {FORM_STEPS.map((step, index) => (
                 <div key={index} className="flex items-center">
                     <div 
@@ -135,9 +135,9 @@ export function ContactForm() {
             </p> */}
             </div>
 
-            <div className="p-8 lg:p-10">
+            <div className="p-10 pt-0">
             {/* Step header */}
-            <div className="mb-10 text-center">
+            <div className="mb-6 text-center">
                 <motion.h2 
                 key={`title-${currentStep}`}
                 initial={{ opacity: 0, y: -10 }}

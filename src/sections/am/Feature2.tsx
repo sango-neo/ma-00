@@ -53,7 +53,7 @@ export const Layout16 = (props: Layout16Props) => {
             </div>
           </div>
           <div>
-            <img src={image.src} className="w-full object-cover rounded-lg" alt={image.alt} />
+            <img src={image.src} className="w-full object-cover rounded-xl" alt={image.alt} />
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ export const Layout16Defaults: Props = {
     },
   ],
   image: {
-    src: "/assets/images/condition-map.jpg",
+    src: "/assets/images/fpi-map.jpg",
     alt: "FPI - Asset location map image",
   },
 };

@@ -28,7 +28,7 @@ export function ChallengesStep({ form }: ChallengesStepProps) {
             <FormLabel className="text-ma_darkBlue/60">
               Select Your Challenges <span className="text-red-500">*</span>
             </FormLabel>
-            <div className="grid grid-cols-2 scale-[0.98] mx-auto items-stretch md:grid-cols-3 md:scale-100 lg:grid-cols-5 gap-4">
+            <div className="grid grid-cols-1 scale-[0.98] mx-auto items-stretch md:grid-cols-3 md:scale-100 lg:grid-cols-5 gap-4">
               {PREDEFINED_CHALLENGES.map((challenge) => (
                 <FormField
                   key={challenge}

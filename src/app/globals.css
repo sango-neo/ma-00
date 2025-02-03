@@ -72,6 +72,40 @@ body {
   }
 }
 
+/* Privacy Policy*/
+
+.privacyContent {
+  font-family: Arial, sans-serif;
+}
+
+.privacyContent h1 {
+  font-size: 26px;
+  color: #000000;
+}
+
+.privacyContent h2 {
+  font-size: 19px;
+  color: #000000;
+}
+
+.privacyContent p, 
+.privacyContent li {
+  color: #595959;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.privacyContent a {
+  color: #3030F1;
+  text-decoration: none;
+}
+
+.privacyContent a:hover {
+  text-decoration: underline;
+}
+
+/* End of PP */
+
 @layer base {
   * {
     @apply border-border;
@@ -90,7 +124,23 @@ body {
     @apply mb-5 text-2xl font-semibold text-ma_darkBlue tracking-tight md:mb-6 xl:text-3xl;
   }
 
+  .heading-3 {
+    @apply mb-5 text-xl font-semibold text-ma_darkBlue tracking-tight md:mb-6 xl:text-2xl;
+  }
+
   .ma-primary-btn {
-    @apply py-3 px-6 bg-ma_darkBlue text-white rounded md:w-fit w-full;
+    @apply py-3 px-6 bg-ma_darkBlue border-ma_darkBlue border text-white rounded md:w-fit w-full;
+  }
+
+  .ma-primary-btn-alt {
+    @apply py-3 px-6 bg-transparent border-ma_darkBlue border text-ma_darkBlue rounded md:w-fit w-full;
+  }
+
+  .ma-primary-btn-alt-white {
+    @apply py-3 px-6 bg-transparent border-white border text-white rounded md:w-fit w-full;
+  }
+
+  .ma-primary-btn-accent {
+    @apply py-3 px-6 bg-ma_accent border-ma_accent border text-white rounded md:w-fit w-full;
   }
 }

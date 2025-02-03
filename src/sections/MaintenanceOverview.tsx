@@ -11,24 +11,24 @@ type Props = {
   image: ImageProps;
 };
 
-export type Feature3Props = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
+export type MaintenanceOverviewProps = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
-export const Feature3 = (props: Feature3Props) => {
+export const MaintenanceOverview = (props: MaintenanceOverviewProps) => {
   const {heading, description, image } = {
-    ...Feature3Defaults,
+    ...MaintenanceOverviewDefaults,
     ...props,
   };
   return (
     <section className="px-[5%] py-16 md:py-24 lg:py-48 bg-ma_darkBlue text-white relative overflow-hidden">
-        <div className="absolute left-0 top-0">
+        <div className="absolute right-0 bottom-0 rotate-180">
             <img src="/assets/images/bg-ring-sm.png" alt="decorative illustration" />
         </div>
-        <div className="absolute right-0 bottom-0">
+        <div className="absolute left-0 top-0 rotate-180">
             <img src="/assets/images/bg-ring-lg.png" alt="decorative illustration" />
         </div>
       <div className="container max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
-            <div>
+          <div className="md:order-2">
             <div className="relative w-full inline-flex justify-end items-center">
                 
                 <div className="hidden bg-gradient-to-br from-ma_accent via-transparent to-transparent rounded-2xl w-full absolute right-[10%] h-[140%] md:block" />
@@ -54,12 +54,12 @@ export const Feature3 = (props: Feature3Props) => {
   );
 };
 
-export const Feature3Defaults: Props = {
-  heading: "Transform Infrastructure Challenges into Opportunities",
+export const MaintenanceOverviewDefaults: Props = {
+  heading: "Proactive Maintenance Guided by a Priority-Based Approach",
   description:
-    "A streamlined issue reporting, tracking, and completion feature that allows every stakeholder to stay updated on relevant information.",
+    "A priority-based approach that ensures the most critical assets are maintained first, reducing downtime and associated costs.",
   image: {
-    src: "/assets/images/feature3.jpg",
+    src: "/assets/images/o&m-overview.jpg",
     alt: "Suited man looking at tablet device.",
   },
 };

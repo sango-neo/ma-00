@@ -37,7 +37,7 @@ const Challenges = () => {
     };
 
     return (
-        <section className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative overflow-clip">
+        <section className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative overflow-clip lg:py-36">
             <Image
                 src="/assets/images/ma-bg-africa.png"
                 alt="ma-africa background icon"
@@ -48,13 +48,12 @@ const Challenges = () => {
             <div className="container mx-auto">
                 <div className="flex flex-col justify-center items-center gap-14 ">
                     {/* feature section header */}
-                    <div className="max-w-md xl:max-w-xl">
-                        <h2 className="font-semibold text-2xl tracking-tight text-center mb-6 xl:text-3xl">
-                            A Streamlined Approach to Overcoming Asset Management Challenges
+                    <div className="max-w-[800px]">
+                        <h2 className="font-semibold text-2xl tracking-tight text-center mb-6 xl:text-3xl max-w-md mx-auto">
+                            Discover MOAGO’s Integrated Management Solutions
                         </h2>
-                        <p className="text-center">
-                            Moago Africa's integrated system enables you to enhance decision-making speed and confidence
-                            when addressing challenges associated with maximizing the full service potential of your managed assets.
+                        <p className="text-center text-white/85">
+                        MOAGO seamlessly integrates all your asset management needs into one powerful system. Experience enhanced efficiency and collaboration across operations, finance, and project management.
                         </p>
                     </div>
                     {/* Cards Grid */}
@@ -72,25 +71,23 @@ const Challenges = () => {
                         <div className="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:block">
                             <div className="absolute bg-ma_accent/60 rounded-full w-full h-full blur-3xl -z-10"></div>
                             <div>
-                                <Image
-                                    src="/assets/images/maintenance.jpg"
-                                    alt="Maintenance image"
-                                    className="rounded-xl aspect-square"
-                                    width={315}
-                                    height={315}
-                                />
-                                {/* <Image
-                                    src="/assets/images/ageing.jpg"
-                                    alt="Maintenance image"
-                                    className="rounded-lg aspect-square absolute"
-                                    width={315}
-                                    height={315}
-                                /> */}
+                                {challengesList.map((card, idx) => (
+                                    <Image
+                                        key={card.title}
+                                        src={card.image}
+                                        alt={`${card.title} image`}
+                                        className={`rounded-xl aspect-square transition-opacity duration-300 ${
+                                            hoveredCard === idx ? 'opacity-100' : 'opacity-0'
+                                        } ${idx === 0 ? '' : 'absolute top-0 left-0'}`}
+                                        width={280}
+                                        height={280}
+                                    />
+                                ))}
                             </div>
                         </div>
                     </section>
                     {/* CTA */}
-                    <Link href="/services/asset-management" className="text-white text-center py-2 px-4 bg-ma_accent rounded w-full sm:w-fit">
+                    <Link href="/services/asset-management" className="text-white text-center py-3 px-6 bg-ma_accent rounded w-full sm:w-fit">
                         View Services
                     </Link>
                 </div>
@@ -101,20 +98,24 @@ const Challenges = () => {
 
 const challengesList = [
     {
-        title: "Ageing Infrastructure and Equipment",
-        description: "Ageing infrastructure and outdated equipment lead to frequent maintenance calls and increased operational costs, resulting in strained budgets."
+        title: "Complete Asset Register",
+        description: "Maintain a comprehensive record of all assets for better tracking and management.",
+        image: "/assets/images/asset-map.jpg"
     },
     {
-        title: "Incomplete asset data hinders decision-making efficiency.",
-        description: "Effective decision-making begins with full visibility over your assets—knowing exactly what you have, where it is, and what condition it’s in."
+        title: "Operations and Maintenance",
+        description: "Streamline maintenance tasks and enhance operational efficiency with proactive management tools.",
+        image: "/assets/images/maintenance.jpg"
     },
     {
-        title: "Reactive Maintenance: A Costly Gamble",
-        description: "Skyrocketing costs, unplanned downtime, and shorter asset lifespans are all symptoms of reactive maintenance. Well-performing, future-proofed assets require a pro-active maintenance approach."
+        title: "Integrated Call Center",
+        description: "Address maintenance and support queries in real-time for improved communication and responsiveness.",
+        image: "/assets/images/cc-square.jpg"
     },
     {
-        title: "Limited Resources, Unlimited Pressure",
-        description: "Proper asset management helps stretch your resources further, helping you make the optimal decision when the time to choose between maintenance and new purchases arrives (yet again)."
+        title: "Supplier Database Management",
+        description: "Efficiently manage supplier relationships, ensure timely execution of work to meet quality standards, and monitor supplier performance.",
+        image: "/assets/images/am-tracking.jpg"
     },
 ];
 

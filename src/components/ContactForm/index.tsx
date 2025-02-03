@@ -15,6 +15,7 @@ import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { CheckCircle } from "lucide-react"
 
 const FORM_STEPS = [
   {
@@ -39,6 +40,7 @@ export function ContactForm() {
   const isInView = useInView(ref, { once: true })
   const { formData, currentStep, updateFormData, setStep, resetForm } = useFormStore()
   const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(false)
   
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -63,6 +65,7 @@ export function ContactForm() {
       
       resetForm()
       form.reset()
+      setIsSubmissionSuccess(true)
     } catch (error) {
       toast({
         title: "Something went wrong",
@@ -92,6 +95,35 @@ export function ContactForm() {
 
   const CurrentStepComponent = FORM_STEPS[currentStep].component
 
+  if (isSubmissionSuccess) {
+    return (
+      <section className="px-[5%] relative my-10 overflow-x-hidden bg-gray-50">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="w-[80vw] mx-auto px-4 my-16 lg:px-0 min-h-[50vh] flex flex-col items-center justify-center"
+        >
+          <div className="bg-white rounded-2xl shadow-large p-10 text-center w-full">
+            <CheckCircle 
+              className="w-20 h-20 text-green-500 mx-auto mb-6" 
+              strokeWidth={1.5}
+            />
+            <h2 className="text-2xl font-semibold text-ma_darkBlue mb-4">
+              Thank You for Reaching Out!
+            </h2>
+            <p className="text-ma_grey text-lg mb-6">
+              We've received your message and will get back to you shortly to engage with you.
+            </p>
+            <p className="text-ma_grey">
+              You can continue to navigate the Moago Africa website.
+            </p>
+          </div>
+        </motion.div>
+      </section>
+    )
+  }
+
   return (
     <section className="px-[5%] relative my-10 overflow-x-hidden bg-gray-50">
         <motion.div 
@@ -109,14 +141,28 @@ export function ContactForm() {
                 <div key={index} className="flex items-center">
                     <div 
                     className={cn(
-                        "w-3 h-3 rounded-full transition-all duration-300",
-                        index === currentStep 
-                        ? "bg-ma_darkBlue scale-125" 
-                        : index < currentStep
-                        ? "bg-ma_lightBlue"
-                        : "border-2 border-ma_grey/30"
+                        "w-3 h-3 rounded-full transition-all duration-300 relative",
+                        {
+                        "bg-ma_darkBlue scale-125": index === currentStep,
+                        "border-2 border-ma_lightBlue bg-transparent": index < currentStep,
+                        "border-2 border-ma_grey/30 bg-transparent": index > currentStep
+                        }
                     )}
-                    />
+                    >
+                    {index < currentStep && (
+                        <svg 
+                        className="absolute inset-0 w-full h-full text-ma_lightBlue"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        >
+                        <polyline points="20 6 9 17 4 12" />
+                        </svg>
+                    )}
+                    </div>
                     {index < FORM_STEPS.length - 1 && (
                     <div 
                         className={cn(

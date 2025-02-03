@@ -1,13 +1,62 @@
 import { NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { contactFormSchema } from '@/lib/schemas/contact-form-schema'
+import { z } from 'zod'
+import { rateLimit } from '@/lib/rate-limit'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
+const limiter = rateLimit({
+  interval: 60 * 1000, // 1 minute
+  uniqueTokenPerInterval: 500
+})
+
 export async function POST(req: Request) {
   try {
+    // Rate limiting check
+    const ip = req.headers.get('x-forwarded-for') || 'anonymous'
+    const rateLimitResult = await limiter.check(5, `form_submit_${ip}`)
+    
+    if (!rateLimitResult.success) {
+      return NextResponse.json(
+        { error: 'Too many requests. Please try again later.' },
+        { status: 429 }
+      )
+    }
+
     const body = await req.json()
+
+    // Validate phone number format
     const validatedData = contactFormSchema.parse(body)
+
+    // Additional phone number security checks
+    const phone = validatedData.phone
+    if (phone) {
+      // Check for suspicious patterns
+      const suspicious = [
+        /^0{5,}/, // Too many leading zeros
+        /(\d)\1{4,}/, // Same digit repeated too many times
+        /^1{1,}/, // All ones
+      ]
+
+      if (suspicious.some(pattern => pattern.test(phone))) {
+        return NextResponse.json(
+          { error: 'Invalid phone number format' },
+          { status: 400 }
+        )
+      }
+
+      // Check country code validity (basic check)
+      if (phone.startsWith('+')) {
+        const countryCode = phone.match(/^\+(\d+)/)?.[1]
+        if (countryCode && (countryCode.length > 4 || countryCode === '0')) {
+          return NextResponse.json(
+            { error: 'Invalid country code' },
+            { status: 400 }
+          )
+        }
+      }
+    }
 
     // Format challenges for email
     const challengesList = validatedData.predefinedChallenges
@@ -54,6 +103,13 @@ export async function POST(req: Request) {
       message: 'Form submitted successfully' 
     })
   } catch (error) {
+    if (error instanceof z.ZodError) {
+      return NextResponse.json(
+        { error: 'Invalid form data', details: error.errors },
+        { status: 400 }
+      )
+    }
+
     console.error('Form submission error:', error)
     return NextResponse.json(
       { 

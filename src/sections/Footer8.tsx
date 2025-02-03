@@ -50,11 +50,32 @@ export const Footer8 = (props: Footer8Props) => {
   } as Props;
 
   const [emailInput, setEmailInput] = useState<string>("");
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    console.log({
-      emailInput,
-    });
+    setStatus('loading');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: emailInput }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setStatus('success');
+        setEmailInput('');
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
   };
 
   return (
@@ -67,7 +88,7 @@ export const Footer8 = (props: Footer8Props) => {
             </Link>
           </div>
           <div className="max-w-md lg:min-w-[25rem]">
-            <p className="mb-3 font-semibold md:mb-4">Subscribe</p>
+            <p className="mb-3 font-semibold md:mb-4">Keep up with the latest developments from MOAGO</p>
             <form
               className="mb-3 grid grid-cols-1 gap-x-4 gap-y-3 sm:grid-cols-[1fr_max-content] sm:gap-y-4 md:gap-4"
               onSubmit={handleSubmit}
@@ -78,9 +99,22 @@ export const Footer8 = (props: Footer8Props) => {
                 placeholder={inputPlaceholder}
                 value={emailInput}
                 onChange={(e) => setEmailInput(e.target.value)}
+                disabled={status === 'loading'}
+                className="border p-2"
               />
-              <button className="border py-2 px-4">Subscribe</button>
+              <button 
+                className={`border py-2 px-4 ${status === 'loading' ? 'opacity-50' : ''}`}
+                disabled={status === 'loading'}
+              >
+                {status === 'loading' ? 'Subscribing...' : 'Subscribe'}
+              </button>
             </form>
+            {status === 'success' && (
+              <p className="text-green-600 text-sm mb-2">Thanks for subscribing!</p>
+            )}
+            {status === 'error' && (
+              <p className="text-red-600 text-sm mb-2">Something went wrong. Please try again.</p>
+            )}
             <div dangerouslySetInnerHTML={{ __html: termsAndConditions }} />
           </div>
         </div>
@@ -111,12 +145,12 @@ export const Footer8Defaults: Footer8Props = {
   termsAndConditions: `
   <p class='text-xs'>
     By subscribing you agree to with our 
-    <a href='#' class='underline'>Privacy Policy</a>.
+    <a href='/legal/privacy.html' class='underline'>Privacy Policy</a>.
   </p>
   `,
   footerText: "© 2024 Moago Africa. All rights reserved.",
   footerLinks: [
-    { title: "Privacy Policy", url: "#" },
+    { title: "Privacy Policy", url: "/legal/privacy.html"},
     { title: "Terms of Service", url: "#" },
     { title: "Cookies Settings", url: "#" },
   ],

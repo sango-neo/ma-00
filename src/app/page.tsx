@@ -1,20 +1,26 @@
 import { ContactForm } from "@/components/ContactForm";
+import { AssetManagement } from "@/sections/about/AssetManagement";
 import Challenges from "@/sections/Challenges";
-import { Feature1 } from "@/sections/Feature1";
+import { ProjectManagementOverview } from "@/sections/ProjectManagementOverview";
 import { Feature2 } from "@/sections/Feature2";
-import { Feature3 } from "@/sections/Feature3";
+import { MaintenanceOverview } from "@/sections/MaintenanceOverview";
 import Header from "@/sections/Header";
-import { Contact2 } from "@/sections/HomeContact";
-import Image from "next/image";
+import { CallCenterOverview } from "@/sections/CallCenterOverview";
+import { ScrollToTopButton } from "@/components/ScrollToTopButton";
+import { CTAHome } from "@/sections/CTAHome";
 
 export default function Home() {
   return (
     <div className="">
       <Header />
       <Challenges />
-      <Feature1 />
+      <AssetManagement />
+      <ScrollToTopButton />
+      <MaintenanceOverview />
       <Feature2 />
-      <Feature3 />
+      <CallCenterOverview />
+      <ProjectManagementOverview />
+      <CTAHome />
       <ContactForm />
     </div>
   );

@@ -103,7 +103,7 @@ export const Layout348Defaults: Props = {
         "To make a visible and positive impact on infrastructure planning and management by exceeding service delivery goals and fostering sustainable development across Africa.",
       
       image: {
-        src: "/assets/images/vision.png",
+        src: "/assets/images/primary-logo.svg",
         alt: "Relume placeholder image 4",
       },
     },
@@ -114,7 +114,7 @@ export const Layout348Defaults: Props = {
           "To deliver professional services that facilitate, support, and implement innovative Engineering and Technology (ET) solutions, enhancing decision-making processes and improving service delivery in both the government and private sectors.",
         
         image: {
-          src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-3.svg",
+          src: "/assets/images/primary-logo.svg",
           alt: "Relume placeholder image 4",
         },
       },
@@ -125,7 +125,7 @@ export const Layout348Defaults: Props = {
         "MOAGO is a cutting-edge web-based application designed to revolutionize the management and maintenance of infrastructure and equipment. By delivering professional engineering services and innovative technological solutions, we cater to the needs of both public and private sectors. Our work is deeply rooted in supporting South Africa's socio-economic growth by optimizing infrastructure development and extending the lifespan of critical assets.",
       
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-1.svg",
+        src: "/assets/images/primary-logo.svg",
         alt: "Relume placeholder image 1",
       },
     },
@@ -136,7 +136,7 @@ export const Layout348Defaults: Props = {
         "We specialize in simplifying asset management through modern, web-based tools that streamline accounting, tracking, and maintenance processes. Our platform integrates innovative features such as an operational call center and maintenance management tools to ensure that tasks are completed promptly, efficiently, and by the right personnel. This robust system empowers organizations to manage their assets comprehensively, improving communication, reducing costs, and enhancing operational efficiency.",
       
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-2.svg",
+        src: "/assets/images/primary-logo.svg",
         alt: "Relume placeholder image 2",
       },
     },
@@ -147,34 +147,34 @@ export const Layout348Defaults: Props = {
         "MOAGO proudly collaborates with professional, well-established implementing agencies that play a pivotal role in the planning and construction of South Africa’s infrastructure. By leveraging collective expertise and resources, we deliver exceptional services characterized by quality, reliability, professionalism, and trust.",
       
       image: {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-3.svg",
+        src: "/assets/images/primary-logo.svg",
         alt: "Relume placeholder image 3",
       },
     },
   ],
   images: [
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-1.svg",
+      src: "/assets/images/primary-logo.svg",
       alt: "Relume placeholder image 1",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-2.svg",
+      src: "/assets/images/primary-logo.svg",
       alt: "Relume placeholder image 2",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-3.svg",
+      src: "/assets/images/primary-logo.svg",
       alt: "Relume placeholder image 3",
     },
     {
-      src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-4.svg",
+      src: "/assets/images/primary-logo.svg",
       alt: "Relume placeholder image 4",
     },
     {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-5.svg",
+        src: "/assets/images/primary-logo.svg",
         alt: "Relume placeholder image 4",
       },
       {
-        src: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-6.svg",
+        src: "/assets/images/primary-logo.svg",
         alt: "Relume placeholder image 4",
       },
   ],

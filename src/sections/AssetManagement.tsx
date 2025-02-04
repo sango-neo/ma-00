@@ -72,45 +72,38 @@ export const AssetManagement = (props: AssetManagementProps) => {
 
   if (isMobile) {
     return (
-      <section id="asset-register" className="relative px-[5%] py-16 md:py-24 lg:py-36 xl:py-48">
-        <div className="relative mb-6 flex items-center justify-center px-6 py-16 md:mb-8 md:px-8 md:py-24">
-          <div className="max-w-md text-center text-text-alternative">
-
-            <p className="mb-3 font-medium md:mb-4 text-sm">{tagline}</p>
-            <h2 className="mb-5 text-5xl font-bold md:mb-6 md:text-7xl lg:text-8xl">{heading}</h2>
-            <p className="md:text-md">{description}</p>
-            <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-              {buttons.map((button, index) => (
-                <Button key={index} {...button}>
-                  {button.title}
-                </Button>
-              ))}
-            </div>
+      <section id="asset-register" className="relative pb-24">
+        <div className="relative mb-6 flex items-end justify-center px-6 py-32 md:mb-8 md:px-8 md:py-24 min-h-[90vh] lg:min-h-fit pb-12">
+          <div className="max-w-md text-center text-white">
+            <p className="mb-3 font-medium text-sm tracking-wide">{tagline}</p>
+            <h2 className="heading-2 text-white mb-4 text-shadow-lg">{heading}</h2>
+            <p className="leading-relaxed">{description}</p>
           </div>
           <div className="absolute inset-0 -z-10">
-            <img src={image.src} className="size-full object-cover" alt={image.alt} />
-            <div className="absolute inset-0 bg-black/50" />
+            <img src={image.src} className="size-full object-cover sm:object-cover object-bottom sm:object-center" alt={image.alt} />
+            <div className="absolute inset-0 bg-gradient-to-t from-ma_darkBlue/90 to-transparent" />
           </div>
         </div>
-        <div className="grid grid-cols-1 gap-y-6 md:gap-y-8">
+        <div className="grid grid-cols-1 gap-y-6 md:gap-y-8 px-[5%] pt-12">
           {cards.map((card, index) => {
             return (
-              <div key={index} className="flex border border-border-primary p-8 text-center">
+              <div key={index} 
+
+              className={cn("flex border bg-ma_blue/10 border-ma_blue rounded-xl p-8 text-center lg:max-w-[640px] ", index % 2 === 0 ? "bg-ma_blue/10" : "bg-ma_blue/15")}>
                 <div className="mx-auto flex max-w-md flex-col items-center justify-center lg:max-w-full">
                   <div className="mb-3 md:mb-4">
                     <img
+
                       src={card.image.src}
-                      className="size-12 object-cover"
+                      className="size-6 object-cover"
                       alt={card.image.alt}
                     />
                   </div>
-                  <h3 className="mb-3 text-4xl font-bold leading-[1.2] md:mb-4 md:text-5xl">
+                  <h3 className="heading-3">
                     {card.heading}
                   </h3>
                   <p>{card.description}</p>
-                  <Button {...card.button} className="mt-6 md:mt-8" asChild>
-                    <a href={card.button.url}>{card.button.title}</a>
-                  </Button>
+                  <Link href={card.button.url} className={cn("ma-primary-btn mt-6", index % 2 === 0 ? "ma-primary-btn" : "ma-primary-btn-alt")}>{card.button.title}</Link>
                 </div>
               </div>
             );
@@ -122,7 +115,7 @@ export const AssetManagement = (props: AssetManagementProps) => {
 
   return (
     <section
-      id="relume"
+      id="asset-register"
       ref={containerRef}
       className="relative py-16 md:py-24 lg:h-[250vh] lg:py-0"
     >
@@ -140,7 +133,7 @@ export const AssetManagement = (props: AssetManagementProps) => {
 
             <div className="absolute inset-0 -z-10">
               <img src={image.src} className="size-full object-cover" alt={image.alt} />
-              <div className="absolute inset-0 bg-gradient-to-t from-ma_darkBlue/90 via-ma_darkBlue/50 to-ma_darkBlue/30" />
+              <div className="absolute inset-0 bg-gradient-to-t from-ma_darkBlue/90 to-transparent" />
             </div>
           </motion.div>
           <motion.div

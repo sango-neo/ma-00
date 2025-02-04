@@ -42,8 +42,11 @@ export const MaintenanceOverview = (props: MaintenanceOverviewProps) => {
             </h2>
             <p className="">{description}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8 ">
-                <Link href={"/contact-us"} className="bg-ma_accent text-black font-semibold py-2 px-4 rounded mx-auto md:mx-0">
+                <Link href={"/contact-us"} className="ma-primary-btn bg-ma_accent border-ma_accent rounded mx-auto md:mx-0">
                   Schedule consultation
+                </Link>
+                <Link href={"/services/operations-maintenance"} className="ma-primary-btn-alt-white mx-auto md:mx-0">
+                  Learn more
                 </Link>
             </div>
           </div>

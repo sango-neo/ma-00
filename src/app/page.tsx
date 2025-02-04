@@ -1,5 +1,5 @@
 import { ContactForm } from "@/components/ContactForm";
-import { AssetManagement } from "@/sections/about/AssetManagement";
+import { AssetManagement } from "@/sections/AssetManagement";
 import Challenges from "@/sections/Challenges";
 import { ProjectManagementOverview } from "@/sections/ProjectManagementOverview";
 import { Feature2 } from "@/sections/Feature2";

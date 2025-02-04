@@ -7,10 +7,11 @@ export function CallCenterOverview() {
     <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_transBlue">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
-          <div>
+          <div className="text-center">
             <h2 className="heading-2">
               An Integrated Call Center for
               Efficient Operations
+
             </h2>
             <p className="mb-6 md:mb-8">
               Our integrated Call Center is designed to address maintenance and
@@ -19,20 +20,22 @@ export function CallCenterOverview() {
               overall efficiency.
             </p>
             <div className="grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
-              <div>
-                <h6 className="mb-3 text-md font-semibold md:mb-4 md:text-lg">
+              <div className="px-6 py-4 border border-ma_altBlue/50 rounded-lg">
+                <h6 className="mb-3 text-md font-medium md:mb-4 md:text-lg">
                   Real-Time Support
                 </h6>
-                <p>
+
+                <p className="text-sm md:text-base">
                   Experience seamless communication and immediate assistance for
                   all your operational needs.
                 </p>
               </div>
-              <div>
-                <h6 className="mb-3 text-md font-semibold md:mb-4 md:text-lg">
+              <div className="px-6 py-4 border border-ma_altBlue/50 rounded-lg">
+                <h6 className="mb-3 text-md font-medium md:mb-4 md:text-lg">
                   Enhanced Efficiency
                 </h6>
-                <p>
+
+                <p className="text-sm md:text-base">
                   Our Call Center ensures timely responses, improving
                   maintenance operations and user satisfaction.
                 </p>

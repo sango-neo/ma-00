@@ -99,7 +99,7 @@ export const ProjectManagementOverview = (props: ProjectManagementOverviewProps)
 export const ProjectManagementOverviewDefaults: Props = {
   heading: "Enhanced Project Management Support for An Optimised Execution of Capital Projects",
   description:
-    "MOAGO’s Project Management module streamlines the governance of capital projects, ensuring compliance and transparency. Our solution supports every phase in the project lifecycle0, from initiation to closure, empowering teams to deliver successful outcomes.",
+    "MOAGO’s Project Management module streamlines the governance of capital projects, ensuring compliance and transparency. Our solution supports every phase in the project lifecycle, from initiation to closure, empowering teams to deliver successful outcomes.",
   image: {
     src: "/assets/images/feature1.jpg",
     alt: "Suited man looking at tablet device.",

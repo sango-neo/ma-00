@@ -151,7 +151,7 @@ export const Footer8Defaults: Footer8Props = {
   footerText: "© 2024 Moago Africa. All rights reserved.",
   footerLinks: [
     { title: "Privacy Policy", url: "/legal/privacy.html"},
-    { title: "Terms of Service", url: "#" },
-    { title: "Cookies Settings", url: "#" },
+    // { title: "Terms of Service", url: "#" },
+    // { title: "Cookies Settings", url: "#" },
   ],
 };

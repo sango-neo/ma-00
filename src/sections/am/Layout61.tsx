@@ -33,8 +33,8 @@ export const Layout61 = (props: Layout61Props) => {
       <div className="container">
         <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           <div>
-            <p className="mb-3 font-semibold text-white/60 text-sm md:mb-4">{tagline}</p>
-            <h2 className="text-white text-3xl lg:text-4xl mb-5">
+            <p className="mb-3 font-semibold text-white/70 text-sm md:mb-4">{tagline}</p>
+            <h2 className="text-white text-3xl lg:text-4xl mb-5 font-semibold">
               {heading}
             </h2>
           </div>
@@ -43,10 +43,10 @@ export const Layout61 = (props: Layout61Props) => {
             <div className="mt-10 md:mt-0 grid grid-cols-1 gap-6 py-2 sm:grid-cols-2">
               {subHeadings.map((subHeading, index) => (
                 <div key={index}>
-                  <h6 className="mb-3 text-md font-semibold leading-[1.4] text-white md:mb-4 md:text-xl">
+                  <h6 className="mb-3 font-medium leading-[1.4] text-white md:mb-4 md:text-xl">
                     {subHeading.title}
                   </h6>
-                  <p className="text-white">{subHeading.description}</p>
+                  <p className="text-white font-light text-sm">{subHeading.description}</p>
                 </div>
               ))}
             </div>

@@ -10,11 +10,9 @@ import { ChallengesStep } from "./steps/ChallengesStep"
 import { CompanyInfoStep } from "./steps/CompanyInfoStep"
 import { PersonalInfoStep } from "./steps/PersonalInfoStep"
 import { toast } from "@/hooks/use-toast"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
-import { motion, AnimatePresence } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
+import { motion, AnimatePresence, useInView } from "framer-motion"
 import { CheckCircle } from "lucide-react"
 
 const FORM_STEPS = [
@@ -42,6 +40,11 @@ export function ContactForm() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(false)
   
+  useEffect(() => {
+    resetForm()
+    form.reset()
+  }, [])
+
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: formData,
@@ -80,6 +83,18 @@ export function ContactForm() {
   const nextStep = async () => {
     const currentStepComponent = FORM_STEPS[currentStep].component.name
     const fields = getFieldsForStep(currentStepComponent)
+    
+    if (currentStepComponent === 'ChallengesStep') {
+      const challenges = form.getValues('predefinedChallenges')
+      if (!challenges || challenges.length === 0) {
+        toast({
+          title: "Please select at least one challenge",
+          description: "You must select at least one challenge to proceed.",
+          variant: "destructive",
+        })
+        return
+      }
+    }
     
     const isValid = await form.trigger(fields as any)
     

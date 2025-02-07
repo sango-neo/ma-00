@@ -1,8 +1,9 @@
 import UnderConstruction from "@/components/UnderConstruction"
+import { Contact9 } from "@/sections/contact/ContactSection"
 
 const ContactPage = () => {
   return (
-    <UnderConstruction />
+    <Contact9 />
   )
 }
 

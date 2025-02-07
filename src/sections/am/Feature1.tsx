@@ -160,7 +160,7 @@ export const Layout494Defaults: Props = {
     {
       heading: "Resource-saving Proactive Maintenance",
       description:
-        "With priority assessments for each asset, schedule maintenance proactively, minimize downtime, and extend the lifespan of your infrastructure and equipment.",
+        "Proactive maintenance prevents costly breakdowns by addressing issues early, reducing unplanned downtime, repair costs, and resource waste while extending equipment lifespan, which ultimately improves operational efficiency.",
       image: {
         src: "/assets/images/am-maintenance.jpg",
         alt: "placeholder image 3",

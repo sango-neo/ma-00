@@ -3,6 +3,7 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar9 } from "@/components/Navbar9";
 import { Footer8 } from "@/sections/Footer8";
+import CookieBanner from "@/components/CookieBanner";
 
 const interVF = localFont({
   src: "./fonts/InterVF.woff2",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <Navbar9 />
         {children}
         <Footer8 />
+        <CookieBanner />
       </body>
     </html>
   );

@@ -1,10 +1,8 @@
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
-import type { ButtonProps } from "@relume_io/relume-ui";
-import { Button, useMediaQuery } from "@relume_io/relume-ui";
+import { useMediaQuery } from "@/hooks/useMediaQuery";
 import React, { useRef } from "react";
-import { RxChevronRight } from "react-icons/rx";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 
@@ -17,7 +15,10 @@ type CardProps = {
   image: ImageProps;
   heading: string;
   description: string;
-  button: ButtonProps & { url: string };
+  button: {
+    url: string;
+    title: string;
+  }
 };
 
 type Props = {
@@ -25,14 +26,13 @@ type Props = {
   tagline: string;
   heading: string;
   description: string;
-  buttons: ButtonProps[];
   cards: CardProps[];
 };
 
 export type AssetManagementProps = React.ComponentPropsWithoutRef<"section"> & Partial<Props>;
 
 export const AssetManagement = (props: AssetManagementProps) => {
-  const { image, tagline, heading, description, buttons, cards } = {
+  const { image, tagline, heading, description, cards } = {
     ...AssetManagementDefaults,
     ...props,
   };
@@ -184,15 +184,6 @@ export const AssetManagementDefaults: Props = {
   heading: "A Fully-featured Centralised Asset Register with Real-Time Data",
   description:
     "Our comprehensive Asset Register feature centralises all your asset information in one web-based system. Enjoy real-time tracking and up-to-date condition data to optimise your asset management.",
-  buttons: [
-    { title: "Button", variant: "secondary-alt" },
-    {
-      title: "Button",
-      variant: "link-alt",
-      size: "link",
-      iconRight: <RxChevronRight />,
-    },
-  ],
   cards: [
     {
       image: {
@@ -205,9 +196,6 @@ export const AssetManagementDefaults: Props = {
       button: {
         url: "./services/asset-management",
         title: "Learn more",
-        variant: "link",
-        size: "link",
-        iconRight: <RxChevronRight />,
       },
 
     },
@@ -223,9 +211,6 @@ export const AssetManagementDefaults: Props = {
       button: {
         url: "./contact-us",
         title: "Get in touch",
-        variant: "link",
-        size: "link",
-        iconRight: <RxChevronRight />,
       },
     },
   ],

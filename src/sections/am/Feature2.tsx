@@ -36,7 +36,7 @@ export const Layout16 = (props: Layout16Props) => {
           <div>
             <p className="mb-3 font-semibold md:mb-4 text-ma_blue">{tagline}</p>
             <h2 className="mb-5 text-2xl font-semibold md:mb-6 md:text-3xl tracking-tight text-ma_darkBlue leading-[1.1]">{heading}</h2>
-            <p className="mb-5 text-base md:mb-6 md:text-md">{description}</p>
+            <p className="mb-5 md:mb-6 text-sm">{description}</p>
             <p className="mb-5">The FPI is determined by three critical factors: </p>
             <ul className="grid grid-cols-1 gap-4 py-2">
               {features.map((feature, index) => (
@@ -44,7 +44,7 @@ export const Layout16 = (props: Layout16Props) => {
                   <div className="mr-4 flex-none self-start">
                     <img src={feature.icon.src} alt={feature.icon.alt} className="size-6" />
                   </div>
-                  <span><span className="font-semibold odd:text-ma_darkBlue">{feature.paragraphTopic}: </span>{feature.paragraph}</span>
+                  <span className="text-sm"><span className="font-semibold odd:text-ma_darkBlue">{feature.paragraphTopic}: </span>{feature.paragraph}</span>
                 </li>
               ))}
             </ul>
@@ -65,22 +65,22 @@ export const Layout16Defaults: Props = {
   tagline: "FUNCTIONAL PERFORMANCE INDEX",
   heading: "Optimize Asset Performance with Functional Ratings",
   description:
-    "Government infrastructure assets should aim to maintain an A1-B2 Functional Performance Index (FPI) rating, as outlined by the National Department of Public Works’ User Asset Management Plan (UAMP). An A1 rating signifies optimal performance and full suitability for the asset’s intended purpose, while lower ratings indicate reduced reliability and efficiency, potentially leading to the asset’s surrender or disposal.",
+    "The FPI dashboard provides a snapshot of facilities needing decommissioning or significant refurbishment, serving as a vital tool for the infrastructure planning team to make informed asset management decisions. Government infrastructure assets should strive for an A1–B2 Functional Performance Index (FPI) rating, as stated in the National Department of Public Works’ User Asset Management Plan (UAMP). An A1 rating indicates optimal performance and suitability, while lower ratings suggest reduced reliability, possibly leading to asset surrender or disposal.",
   features: [
     {
       icon: { src: "/assets/images/ma-icon.svg", alt: "moago icon 1" },
       paragraphTopic: "Condition Rating",
-      paragraph: "Ensures assets remain functional through effective planning and preventative maintenance.",
+      paragraph: "The condition rating is the key factor in the Facility Performance Index (FPI). Keeping facilities and equipment in good condition through preventive maintenance ensures optimal performance and efficiency.",
     },
     {
       icon: { src: "/assets/images/ma-icon.svg", alt: "moago icon 2" },
       paragraphTopic: "Performance Index",
-      paragraph: "Tracks how well assets meet their intended operational goals.",
+      paragraph: "The Performance Index sets the performance standard for a facility, acting as the benchmark for evaluating its condition and functionality. It establishes the baseline for assessing if the accommodation meets operational requirements.",
     },
     {
       icon: { src: "/assets/images/ma-icon.svg", alt: "moago icon 3" },
       paragraphTopic: "Accessibility Rating",
-      paragraph: "Measures the usability and accessibility of assets for their intended users.",
+      paragraph: "The accessibility rating indicates an asset's physical location concerning service delivery objectives. It is a critical factor when determining the location of a new facility, as ensuring easy access for the general public should be a top priority.",
     },
   ],
   image: {

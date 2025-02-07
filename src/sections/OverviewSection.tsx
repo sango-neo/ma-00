@@ -6,7 +6,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
-const Challenges = () => {
+const ServiceOverview = () => {
     const [hoveredCard, setHoveredCard] = useState(0);
     const [isHovered, setIsHovered] = useState(false);
     const intervalRef = useRef<NodeJS.Timeout | null>(null);
@@ -37,7 +37,7 @@ const Challenges = () => {
     };
 
     return (
-        <section className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative overflow-clip lg:py-36">
+        <section id="service-overview" className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative overflow-clip lg:py-36">
             <Image
                 src="/assets/images/ma-bg-africa.png"
                 alt="ma-africa background icon"
@@ -119,7 +119,7 @@ const challengesList = [
     },
 ];
 
-// Challenges Card with Framer Motion border effects:
+// ServiceOverview Card with Framer Motion border effects:
 
 const Card = (props: (typeof challengesList)[number] & { selected: boolean; onMouseEnter: () => void; onMouseLeave: () => void }) => {
     const cardRef = useRef<HTMLDivElement>(null);
@@ -175,4 +175,4 @@ const Card = (props: (typeof challengesList)[number] & { selected: boolean; onMo
     );
 };
 
-export default Challenges;
+export default ServiceOverview;

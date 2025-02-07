@@ -36,8 +36,8 @@ type ImageProps = {
               <h2 className="mb-5 text-2xl font-semibold lg:mb-6 md:text-3xl tracking-tight text-ma_blue leading-[1.1]">
                 {heading}
               </h2>
-              <p className="mb-5 lg:mb-6 lg:text-md">{description}</p>
-              <p className="mb-5 lg:mb-6 lg:text-md font-semibold text-ma_darkBlue">Key Benefits: </p>
+              <p className="mb-5 lg:mb-6 text-sm">{description}</p>
+              <p className="mb-5 lg:mb-6 font-semibold text-ma_darkBlue">Key Benefits: </p>
               <div className="grid grid-cols-1 gap-4 py-2">
                 {features.map((feature, index) => (
                   <div key={index} className="flex self-start">

@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
 
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -80,12 +81,12 @@ const Header = () => {
                 Moago Africa presents a cutting-edge, innovative system that provides a comprehensive solution for optimizing both movable and immovable assets while enhancing operational efficiency.
               </p>
               <motion.a 
-                href="/contact-us" 
-                className="mt-8 text-center block py-2 text-white bg-ma_blue w-full rounded md:w-fit md:px-4 md:mt-4"
+                href="#service-overview" 
+                className="mt-8 text-center py-2 text-white bg-ma_blue w-full rounded md:w-fit md:px-4 md:mt-4 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Get started
+                Learn More <span><ChevronDown strokeWidth={1.5} className="w-4 h-4 text-white" /></span>
               </motion.a>
             </motion.div>
           </div>

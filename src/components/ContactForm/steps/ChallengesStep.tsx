@@ -39,7 +39,7 @@ export function ChallengesStep({ form }: ChallengesStepProps) {
                       key={challenge}
                       className={cn(
                         "flex items-center space-x-3 space-y-0",
-                        "py-2 px-4 rounded-xl border border-ma_grey/20 min-h-[53px]",
+                        "py-2 px-4 rounded-lg border border-ma_grey/20 min-h-[53px]",
                         "hover:border-ma_lightBlue/50 transition-colors",
                         "bg-white hover:bg-slate-50/50"
                       )}
@@ -80,7 +80,7 @@ export function ChallengesStep({ form }: ChallengesStepProps) {
             <FormControl>
               <Textarea
                 placeholder="Please describe any other challenges your organization is facing..."
-                className="min-h-[50px] max-w-lg resize-none rounded-xl"
+                className="min-h-[50px] max-w-lg resize-none rounded-lg"
                 {...field}
               />
             </FormControl>

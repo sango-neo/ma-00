@@ -15,8 +15,8 @@ type Props = {
         <div className="container max-w-md text-center">
           <h1 className="mb-5 text-3xl font-semibold md:mb-6 md:text-4xl lg:text-5xl text-ma_darkBlue">{heading}</h1>
           <p className="md:text-md">{description}</p>
-          <p className="italic text-ma_blue mt-4 font-serif text-md">
-            "Building together, advancing Africa's development."
+          <p className="italic text-ma_blue mt-12 font-serif text-md">
+            "Building together, shaping Africa's future."
           </p>
         </div>
       </section>

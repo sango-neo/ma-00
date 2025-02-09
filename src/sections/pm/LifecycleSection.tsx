@@ -45,12 +45,14 @@ export function LifecycleSection() {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="ma-primary-btn bg-ma_altBlue border-ma_altBlue">
-                <Link href="/contact-us">Schedule consultation</Link>
-              </button>
+              
+              <Link href="/contact-us" className="">
+                <button className="ma-primary-btn bg-ma_altBlue border-ma_altBlue w-full">Schedule consultation</button>
+              </Link>
             </div>
           </div>
           <div>
+
             <img
               src="/assets/images/lifecycle-section.png"
               className="w-full object-cover"

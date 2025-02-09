@@ -112,7 +112,7 @@ export function ContactForm() {
 
   if (isSubmissionSuccess) {
     return (
-      <section className="px-[5%] relative my-10 overflow-x-hidden bg-gray-50">
+      <section className="px-[5%] relative overflow-x-hidden bg-gray-50">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -140,13 +140,13 @@ export function ContactForm() {
   }
 
   return (
-    <section className="px-[5%] relative my-10 overflow-x-hidden bg-gray-50">
+    <section className="px-[5%] relative overflow-x-hidden bg-gray-50">
         <motion.div 
         ref={ref}
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full mx-auto px-4 my-16 lg:px-0 lg:min-h-screen"
+        className="w-full mx-auto px-4 my-16 lg:px-0"
         >
         <div className="w-full bg-white rounded-2xl shadow-large hover:shadow-xlarge hover:scale-[1.01] transition-all duration-150 overflow-hidden">
             {/* Progress indicator */}

@@ -70,7 +70,22 @@ export const About = (props: AboutProps) => {
                 "opacity-100 translate-y-0": activeSection === index,
                 "opacity-0 translate-y-4": activeSection !== index,
               })}>
-                {index === 1 ? (
+                {[2, 4].includes(index) ? (
+                  <div className="relative">
+                    {/* Glowing background effect */}
+                    <div className="absolute inset-0 -z-10 bg-ma_blue/30 blur-3xl transform-gpu" />
+                    
+                    {/* Image container with overlay */}
+                    <div className="relative">
+                      <img
+                        src={image.src}
+                        className="w-full rounded-lg"
+                        alt={image.alt}
+                      />
+                      
+                    </div>
+                  </div>
+                ) : index === 1 ? (
                   <div className="relative">
                     {/* Glowing background effect */}
                     <div className="absolute inset-0 -z-10 bg-ma_blue/50 blur-3xl transform-gpu" />
@@ -87,8 +102,7 @@ export const About = (props: AboutProps) => {
                         playsInline
                         controls={false}
                       />
-                      {/* Overlay */}
-                      <div className="absolute inset-0 bg-ma_darkBlue/30" />
+                    
                     </div>
                   </div>
                 ) : (

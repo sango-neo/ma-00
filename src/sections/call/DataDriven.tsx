@@ -18,10 +18,12 @@ export function DataDriven() {
               enhance service delivery.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                <button className="ma-primary-btn-accent">
-                    <Link href="/contact-us">Schedule a consultation</Link>
+                <button>
+                    <Link href="/contact-us" className="w-full h-full ma-primary-btn-accent">Schedule a consultation</Link>
                 </button>
             </div>
+
+
 
           </div>
           <div>

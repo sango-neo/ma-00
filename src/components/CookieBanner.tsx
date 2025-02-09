@@ -19,7 +19,7 @@ export default function CookieBanner() {
   if (!showBanner) return null;
 
   return (
-    <div className="z-50 fixed w-fit gap-4 bottom-4 right-4 md:right-8 bg-white/90 backdrop-blur-sm text-ma_darkBlue p-4 rounded-lg shadow-lg flex flex-col md:flex-row justify-between items-center">
+    <div className="z-50 fixed w-fit gap-4 bottom-14 right-4 md:right-8 bg-white/90 backdrop-blur-sm text-ma_darkBlue p-4 rounded-lg shadow-large shadow-ma_darkBlue/10 flex flex-col md:flex-row justify-between items-center">
       <p className="text-sm text-center md:text-left">
         We use essential cookies to ensure this website functions properly.
         <a href="/legal/privacy.html" className="underline ml-1">
@@ -32,7 +32,6 @@ export default function CookieBanner() {
       >
         Okay
       </button>
-
     </div>
   );
 }

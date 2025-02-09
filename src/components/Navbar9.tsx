@@ -87,7 +87,7 @@ export const Navbar9 = (props: Navbar9Props) => {
   });
 
   return (
-    <nav className={cn(`fixed z-[999] flex min-h-20 w-full items-center bg-white px-[5%] border-b border-ma_darkBlue/5 text-black md:min-h-18 shadow-4xl shadow-gray-400/20 transition duration-300`, visible ? '' : '-translate-y-full')}>
+    <nav className={cn(`fixed z-[70] flex min-h-20 w-full items-center bg-white px-[5%] border-b border-ma_darkBlue/5 text-black md:min-h-18 shadow-xlarge shadow-gray-400/30 transition duration-300`, visible ? '' : '-translate-y-full')}>
       <div className="mx-auto flex size-full max-w-7xl items-center justify-between">
         <Link href={`${logo.url}`}>
           <Image src={logo.src} alt={logo.alt!} width={150} height={36} />

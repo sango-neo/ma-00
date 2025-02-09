@@ -48,12 +48,14 @@ export function Section1() {
               </div>
             </div>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-              <button className="ma-primary-btn">
-                <Link href="/contact-us">Schedule consultation</Link>
-              </button>
+              
+              <Link href="/contact-us" className="">
+                <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">Schedule consultation</button>
+              </Link>
             </div>
           </div>
         </div>
+
       </div>
     </section>
   );

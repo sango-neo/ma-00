@@ -60,12 +60,13 @@ export function Section4() {
           </div>
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-4 md:mt-14 lg:mt-16">
-          <button className="ma-primary-btn bg-ma_accent">
-            <Link href="/contact-us">Schedule consultation</Link>
-          </button>
+          <Link href="/contact-us" className="">
+            <button className="ma-primary-btn-accent w-full">Schedule consultation</button>
+          </Link>
         </div>
       </div>
     </section>
+
 
   );
 }

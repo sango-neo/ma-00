@@ -1,22 +1,93 @@
 "use client";
 
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { useForm } from "react-hook-form";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+
+const subscribeSchema = z.object({
+  email: z.string().email("Please enter a valid email address"),
+});
+
+type SubscribeFormData = z.infer<typeof subscribeSchema>;
 
 export function CTAPM() {
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors }
+  } = useForm<SubscribeFormData>({
+    resolver: zodResolver(subscribeSchema),
+  });
+
+  const onSubmit = async (data: SubscribeFormData) => {
+    setStatus('loading');
+
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: data.email }),
+      });
+
+      const responseData = await response.json();
+
+      if (responseData.success) {
+        setStatus('success');
+        reset(); // Clear the form
+      } else {
+        setStatus('error');
+      }
+    } catch (error) {
+      setStatus('error');
+    }
+  };
+
   return (
     <section id="" className="relative px-[5%] py-16 md:pTA lg:py-28">
       <div className="container max-w-[600px] text-center">
-
         <h2 className="heading-2 text-white lg:text-5xl">
-            See the Full Suite of Features
+          Project Management Module Coming Soon
         </h2>
-        <p className="text-white/70">
-        Contact us today to discover how our Project Management module can transform your projects.
+        <p className="text-white/70 mb-8">
+          We're working on something exciting! Subscribe to be the first to know when our Project Management module launches and get exclusive early access.
         </p>
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-          <Link href={"/contact-us"}><button className="ma-primary-btn border border-white text-white bg-transparent">Schedule consultation</button></Link>
-        </div>
+        <form className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center" onSubmit={handleSubmit(onSubmit)}>
+          <div className="w-full max-w-[300px]">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              {...register('email')}
+              disabled={status === 'loading'}
+              className={`w-full border p-3 bg-transparent text-white border-white rounded-lg ${errors.email ? 'border-red-400' : ''}`}
+            />
+            {errors.email && (
+              <p className="text-red-400 text-xs mt-1 text-left">{errors.email.message}</p>
+            )}
+          </div>
+          <button 
+            type="submit"
+            className={`ma-primary-btn border border-white text-white bg-transparent ${status === 'loading' ? 'opacity-50' : ''}`}
+            disabled={status === 'loading'}
+          >
+            {status === 'loading' ? 'Subscribing...' : 'Subscribe for Updates'}
+          </button>
+        </form>
+        {status === 'success' && (
+          <p className="text-green-400 text-sm mt-4">Thanks for subscribing!</p>
+        )}
+        {status === 'error' && (
+          <p className="text-red-400 text-sm mt-4">Something went wrong. Please try again.</p>
+        )}
+        <p className="text-white/50 text-xs mt-4">
+          By subscribing you agree to with our <Link href="/legal/privacy.html" className="underline">Privacy Policy</Link>.
+        </p>
       </div>
       <div className="absolute inset-0 -z-10">
         <img

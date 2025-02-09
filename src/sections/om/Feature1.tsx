@@ -45,9 +45,9 @@ export const Layout438 = (props: Layout438Props) => {
               </div>
             </div>
             <div className="my-10">
-                <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">
-                  <Link href={"/contact-us"}>Schedule consultation</Link>
-                </button>
+                <Link href={"/contact-us"} className="">
+                  <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">Schedule consultation</button>
+                </Link>
             </div>
           </div>
           <img

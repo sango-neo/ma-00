@@ -21,10 +21,12 @@ export function SupplierSummary() {
                 <SummaryCard key={index} title={card.title} description={card.description} icon={card.icon} color={card.color} />
             ))}
           </div>
-          <button className="ma-primary-btn bg-ma_blue border-ma_blue">
-            <Link href="/contact-us">Schedule consultation</Link>
-          </button>
+        
+          <Link href="/contact-us" className="">
+            <button className="ma-primary-btn bg-ma_blue border-ma_blue w-full">Schedule consultation</button>
+          </Link>
         </div>
+
 
 
       </div>

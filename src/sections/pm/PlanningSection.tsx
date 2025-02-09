@@ -20,8 +20,8 @@ export function PlanningSection() {
               and resource allocation. This ensures that every project aspect is
               meticulously planned, promoting collaboration and efficiency.
             </p>
-            <button className="ma-primary-btn">
-                <Link href="/contact-us">Schedule consultation</Link>
+            <button className="">
+                <Link href="/contact-us" className="ma-primary-btn">Schedule consultation</Link>
             </button>
           </div>
           <div className="relative w-full inline-flex justify-end items-center">

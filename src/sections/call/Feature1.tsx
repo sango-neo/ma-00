@@ -60,11 +60,11 @@ export function Layout30() {
               viewport={{ once: true }}
             >
               <motion.button 
-                className="ma-primary-btn-accent"
+                className=""
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link href="/contact-us">Schedule a consultation</Link>
+                <Link className="ma-primary-btn-accent" href="/contact-us">Schedule a consultation</Link>
               </motion.button>
             </motion.div>
           </motion.div>

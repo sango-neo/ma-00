@@ -1,13 +1,14 @@
 "use client";
 
+import Link from "next/link";
 import React from "react";
 
 export function CallCenterOverview() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_transBlue">
+    <section className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_transBlue">
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
-          <div className="text-center">
+          <div className="text-center flex flex-col items-center">
             <h2 className="heading-2">
               An Integrated Call Center for
               Efficient Operations
@@ -41,6 +42,7 @@ export function CallCenterOverview() {
                 </p>
               </div>
             </div>
+            <Link href="/services/call-center" className="text-white text-center py-3 px-6 bg-ma_accent rounded w-full sm:w-fit mt-8">Learn more</Link>
           </div>
           <div>
             <img

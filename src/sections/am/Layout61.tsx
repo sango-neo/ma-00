@@ -50,9 +50,6 @@ export const Layout61 = (props: Layout61Props) => {
                 </div>
               ))}
             </div>
-            <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Link href={"/contact-us"}><button className="px-6 py-3 w-full md:w-fit rounded bg-ma_accent text-white">Schedule consultation</button></Link>
-            </div>
           </div>
         </div>
         <div className="absolute inset-0 -z-10">

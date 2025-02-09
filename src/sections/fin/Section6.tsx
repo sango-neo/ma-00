@@ -71,9 +71,6 @@ export function Section6() {
               providing clear documentation and an organised audit trail, we
               enhance the credibility of your financial practices.
             </p>
-            <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
-              <button className="ma-primary-btn">Learn more</button>
-            </div>
           </div>
         </div>
       </div>

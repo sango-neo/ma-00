@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 export function DataDriven() {
   return (
     <section id="" className="px-[5%] py-16 md:py-24 lg:py-28">
@@ -16,10 +18,14 @@ export function DataDriven() {
               enhance service delivery.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <button className="ma-primary-btn bg-ma_accent">Schedule a consultation</button>
+                <button className="ma-primary-btn-accent">
+                    <Link href="/contact-us">Schedule a consultation</Link>
+                </button>
             </div>
+
           </div>
           <div>
+
             <img
               src="/assets/images/cc-data-insights.png"
               className="w-full object-cover"

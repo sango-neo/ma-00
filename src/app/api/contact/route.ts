@@ -10,14 +10,14 @@ const limiter = rateLimit({
   uniqueTokenPerInterval: 500
 });
 
-// Reuse the same validation schema from the frontend
-const formSchema = z.object({
-  name: z.string().min(2).nonempty(),
-  surname: z.string().min(2).nonempty(),
-  phone: z.string().regex(/^\+[1-9][0-9]{6,14}$/),
+const contactSchema = z.object({
+  name: z.string().min(2),
+  surname: z.string().min(2),
+  jobTitle: z.string().min(2),
   email: z.string().email(),
+  phone: z.string().regex(/^\+[1-9][0-9]{6,14}$/),
   message: z.string().min(10),
-  acceptTerms: z.boolean().refine((val) => val === true),
+  acceptTerms: z.boolean(),
 });
 
 export async function POST(request: Request) {
@@ -34,17 +34,19 @@ export async function POST(request: Request) {
     }
 
     const body = await request.json();
-    const validatedData = formSchema.parse(body);
+    const validatedData = contactSchema.parse(body);
 
     // Send email notification
     await resend.emails.send({
-      from: 'onboarding@resend.dev', // Update this with your verified domain
-      to: 'contact@moagoafrica.com', // Update this with your email
+      from: 'contact@moagoafrica.com', // Update this with your verified domain
+      to: 'cyberstark03@gmail.com', // Update this with your email
       subject: 'New Contact Form Submission',
       html: `
         <h1>New Contact Form Submission</h1>
+
         <h2>Contact Information</h2>
         <p><strong>Name:</strong> ${validatedData.name} ${validatedData.surname}</p>
+        <p><strong>Job Title:</strong> ${validatedData.jobTitle}</p>
         <p><strong>Email:</strong> ${validatedData.email}</p>
         <p><strong>Phone:</strong> ${validatedData.phone}</p>
         
@@ -54,7 +56,7 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(
-      { message: 'Form submitted successfully' },
+      { message: 'Contact form submitted successfully' },
       { status: 200 }
     );
 
@@ -63,13 +65,13 @@ export async function POST(request: Request) {
     
     if (error instanceof z.ZodError) {
       return NextResponse.json(
-        { error: 'Invalid form data', details: error.errors },
+        { message: 'Invalid form data', errors: error.errors },
         { status: 400 }
       );
     }
 
     return NextResponse.json(
-      { message: 'Form submission failed', error: error instanceof Error ? error.message : 'Unknown error' },
+      { message: 'Failed to submit contact form' },
       { status: 500 }
     );
   }

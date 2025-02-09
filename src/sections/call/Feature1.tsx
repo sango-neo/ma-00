@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export function Layout30() {
   return (
@@ -59,11 +60,11 @@ export function Layout30() {
               viewport={{ once: true }}
             >
               <motion.button 
-                className="ma-primary-btn bg-ma_accent"
+                className="ma-primary-btn-accent"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                Schedule a demo
+                <Link href="/contact-us">Schedule a consultation</Link>
               </motion.button>
             </motion.div>
           </motion.div>

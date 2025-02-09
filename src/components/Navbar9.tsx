@@ -409,7 +409,7 @@ export const Navbar9Defaults: Navbar9Props = {
     },
     },
     { title: "About Moago", url: "/about" },
-    { title: "News & Insights", url: "/resources/news-insights" },
+    { title: "News & Insights", url: "/news-insights" },
   ],
 };
 

@@ -26,6 +26,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { ContactForm } from "@/components/ContactForm";
+import { useToast } from "@/hooks/use-toast"
 
 type ImageProps = {
   src: string;
@@ -45,6 +46,7 @@ export type Contact9Props = React.ComponentPropsWithoutRef<"section"> & Partial<
 const formSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters").nonempty("Name is required"),
   surname: z.string().min(2, "Surname must be at least 2 characters").nonempty("Surname is required"),
+  jobTitle: z.string().min(2, "Job title must be at least 2 characters").nonempty("Job title is required"),
   phone: z.string()
     .nonempty("Phone number is required")
     .regex(/^\+[1-9][0-9]{6,14}$/, {
@@ -63,11 +65,15 @@ export const Contact9 = (props: Contact9Props) => {
     ...props,
   };
 
+  const { toast } = useToast()
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
       surname: "",
+      jobTitle: "",
       email: "",
       phone: "",
       message: "",
@@ -77,10 +83,40 @@ export const Contact9 = (props: Contact9Props) => {
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      console.log(values)
-      // Add your form submission logic here
+      setIsSubmitting(true)
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.message || 'Something went wrong')
+      }
+
+      // Success
+      toast({
+        title: "Success!",
+        description: "Your message has been sent. We'll get back to you soon.",
+        variant: "default",
+      })
+
+      // Reset form
+      form.reset()
+
     } catch (error) {
-      console.error('Form submission error:', error)
+      // Error handling
+      toast({
+        title: "Error",
+        description: error instanceof Error ? error.message : "Failed to send message. Please try again.",
+        variant: "destructive",
+      })
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
@@ -142,6 +178,19 @@ export const Contact9 = (props: Contact9Props) => {
                 )}
               />
               </div>
+              <FormField
+                control={form.control}
+                name="jobTitle"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>Job Title</FormLabel>
+                    <FormControl>
+                      <Input placeholder="e.g. Marketing Manager" {...field} />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
                 <FormField
                   control={form.control}
                   name="email"
@@ -210,8 +259,20 @@ export const Contact9 = (props: Contact9Props) => {
                   </FormItem>
                 )}
               />
-              <Button type="submit" {...button} className="ma-primary-btn w-full bg-ma_darkBlue py-6 border-none hover:bg-ma_altBlue">
-                {button.title}
+              <Button 
+                type="submit" 
+                {...button} 
+                className="ma-primary-btn w-full bg-ma_darkBlue py-6 border-none hover:bg-ma_altBlue"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <span className="loading loading-spinner loading-sm mr-2"></span>
+                    Sending...
+                  </>
+                ) : (
+                  button.title
+                )}
               </Button>
             </form>
 
@@ -221,7 +282,7 @@ export const Contact9 = (props: Contact9Props) => {
           <img src={image.src} alt={image.alt} className="size-full object-cover rounded-lg" />          
           <img src="/assets/images/call-signal.svg" alt="Signal Icon" className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[80%]" />
         </div>
-        <div className="bg-white rounded-lg p-8 flex flex-col justify-center items-center gap-4 w-full md:row-start-4 md:row-span-1 md:col-start-2 text-sm">
+        <div className="bg-white/90 rounded-lg p-8 flex flex-col justify-center items-center gap-4 w-full md:row-start-4 md:row-span-1 md:col-start-2 text-sm">
               <div className="flex justify-between items-center gap-2 text-sm">
                   <Mail size={18} className="size-5 text-ma_darkBlue" />
                   <span>contact@moagoafrica.com</span>

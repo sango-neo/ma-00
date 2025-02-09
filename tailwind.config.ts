@@ -19,10 +19,12 @@ const config: Config = {
   			ma_altBlue: '#81A3BE',
   			ma_accent: '#EB6234',
   			ma_transBlue: '#f1f5f8',
+			ma_accentGreen: '#059088',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))'
   			},
+
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
   				foreground: 'hsl(var(--popover-foreground))'

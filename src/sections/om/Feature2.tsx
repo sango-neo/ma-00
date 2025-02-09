@@ -27,11 +27,7 @@ export const Feature2 = (props: Feature2Props) => {
               {heading}
             </h2>
             <p className="">{description}</p>
-            <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8 ">
-                <Link href={"/services/project-management"} className="bg-ma_darkBlue text-white py-2 px-4 rounded mx-auto md:mx-0">
-                  Learn more
-                </Link>
-            </div>
+          
           </div>
           <div>
             <div className="relative w-full inline-flex justify-end items-center">

@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar9 } from "@/components/Navbar9";
 import { Footer8 } from "@/sections/Footer8";
 import CookieBanner from "@/components/CookieBanner";
+import { Toaster } from "@/components/ui/toaster";
 
 const interVF = localFont({
   src: "./fonts/InterVF.woff2",
@@ -30,6 +31,7 @@ export default function RootLayout({
         {children}
         <Footer8 />
         <CookieBanner />
+        <Toaster />
       </body>
     </html>
   );

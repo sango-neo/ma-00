@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 
 export function Section4() {
   return (
@@ -58,9 +60,12 @@ export function Section4() {
           </div>
         </div>
         <div className="mt-10 flex flex-wrap items-center gap-4 md:mt-14 lg:mt-16">
-          <button className="ma-primary-btn bg-ma_accent">Schedule consultation</button>
+          <button className="ma-primary-btn bg-ma_accent">
+            <Link href="/contact-us">Schedule consultation</Link>
+          </button>
         </div>
       </div>
     </section>
+
   );
 }

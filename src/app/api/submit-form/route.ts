@@ -65,7 +65,7 @@ export async function POST(req: Request) {
 
     // Send email notification
     await resend.emails.send({
-      from: 'onboarding@resend.dev', // Update this with your verified domain
+      from: 'contact@moagoafrica.com', // Update this with your verified domain
       to: 'cyberstark03@gmail.com', // Update this with your email
       subject: 'New Contact Form Submission',
       html: `

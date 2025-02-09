@@ -50,7 +50,7 @@ const ServiceOverview = () => {
                     {/* feature section header */}
                     <div className="max-w-[800px]">
                         <h2 className="font-semibold text-2xl tracking-tight text-center mb-6 xl:text-3xl max-w-md mx-auto">
-                            Discover MOAGO’s Integrated Management Solutions
+                            Discover MOAGO's Integrated Management Solutions
                         </h2>
                         <p className="text-center text-white/85">
                         MOAGO seamlessly integrates all your asset management needs into one powerful system. Experience enhanced efficiency and collaboration across operations, finance, and project management.
@@ -59,13 +59,15 @@ const ServiceOverview = () => {
                     {/* Cards Grid */}
                     <section className="relative grid grid-cols-1 justify-items-center gap-8 w-full lg:grid-cols-2 lg:grid-rows-2">
                         {challengesList.map((card, cardIdx) => (
-                            <Card
-                                key={card.title}
-                                {...card}
-                                selected={hoveredCard === cardIdx}
-                                onMouseEnter={() => handleMouseEnter(cardIdx)}
-                                onMouseLeave={handleMouseLeave}
-                            />
+                            <Link href={card.link} className="w-full flex justify-center">
+                                <Card
+                                    key={card.title}
+                                    {...card}
+                                    selected={hoveredCard === cardIdx}
+                                    onMouseEnter={() => handleMouseEnter(cardIdx)}
+                                    onMouseLeave={handleMouseLeave}
+                                />
+                            </Link>
                         ))}
                         {/* first iteration */}
                         <div className="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:block">
@@ -86,10 +88,6 @@ const ServiceOverview = () => {
                             </div>
                         </div>
                     </section>
-                    {/* CTA */}
-                    <Link href="/services/asset-management" className="text-white text-center py-3 px-6 bg-ma_accent rounded w-full sm:w-fit">
-                        View Services
-                    </Link>
                 </div>
             </div>
         </section>
@@ -100,28 +98,32 @@ const challengesList = [
     {
         title: "Complete Asset Register",
         description: "Maintain a comprehensive record of all assets for better tracking and management.",
-        image: "/assets/images/asset-map.jpg"
+        image: "/assets/images/asset-map.jpg",
+        link: "/services/asset-management"
     },
     {
         title: "Operations and Maintenance",
         description: "Streamline maintenance tasks and enhance operational efficiency with proactive management tools.",
-        image: "/assets/images/maintenance.jpg"
+        image: "/assets/images/maintenance.jpg",
+        link: "/services/operations-maintenance"
     },
     {
         title: "Integrated Call Center",
         description: "Address maintenance and support queries in real-time for improved communication and responsiveness.",
-        image: "/assets/images/cc-square.jpg"
+        image: "/assets/images/cc-square.jpg",
+        link: "/services/call-center"
     },
     {
         title: "Supplier Database Management",
         description: "Efficiently manage supplier relationships, ensure timely execution of work to meet quality standards, and monitor supplier performance.",
-        image: "/assets/images/am-tracking.jpg"
+        image: "/assets/images/am-tracking.jpg",
+        link: "/services/procurement-support"
     },
 ];
 
 // ServiceOverview Card with Framer Motion border effects:
 
-const Card = (props: (typeof challengesList)[number] & { selected: boolean; onMouseEnter: () => void; onMouseLeave: () => void }) => {
+    const Card = (props: (typeof challengesList)[number] & { selected: boolean; onMouseEnter: () => void; onMouseLeave: () => void }) => {
     const cardRef = useRef<HTMLDivElement>(null);
 
     const xPercentage = useMotionValue(50);

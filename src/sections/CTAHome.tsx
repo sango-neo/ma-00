@@ -33,7 +33,7 @@ export function CTAHome() {
               Manage stakeholder relationships, centralise documentation, monitor performance, ensure compliance and adherence to quality standards.
             </p>
             <div className="flex flex-wrap items-center justify-start gap-4 mt-8">
-              <Link href={"/services/procurement-support"}><button className="ma-primary-btn border border-white text-white bg-transparent hover:bg-white/10 transition-all duration-300">Schedule consultation</button></Link>
+              <Link href={"/services/procurement-support"}><button className="ma-primary-btn border border-white text-white bg-transparent hover:bg-white/10 transition-all duration-300">Learn more</button></Link>
             </div>
           </article>
 

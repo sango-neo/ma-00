@@ -1,7 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { color } from "framer-motion";
+import Link from "next/link";
 import React from "react";
 
 export function SupplierSummary() {
@@ -21,8 +21,11 @@ export function SupplierSummary() {
                 <SummaryCard key={index} title={card.title} description={card.description} icon={card.icon} color={card.color} />
             ))}
           </div>
-          <button className="ma-primary-btn bg-ma_blue border-ma_blue">Schedule consultation</button>
+          <button className="ma-primary-btn bg-ma_blue border-ma_blue">
+            <Link href="/contact-us">Schedule consultation</Link>
+          </button>
         </div>
+
 
       </div>
     </section>

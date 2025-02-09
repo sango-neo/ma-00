@@ -9,7 +9,7 @@ export function Layout3() {
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
             <div>
             <img
-              src="/assets/images/exp-graph.png"
+              src="/assets/images/exp-chart.png"
               className="w-full object-cover"
               alt=" placeholder image"
             />
@@ -19,7 +19,7 @@ export function Layout3() {
               Maximize Efficiency with Cost-Effective Maintenance Solutions
               Tailored for Your Needs
             </h2>
-            <p className="md:text-md">
+            <p >
               Our system ensures timely and precise maintenance interventions,
               significantly reducing operational costs. By tracking asset
               expenditures and identifying maintenance patterns, we enable

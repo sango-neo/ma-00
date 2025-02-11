@@ -40,8 +40,8 @@ export async function POST(req: Request) {
     // Send email notification
     await resend.emails.send({
       from: 'contact@moagoafrica.com', // Update with your verified domain
-      to: 'cyberstark03@gmail.com', // Update with your email
-      subject: 'New Newsletter Subscription',
+      to: 'moagoafrica@gmail.com', // Update with your email
+      subject: 'New Email List Subscription',
       html: `
         <h1>New Email List Subscription</h1>
         <p><strong>Email:</strong> ${email}</p>

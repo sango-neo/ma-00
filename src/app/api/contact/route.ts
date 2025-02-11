@@ -39,7 +39,7 @@ export async function POST(request: Request) {
     // Send email notification
     await resend.emails.send({
       from: 'contact@moagoafrica.com', // Update this with your verified domain
-      to: 'cyberstark03@gmail.com', // Update this with your email
+      to: 'moagoafrica@gmail.com', // Update this with your email
       subject: 'New Contact Form Submission',
       html: `
         <h1>New Contact Form Submission</h1>

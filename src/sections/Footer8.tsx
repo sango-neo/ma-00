@@ -124,7 +124,7 @@ export const Footer8 = (props: Footer8Props) => {
           <ul className="grid grid-flow-row grid-cols-[max-content] gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0 lg:justify-center">
             {footerLinks.map((link, index) => (
               <li key={index} className="underline decoration-black underline-offset-1">
-                <a href={link.url}>{link.title}</a>
+                <Link href={link.url}>{link.title}</Link>
               </li>
             ))}
           </ul>

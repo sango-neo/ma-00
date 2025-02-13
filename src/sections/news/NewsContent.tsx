@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@relume_io/relume-ui";
+import Link from "next/link";
 import React from "react";
 import { RxChevronRight } from "react-icons/rx";
 
@@ -11,6 +12,7 @@ type BlogPost = {
   title: string;
   description: string;
   imageUrl: string;
+  slug: string;
 };
 
 const blogPosts: BlogPost[] = [
@@ -20,6 +22,7 @@ const blogPosts: BlogPost[] = [
     //     title: "Understanding Infrastructure Management Trends",
     //     description: "Gain insights into the latest infrastructure management strategies and technologies.",
     //     imageUrl: "https://d22po4pjz3o32e.cloudfront.net/placeholder-image-landscape.svg",
+    //     slug: "understanding-infrastructure-management-trends",
     // },
   // ... add the rest of your blog posts here
 ];
@@ -77,13 +80,13 @@ export function NewsContent() {
             <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-3">
               {filteredPosts.map((post, index) => (
                 <div key={index} className="flex size-full flex-col items-center justify-start border border-border-primary">
-                  <a href="#" className="w-full">
+                  <Link href={`/news-insights/${post.slug}`} className="w-full">
                     <img
                       src={post.imageUrl}
                       alt={`Blog post image ${index + 1}`}
                       className="aspect-[3/2] size-full object-cover"
                     />
-                  </a>
+                  </Link>
                   <div className="px-5 py-6 md:p-6">
                     <div className="rb-4 mb-4 flex w-full items-center justify-start">
                       <p className="mr-4 bg-background-secondary px-2 py-1 text-sm font-semibold">
@@ -91,21 +94,23 @@ export function NewsContent() {
                       </p>
                       <p className="inline text-sm font-semibold">{post.readTime}</p>
                     </div>
-                    <a className="mb-2" href="#">
+                    <Link href={`/news-insights/${post.slug}`} className="mb-2">
                       <h2 className="text-xl font-bold md:text-2xl">
                         {post.title}
                       </h2>
-                    </a>
+                    </Link>
                     <p>{post.description}</p>
-                    <Button
-                      title="Read more"
-                      variant="link"
-                      size="link"
-                      iconRight={<RxChevronRight />}
-                      className="mt-6 flex items-center justify-center gap-x-2"
+                    <Link href={`/news-insights/${post.slug}`}>
+                      <Button
+                        title="Read more"
+                        variant="link"
+                        size="link"
+                        iconRight={<RxChevronRight />}
+                        className="mt-6 flex items-center justify-center gap-x-2"
                     >
                       Read more
-                    </Button>
+                      </Button>
+                    </Link>
                   </div>
                 </div>
               ))}

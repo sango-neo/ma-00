@@ -169,14 +169,16 @@ export const Navbar9 = (props: Navbar9Props) => {
                         isMobile={isMobile}
                       />
                     ) : (
-                      <a href={navLink.url} className="block py-3 text-md">
+                      <Link href={navLink.url} className="block py-3 text-md">
                         {navLink.title}
-                      </a>
+                      </Link>
                     )}
                   </div>
                 ))}
                 <div className="mt-6 flex flex-col gap-4">
-                    <button className="border border-ma_darkBlue py-2 px-4 rounded">Contact Us</button>
+                    <Link href="/contact-us">
+                        <button className="ma-primary-btn">Contact Us</button>
+                    </Link>
                 </div>
               </div>
             </motion.div>
@@ -248,7 +250,7 @@ const SubMenu = ({
                     <Fragment key={index}>
                       {linkGroup.subMenuLinks.map((subMenuLink, index) => (
                         <div className="relative group/item">
-                          <a
+                          <Link
                             key={index}
                             href={subMenuLink.url}
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-ma_blue/20 md:border-transparent hover:bg-ma_transBlue/30 hover:border-ma_blue/20"
@@ -269,7 +271,7 @@ const SubMenu = ({
                               <div className="self-end justify-self-stretch col-span-2">
                                 <img src={subMenuLink.animation} width={60} height={60} alt="submenu link icon" />
                               </div>
-                          </a>
+                          </Link>
                           {/* <motion.div className="z-20 hidden h-0 border border-black group-hover/item:block group-hover/item:h-fit transition-all">
                               <ul>
                                 <li>Item 1</li>

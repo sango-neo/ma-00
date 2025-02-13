@@ -28,7 +28,7 @@ export function CTAPM() {
     setStatus('loading');
 
     try {
-      const response = await fetch('/api/subscribe', {
+      const response = await fetch('https://ma-00-api-server.vercel.app/api/subscribe', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

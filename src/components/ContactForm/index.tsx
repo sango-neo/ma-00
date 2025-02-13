@@ -53,7 +53,7 @@ export function ContactForm() {
   const onSubmit = async (data: ContactFormData) => {
     try {
       setIsSubmitting(true)
-      const response = await fetch('/api/submit-form', {
+      const response = await fetch('https://ma-00-api-server.vercel.app/api/submit-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data),

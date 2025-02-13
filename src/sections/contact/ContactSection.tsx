@@ -84,7 +84,7 @@ export const Contact9 = (props: Contact9Props) => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setIsSubmitting(true)
-      const response = await fetch('/api/contact', {
+      const response = await fetch('https://ma-00-api-server.vercel.app/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

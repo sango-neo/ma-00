@@ -2,7 +2,6 @@
 
 import MAIcon from "@/icons/ma-icon.svg";
 import { ValueAnimationTransition, animate, motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
@@ -38,7 +37,7 @@ const ServiceOverview = () => {
 
     return (
         <section id="service-overview" className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative overflow-clip lg:py-36">
-            <Image
+            <img
                 src="/assets/images/ma-bg-africa.png"
                 alt="ma-africa background icon"
                 width={610}
@@ -74,7 +73,7 @@ const ServiceOverview = () => {
                             <div className="absolute bg-ma_accent/60 rounded-full w-full h-full blur-3xl -z-10"></div>
                             <div>
                                 {challengesList.map((card, idx) => (
-                                    <Image
+                                    <img
                                         key={card.title}
                                         src={card.image}
                                         alt={`${card.title} image`}

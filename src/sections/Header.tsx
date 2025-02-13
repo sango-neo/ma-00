@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image";
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
@@ -96,7 +95,7 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <Image
+            <img
               src={"/assets/images/hero-img.jpg"}
               alt="Hero Image - IAM System Illustration"
               className="w-full rounded-lg shadow-ma_darkBlue/10 shadow-2xl object-cover object-left-bottom aspect-[3/2] sm:aspect-auto sm:object-center"

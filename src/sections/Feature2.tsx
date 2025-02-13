@@ -4,7 +4,6 @@ import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { MotionValue, useMotionValue, motion, useScroll, useTransform } from "framer-motion";
 import React, { useRef } from "react";
 import { cn } from "@/utils/utils";
-import Image from "next/image";
 
 type ImageProps = {
   src: string;
@@ -115,7 +114,7 @@ const FeatureSectionContent = ({
     <div
       className="flex flex-col items-center justify-center mt-4 md:mt-0"
     >
-      <Image src={featureSection.image.src} alt={featureSection.image.alt} width={200} height={200} />
+      <img src={featureSection.image.src} alt={featureSection.image.alt} width={200} height={200} />
     </div>
     <div
       className={cn(

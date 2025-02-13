@@ -1,9 +1,9 @@
-import Image from "next/image";
+
 
 const UnderConstruction = () => {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen p-4">
-      <Image 
+      <img 
         src="/assets/animated/under-construction-trans.gif"
         alt="Under Construction Animation"
         className="mb-8"

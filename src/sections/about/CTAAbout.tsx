@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import React from "react";
 
 export function CTAAbout() {
@@ -16,7 +15,7 @@ export function CTAAbout() {
             We are a team of experienced professionals who are dedicated to providing the best possible service to our clients.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-          <Link href={"/contact-us"}><button className="ma-primary-btn border border-white text-white bg-transparent">Schedule consultation</button></Link>
+          <a href={"/contact-us"}><button className="ma-primary-btn border border-white text-white bg-transparent">Schedule consultation</button></a>
         </div>
       </div>
       <div className="absolute inset-0 -z-10">

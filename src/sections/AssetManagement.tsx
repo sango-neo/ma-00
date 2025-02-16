@@ -2,8 +2,7 @@
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
-import React, { useRef } from "react";
-import Link from "next/link";
+import { useRef } from "react";
 import { cn } from "@/lib/utils";
 
 type ImageProps = {
@@ -103,7 +102,7 @@ export const AssetManagement = (props: AssetManagementProps) => {
                     {card.heading}
                   </h3>
                   <p>{card.description}</p>
-                  <Link href={card.button.url} className={cn("ma-primary-btn mt-6", index % 2 === 0 ? "ma-primary-btn" : "ma-primary-btn-alt")}>{card.button.title}</Link>
+                  <a href={card.button.url} className={cn("ma-primary-btn mt-6", index % 2 === 0 ? "ma-primary-btn" : "ma-primary-btn-alt")}>{card.button.title}</a>
                 </div>
               </div>
             );
@@ -161,7 +160,7 @@ export const AssetManagement = (props: AssetManagementProps) => {
                     </div>
                     <p className="text-slate-600">{card.description}</p>
                     
-                      <Link href={card.button.url} className={cn("ma-primary-btn mt-6", index % 2 === 0 ? "ma-primary-btn" : "ma-primary-btn-alt")}>{card.button.title}</Link>
+                      <a href={card.button.url} className={cn("ma-primary-btn mt-6", index % 2 === 0 ? "ma-primary-btn" : "ma-primary-btn-alt")}>{card.button.title}</a>
                   </div>
                 </motion.div>
 

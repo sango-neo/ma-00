@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import React from "react";
 
 export function CTASupplier() {
   return (
@@ -14,7 +12,7 @@ export function CTASupplier() {
             Contact us today to learn how our comprehensive database can streamline your supplier management processes and support procurement processes, improving efficiency and productivity.
         </p>
         <div className="mt-6 flex flex-wrap items-center justify-center gap-4 md:mt-8">
-          <Link href={"/contact-us"}><button className="ma-primary-btn border border-white text-white bg-transparent">Schedule consultation</button></Link>
+          <a href={"/contact-us"}><button className="ma-primary-btn border border-white text-white bg-transparent">Schedule consultation</button></a>
         </div>
       </div>
       <div className="absolute inset-0 -z-10">

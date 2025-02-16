@@ -1,9 +1,8 @@
 "use client";
 
 import { Button } from "@relume_io/relume-ui";
-import Link from "next/link";
-import React from "react";
 import { RxChevronRight } from "react-icons/rx";
+import { useState } from "react";
 
 // Add this type definition and data array before the component
 type BlogPost = {
@@ -29,7 +28,7 @@ const blogPosts: BlogPost[] = [
 
 export function NewsContent() {
   // Add state for active category
-  const [activeCategory, setActiveCategory] = React.useState("all");
+  const [activeCategory, setActiveCategory] = useState("all");
 
   // Filter posts based on active category
   const filteredPosts = blogPosts.filter(post => 
@@ -80,13 +79,13 @@ export function NewsContent() {
             <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-y-16 lg:grid-cols-3">
               {filteredPosts.map((post, index) => (
                 <div key={index} className="flex size-full flex-col items-center justify-start border border-border-primary">
-                  <Link href={`/news-insights/${post.slug}`} className="w-full">
+                  <a href={`/news-insights/${post.slug}`} className="w-full">
                     <img
                       src={post.imageUrl}
                       alt={`Blog post image ${index + 1}`}
                       className="aspect-[3/2] size-full object-cover"
                     />
-                  </Link>
+                  </a>
                   <div className="px-5 py-6 md:p-6">
                     <div className="rb-4 mb-4 flex w-full items-center justify-start">
                       <p className="mr-4 bg-background-secondary px-2 py-1 text-sm font-semibold">
@@ -94,13 +93,13 @@ export function NewsContent() {
                       </p>
                       <p className="inline text-sm font-semibold">{post.readTime}</p>
                     </div>
-                    <Link href={`/news-insights/${post.slug}`} className="mb-2">
+                    <a href={`/news-insights/${post.slug}`} className="mb-2">
                       <h2 className="text-xl font-bold md:text-2xl">
                         {post.title}
                       </h2>
-                    </Link>
+                    </a>
                     <p>{post.description}</p>
-                    <Link href={`/news-insights/${post.slug}`}>
+                    <a href={`/news-insights/${post.slug}`}>
                       <Button
                         title="Read more"
                         variant="link"
@@ -110,7 +109,7 @@ export function NewsContent() {
                     >
                       Read more
                       </Button>
-                    </Link>
+                    </a>
                   </div>
                 </div>
               ))}

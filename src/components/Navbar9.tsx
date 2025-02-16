@@ -3,7 +3,6 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { cn } from "@/utils/utils";
 import { AnimatePresence, motion } from "framer-motion";
-import Link from "next/link";
 import { useState, ComponentPropsWithoutRef, Fragment, useEffect,  } from "react";
 
 type ImageProps = {
@@ -88,9 +87,9 @@ export const Navbar9 = (props: Navbar9Props) => {
   return (
     <nav className={cn(`fixed z-[70] flex min-h-20 w-full items-center bg-white px-[5%] border-b border-ma_darkBlue/5 text-black md:min-h-18 shadow-xlarge shadow-gray-400/30 transition duration-300`, visible ? '' : '-translate-y-full')}>
       <div className="mx-auto flex size-full max-w-7xl items-center justify-between">
-        <Link href={`${logo.url}`}>
+        <a href={`${logo.url}`}>
           <img src={logo.src} alt={logo.alt!} width={150} height={36} />
-        </Link>
+        </a>
         <div className="absolute hidden h-[calc(100vh-80px)] overflow-auto bg-white px-[5%] pb-24 pt-4 md:pb-0 xl:static xl:ml-6 xl:flex xl:h-auto xl:flex-1 xl:items-center xl:justify-end xl:gap-32 xl:border-none xl:bg-none xl:px-0 xl:pt-0">
           <div className="flex flex-col items-center xl:flex-row">
             {navLinks.map((navLink, index) => (
@@ -98,20 +97,20 @@ export const Navbar9 = (props: Navbar9Props) => {
                 {navLink.megaMenu ? (
                   <SubMenu megaMenu={navLink.megaMenu} title={navLink.title} isMobile={isMobile} />
                 ) : (
-                  <Link
+                  <a
                     href={navLink.url}
                     className="relative block w-auto py-3 text-md xl:inline-block xl:px-4 xl:py-6 xl:text-base hover:text-ma_blue"
                   >
                     {navLink.title}
-                  </Link>
+                  </a>
                 )}
               </div>
             ))}
           </div>
           <div className="flex items-center gap-4">
-            <Link href="/contact-us">
+            <a href="/contact-us">
               <button className="border border-ma_accent py-2 px-4 rounded text-white bg-ma_accent transition">Contact Us</button>
-            </Link>
+            </a>
           </div>
         </div>
         <button
@@ -169,16 +168,16 @@ export const Navbar9 = (props: Navbar9Props) => {
                         isMobile={isMobile}
                       />
                     ) : (
-                      <Link href={navLink.url} className="block py-3 text-md">
+                      <a href={navLink.url} className="block py-3 text-md">
                         {navLink.title}
-                      </Link>
+                      </a>
                     )}
                   </div>
                 ))}
                 <div className="mt-6 flex flex-col gap-4">
-                    <Link href="/contact-us">
+                    <a href="/contact-us">
                         <button className="ma-primary-btn">Contact Us</button>
-                    </Link>
+                    </a>
                 </div>
               </div>
             </motion.div>
@@ -250,7 +249,7 @@ const SubMenu = ({
                     <Fragment key={index}>
                       {linkGroup.subMenuLinks.map((subMenuLink, index) => (
                         <div className="relative group/item">
-                          <Link
+                          <a
                             key={index}
                             href={subMenuLink.url}
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-ma_blue/20 md:border-transparent hover:bg-ma_transBlue/30 hover:border-ma_blue/20"
@@ -271,7 +270,7 @@ const SubMenu = ({
                               <div className="self-end justify-self-stretch col-span-2">
                                 <img src={subMenuLink.animation} width={60} height={60} alt="submenu link icon" />
                               </div>
-                          </Link>
+                          </a>
                           {/* <motion.div className="z-20 hidden h-0 border border-black group-hover/item:block group-hover/item:h-fit transition-all">
                               <ul>
                                 <li>Item 1</li>
@@ -292,9 +291,9 @@ const SubMenu = ({
               <div className="absolute -left-[50vw] -right-[50vw] bottom-0 top-0 w-[200vw] bg-background-secondary" />
               <div className="relative z-10 mr-auto flex flex-col gap-y-4 sm:mx-auto sm:grid sm:auto-cols-fr sm:grid-cols-[max-content_max-content] sm:gap-x-1">
                 <p>{megaMenu.dropdownFooter.title}</p>
-                <Link href={megaMenu.dropdownFooter.url} className="underline">
+                <a href={megaMenu.dropdownFooter.url} className="underline">
                   {megaMenu.dropdownFooter.link}
-                </Link>
+                </a>
               </div>
             </div>
           </motion.nav>

@@ -1,8 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
-import Link from "next/link";
-import React from "react";
+
 
 export function LifecycleSection() {
   return (
@@ -46,9 +44,9 @@ export function LifecycleSection() {
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
               
-              <Link href="/contact-us" className="">
+              <a href="/contact-us" className="">
                 <button className="ma-primary-btn bg-ma_altBlue border-ma_altBlue w-full">Schedule consultation</button>
-              </Link>
+              </a>
             </div>
           </div>
           <div>

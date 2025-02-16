@@ -1,8 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
-import Link from "next/link";
-import React from "react";
+
 
 export function AccountabilitySection() {
   return (

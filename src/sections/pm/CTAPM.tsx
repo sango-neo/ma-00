@@ -1,7 +1,7 @@
 "use client";
 
-import Link from "next/link";
-import React, { useState } from "react";
+import { useState  } from "react";
+
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -86,7 +86,7 @@ export function CTAPM() {
           <p className="text-red-400 text-sm mt-4">Something went wrong. Please try again.</p>
         )}
         <p className="text-white/50 text-xs mt-4">
-          By subscribing you agree to with our <Link href="/legal/privacy.html" className="underline">Privacy Policy</Link>.
+          By subscribing you agree to with our <a href="/legal/privacy.html" className="underline">Privacy Policy</a>.
         </p>
       </div>
       <div className="absolute inset-0 -z-10">

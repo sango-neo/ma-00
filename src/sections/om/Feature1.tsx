@@ -1,7 +1,4 @@
-import { Button } from "@relume_io/relume-ui";
-import type { ButtonProps } from "@relume_io/relume-ui";
-import Link from "next/link";
-import { RxChevronRight } from "react-icons/rx";
+
 
 type ImageProps = {
   src: string;
@@ -45,9 +42,9 @@ export const Layout438 = (props: Layout438Props) => {
               </div>
             </div>
             <div className="my-10">
-                <Link href={"/contact-us"} className="">
+                <a href={"/contact-us"} className="">
                   <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">Schedule consultation</button>
-                </Link>
+                </a>
             </div>
           </div>
           <img

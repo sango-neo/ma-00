@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 
 type ImageProps = {
   src: string;

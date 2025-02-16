@@ -1,4 +1,4 @@
-import Link from "next/link";
+
 
 type ImageProps = {
   src: string;
@@ -42,12 +42,12 @@ export const MaintenanceOverview = (props: MaintenanceOverviewProps) => {
             </h2>
             <p className="">{description}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8 ">
-                <Link href={"/contact-us"} className="ma-primary-btn bg-ma_accent border-ma_accent rounded mx-auto md:mx-0">
+                <a href={"/contact-us"} className="ma-primary-btn bg-ma_accent border-ma_accent rounded mx-auto md:mx-0">
                   Schedule consultation
-                </Link>
-                <Link href={"/services/operations-maintenance"} className="ma-primary-btn-alt-white mx-auto md:mx-0">
+                </a>
+                <a href={"/services/operations-maintenance"} className="ma-primary-btn-alt-white mx-auto md:mx-0">
                   Learn more
-                </Link>
+                </a>
             </div>
           </div>
           

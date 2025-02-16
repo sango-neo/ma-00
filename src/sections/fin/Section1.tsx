@@ -1,8 +1,6 @@
 "use client";
 
-import { Button } from "@relume_io/relume-ui";
-import Link from "next/link";
-import React from "react";
+
 
 export function Section1() {
   return (
@@ -49,9 +47,9 @@ export function Section1() {
             </div>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
               
-              <Link href="/contact-us" className="">
+              <a href="/contact-us" className="">
                 <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">Schedule consultation</button>
-              </Link>
+              </a>
             </div>
           </div>
         </div>

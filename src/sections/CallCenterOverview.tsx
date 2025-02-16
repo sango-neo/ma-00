@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import React from "react";
 
 export function CallCenterOverview() {
   return (
@@ -42,7 +40,7 @@ export function CallCenterOverview() {
                 </p>
               </div>
             </div>
-            <Link href="/services/call-center" className="text-white text-center py-3 px-6 bg-ma_accent rounded w-full sm:w-fit mt-8">Learn more</Link>
+            <a href="/services/call-center" className="text-white text-center py-3 px-6 bg-ma_accent rounded w-full sm:w-fit mt-8">Learn more</a>
           </div>
           <div>
             <img

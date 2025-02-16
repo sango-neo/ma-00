@@ -2,7 +2,6 @@
 
 import MAIcon from "@/icons/ma-icon.svg";
 import { ValueAnimationTransition, animate, motion, useMotionTemplate, useMotionValue } from "framer-motion";
-import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 const ServiceOverview = () => {
@@ -42,7 +41,7 @@ const ServiceOverview = () => {
                 alt="ma-africa background icon"
                 width={610}
                 height={667}
-                className="absolute -top-[40px] -right-[100px] w-2/3 md:w-auto"
+                className="absolute top-0 -right-[100px] w-2/3 md:w-auto"
             />
             <div className="container mx-auto">
                 <div className="flex flex-col justify-center items-center gap-14 ">
@@ -58,7 +57,7 @@ const ServiceOverview = () => {
                     {/* Cards Grid */}
                     <section className="relative grid grid-cols-1 justify-items-center gap-8 w-full lg:grid-cols-2 lg:grid-rows-2">
                         {challengesList.map((card, cardIdx) => (
-                            <Link href={card.link} className="w-full flex justify-center">
+                            <a href={card.link} className="w-full flex justify-center">
                                 <Card
                                     key={card.title}
                                     {...card}
@@ -66,7 +65,7 @@ const ServiceOverview = () => {
                                     onMouseEnter={() => handleMouseEnter(cardIdx)}
                                     onMouseLeave={handleMouseLeave}
                                 />
-                            </Link>
+                            </a>
                         ))}
                         {/* first iteration */}
                         <div className="hidden absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:block">

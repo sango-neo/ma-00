@@ -1,7 +1,6 @@
 "use client";
 
-import Link from "next/link";
-import React from "react";
+
 
 export function PlanningSection() {
   return (
@@ -21,7 +20,7 @@ export function PlanningSection() {
               meticulously planned, promoting collaboration and efficiency.
             </p>
             <button className="">
-                <Link href="/contact-us" className="ma-primary-btn">Schedule consultation</Link>
+                <a href="/contact-us" className="ma-primary-btn">Schedule consultation</a>
             </button>
           </div>
           <div className="relative w-full inline-flex justify-end items-center">

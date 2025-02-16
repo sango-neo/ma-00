@@ -1,5 +1,4 @@
 "use client";
-import Link from "next/link";
 import { motion, useMotionTemplate, useMotionValue, useInView, animate, ValueAnimationTransition } from "framer-motion";
 import { useEffect, useRef } from "react";
 
@@ -84,9 +83,9 @@ export const ProjectManagementOverview = (props: ProjectManagementOverviewProps)
             </h2>
             <p className="">{description}</p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8 ">
-                <Link href={"/services/project-management"} className="bg-ma_darkBlue text-white py-2 px-4 rounded mx-auto md:mx-0">
+                <a href={"/services/project-management"} className="bg-ma_darkBlue text-white py-2 px-4 rounded mx-auto md:mx-0">
                   Learn more
-                </Link>
+                </a>
             </div>
           </div>
           

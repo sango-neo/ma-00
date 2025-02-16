@@ -1,7 +1,4 @@
-import { Button } from "@relume_io/relume-ui";
-import type { ButtonProps } from "@relume_io/relume-ui";
-import Link from "next/link";
-import { RxChevronRight } from "react-icons/rx";
+
 
 type ImageProps = {
   src: string;
@@ -49,7 +46,7 @@ export const Layout16 = (props: Layout16Props) => {
               ))}
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Link href={"/contact-us"}><button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full lg:w-fit">Schedule consultation</button></Link>
+              <a href={"/contact-us"}><button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full lg:w-fit">Schedule consultation</button></a>
             </div>
           </div>
           <div>

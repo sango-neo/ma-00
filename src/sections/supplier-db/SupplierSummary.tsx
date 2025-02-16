@@ -1,8 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import Link from "next/link";
-import React from "react";
+
 
 export function SupplierSummary() {
   return (
@@ -22,9 +21,9 @@ export function SupplierSummary() {
             ))}
           </div>
         
-          <Link href="/contact-us" className="">
+          <a href="/contact-us" className="">
             <button className="ma-primary-btn bg-ma_blue border-ma_blue w-full">Schedule consultation</button>
-          </Link>
+          </a>
         </div>
 
 

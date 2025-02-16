@@ -39,11 +39,11 @@ const letterVariants = {
 
 const Header = () => {
   return (
-    <section className="px-[5%] py-20 mx-auto bg-ma_transBlue/5 pt-40">
+    <section className="px-[5%] py-40 mx-auto bg-ma_darkBlue pt-40">
         <div className="container w-full mx-auto max-w-7xl">
           <div className="w-full flex flex-col gap-6 md:flex-row md:justify-between max-w-5xl mx-auto text-[#444]">
             <motion.div 
-              className="md:max-w-lg md:w-full"
+              className="md:max-w-lg md:w-full text-white"
             >
               <motion.h1 
                 className="text-[1.75rem] font-semibold tracking-tight leading-tight xl:text-[2rem]"
@@ -71,7 +71,7 @@ const Header = () => {
               </motion.h1>
             </motion.div>
             <motion.div 
-              className="md:max-w-xl md:w-full"
+              className="md:max-w-xl md:w-full text-white"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.5 }}
@@ -95,13 +95,20 @@ const Header = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            <img
-              src={"/assets/images/hero-img.jpg"}
-              alt="Hero Image - IAM System Illustration"
-              className="w-full rounded-lg shadow-ma_darkBlue/10 shadow-2xl object-cover object-left-bottom aspect-[3/2] sm:aspect-auto sm:object-center"
+            <div className="relative w-full rounded-xl bg-white">
+            <video
+              autoPlay={true}
+              controls={false}
+              src={"/assets/animated/ma-home-hero_3.mp4"}
+              preload="auto"
+              className="w-full rounded-lg z-20 relative"
               width={1280}
-              height={394}
+              height={395}
+                        muted
+                        playsInline
             />
+              <div className="absolute inset-0 bg-ma_blue/80 blur-3xl transform-gpu" />
+            </div>
           </motion.div>
         </div>
     </section>

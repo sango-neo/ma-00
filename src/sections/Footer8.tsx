@@ -1,8 +1,6 @@
 "use client";
 
-import Link from "next/link";
-// import { Button, Input } from "@relume_io/relume-ui";
-// import type { ButtonProps } from "@relume_io/relume-ui";
+
 import { useState } from "react";
 
 type ImageProps = {
@@ -83,9 +81,9 @@ export const Footer8 = (props: Footer8Props) => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 items-start justify-between gap-x-[8vw] gap-y-12 pb-12 sm:gap-y-10 md:gap-y-14 md:pb-18 lg:grid-cols-[1fr_0.5fr] lg:pb-20">
           <div className="flex flex-col items-start">
-            <Link href={`${logo.url}`} className="mb-8">
+            <a href={`${logo.url}`} className="mb-8">
               <img src={logo.src} alt={logo.alt} className="inline-block" />
-            </Link>
+            </a>
           </div>
           <div className="max-w-md lg:min-w-[25rem]">
             <p className="mb-3 font-semibold md:mb-4">Keep up with the latest developments from MOAGO</p>
@@ -124,7 +122,7 @@ export const Footer8 = (props: Footer8Props) => {
           <ul className="grid grid-flow-row grid-cols-[max-content] gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0 lg:justify-center">
             {footerLinks.map((link, index) => (
               <li key={index} className="underline decoration-black underline-offset-1">
-                <Link href={link.url}>{link.title}</Link>
+                <a href={link.url}>{link.title}</a>
               </li>
             ))}
           </ul>

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+
 
 export function Layout30() {
   return (
@@ -64,7 +64,7 @@ export function Layout30() {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <Link className="ma-primary-btn-accent" href="/contact-us">Schedule a consultation</Link>
+                <a className="ma-primary-btn-accent" href="/contact-us">Schedule a consultation</a>
               </motion.button>
             </motion.div>
           </motion.div>

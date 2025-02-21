@@ -13,31 +13,26 @@ export function useStepValidation(form: UseFormReturn<ContactFormData>, currentS
     
     switch (stepName) {
       case 'ChallengesStep':
-        return !!(
-          (values.predefinedChallenges && values.predefinedChallenges.length > 0) ||
-          (values.customChallenges && values.customChallenges.trim().length > 0)
-        )
+        const hasPredefined = values.predefinedChallenges?.length > 0
+        const hasCustom = values.customChallenges ? values.customChallenges?.trim().length > 0 : false;
+        return hasPredefined || hasCustom
       
       case 'CompanyInfoStep':
-        // Check all required company fields are filled and valid
         return !!(
           values.companyName?.trim() &&
           values.sector?.trim() &&
-          values.industry?.trim() &&
-          !errors.companyName &&
-          !errors.sector &&
-          !errors.industry
+          values.industry?.trim()
+        ) && !Object.keys(errors).some(key => 
+          ['companyName', 'sector', 'industry'].includes(key)
         )
       
       case 'PersonalInfoStep':
-        // Check all required personal info fields are filled and valid
         return !!(
           values.firstName?.trim() &&
           values.lastName?.trim() &&
-          values.email?.trim() &&
-          !errors.firstName &&
-          !errors.lastName &&
-          !errors.email
+          values.email?.trim()
+        ) && !Object.keys(errors).some(key => 
+          ['firstName', 'lastName', 'email'].includes(key)
         )
       
       default:
@@ -46,9 +41,13 @@ export function useStepValidation(form: UseFormReturn<ContactFormData>, currentS
   }
 
   useEffect(() => {
-    const subscription = form.watch((value, { name, type }) => {
-      // Get current step name based on the changed field
-      const stepName = FORM_STEPS[currentStep].component.name
+    // Validate initial state
+    const stepName = FORM_STEPS[currentStep].component.name
+    const isValid = validateStep(stepName)
+    setStepValidity(currentStep, isValid)
+
+    // Set up subscription for changes
+    const subscription = form.watch(() => {
       const isValid = validateStep(stepName)
       setStepValidity(currentStep, isValid)
     })

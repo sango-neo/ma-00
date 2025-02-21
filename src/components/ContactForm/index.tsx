@@ -52,7 +52,12 @@ export function ContactForm() {
     form.reset()
   }, [])
 
-
+  useEffect(() => {
+    // Validate current step whenever it changes
+    const stepName = FORM_STEPS[currentStep].component.name
+    const isValid = validateStep(stepName)
+    useFormStore.getState().setStepValidity(currentStep, isValid)
+  }, [currentStep])
 
   const onSubmit = async (data: ContactFormData) => {
     
@@ -85,12 +90,15 @@ export function ContactForm() {
     }
   }
 
-  const nextStep = () => {
+  const nextStep = async () => {
     const stepName = FORM_STEPS[currentStep].component.name
-    if (validateStep(stepName)) {
+    const isValid = validateStep(stepName)
+    
+    if (isValid) {
       updateFormData(form.getValues())
       setStep(currentStep + 1)
     } else {
+      await form.trigger() // Trigger validation
       toast({
         title: "Please fill in required fields",
         description: "Some required information is missing.",

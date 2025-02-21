@@ -1,28 +1,15 @@
 "use client";
-import { useHeader } from "@/contexts/HeaderContext";
 import { motion } from "framer-motion";
-import { useEffect } from "react";
 
 export function Header5() {
-
-  const { setHeaderLoaded } = useHeader();
-  
-    useEffect(() => {
-      const timer = setTimeout(() => {
-        setHeaderLoaded(true);
-      }, 1000);
-  
-      return () => clearTimeout(timer);
-    }, [setHeaderLoaded]);
-
   return (
-    <section className="relative px-[5%]">
+    <section id="relume" className="relative px-[5%]">
       <div className="container text-ma_darkBlue">
         <div className="flex max-h-[60rem] min-h-[80vh] items-start py-16 md:py-24 lg:py-28 relative">
           <div className="max-w-md mt-10 z-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="heading-1 text-4xl lg:text-8xl"
@@ -31,7 +18,7 @@ export function Header5() {
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 1 }}
+              transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               className="md:text-md"

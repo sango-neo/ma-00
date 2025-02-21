@@ -93,9 +93,9 @@ const Header = () => {
             className="mt-10 md:mt-20"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
           >
-            <div className="relative w-full rounded-xl bg-white shadow-xxlarge shadow-ma_blue/80 ">
+            <div className="relative w-full rounded-xl bg-white shadow-xxlarge shadow-ma_blue/90 ">
             <video
               autoPlay={true}
               controls={false}

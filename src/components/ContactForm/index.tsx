@@ -16,7 +16,7 @@ import { motion, AnimatePresence, useInView } from "framer-motion"
 import { CheckCircle } from "lucide-react"
 import { useStepValidation } from "@/hooks/useStepValidation"
 
-export const FORM_STEPS = [
+const FORM_STEPS = [
   {
     title: "What challenges are you facing?",
     description: "Select the challenges that your organization is experiencing",

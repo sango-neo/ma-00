@@ -2,7 +2,28 @@ import { UseFormReturn } from "react-hook-form"
 import { ContactFormData } from "@/lib/schemas/contact-form-schema"
 import { useEffect } from "react"
 import { useFormStore } from "@/store/form-store"
-import { FORM_STEPS } from "@/components/ContactForm"
+import { ChallengesStep } from "@/components/ContactForm/steps/ChallengesStep"
+import { CompanyInfoStep } from "@/components/ContactForm/steps/CompanyInfoStep"
+import { PersonalInfoStep } from "@/components/ContactForm/steps/PersonalInfoStep"
+
+
+const FORM_STEPS = [
+  {
+    title: "What challenges are you facing?",
+    description: "Select the challenges that your organization is experiencing",
+    component: ChallengesStep
+  },
+  {
+    title: "Tell us about your organization",
+    description: "Help us understand your business context",
+    component: CompanyInfoStep
+  },
+  {
+    title: "Your Contact Information",
+    description: "We'll get back to you with relevant solutions",
+    component: PersonalInfoStep
+  }
+]
 
 export function useStepValidation(form: UseFormReturn<ContactFormData>, currentStep: number) {
   const setStepValidity = useFormStore((state) => state.setStepValidity)

@@ -39,7 +39,7 @@ const letterVariants = {
 
 const Header = () => {
   return (
-    <section className="px-[5%] py-40 mx-auto bg-ma_darkBlue pt-40 overflow-x-clip">
+    <section className="px-[5%] py-40 mx-auto bg-ma_darkBlue pt-40 overflow-x-clip" id="home-header-section">
         <div className="container w-full mx-auto max-w-7xl">
           <div className="w-full flex flex-col gap-6 md:flex-row md:justify-between max-w-5xl mx-auto text-[#444]">
             <motion.div 

@@ -1,4 +1,4 @@
-import * as z from "zod"
+import { z } from "zod"
 
 export const contactFormSchema = z.object({
   // Challenges
@@ -6,16 +6,16 @@ export const contactFormSchema = z.object({
   customChallenges: z.string().optional(),
   
   // Company Info
-  companyName: z.string().min(2, "Company name must be at least 2 characters"),
-  industry: z.string().min(2, "Please select an industry"),
-  sector: z.string().min(2, "Please select a sector"),
+  companyName: z.string().min(1, "Company name is required"),
+  industry: z.string().min(1, "Industry is required"),
+  sector: z.string().min(1, "Sector is required"),
   jobTitle: z.string().optional(),
   companySize: z.string().optional(),
   
   // Personal Info
-  firstName: z.string().min(2, "First name must be at least 2 characters"),
-  lastName: z.string().min(2, "Last name must be at least 2 characters"),
-  email: z.string().email("Invalid email address"),
+  firstName: z.string().min(1, "First name is required"),
+  lastName: z.string().min(1, "Last name is required"),
+  email: z.string().email("Please enter a valid email address"),
   phone: z.string().optional(),
   message: z.string().optional(),
 })

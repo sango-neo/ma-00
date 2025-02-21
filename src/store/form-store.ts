@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { ContactFormData } from '@/lib/schemas/contact-form-schema'
+import type { ContactFormData } from '@/lib/schemas/contact-form-schema'
 
 interface FormStore {
   formData: ContactFormData
@@ -12,10 +12,26 @@ interface FormStore {
   resetForm: () => void
 }
 
+// Explicitly type the initial form data
+const initialFormData = {
+  predefinedChallenges: [] as string[],  // Explicitly type as string array
+  customChallenges: "",
+  companyName: "",
+  sector: "",
+  industry: "",
+  jobTitle: "",
+  companySize: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  message: "",
+} as const satisfies ContactFormData
+
 export const useFormStore = create<FormStore>()(
   persist(
     (set) => ({
-      formData: {} as ContactFormData,
+      formData: { ...initialFormData },
       currentStep: 0,
       validSteps: [false, false, false],
       updateFormData: (data) =>
@@ -31,7 +47,7 @@ export const useFormStore = create<FormStore>()(
         })),
       resetForm: () =>
         set({
-          formData: {} as ContactFormData,
+          formData: { ...initialFormData },
           currentStep: 0,
           validSteps: [false, false, false],
         }),

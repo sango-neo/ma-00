@@ -48,9 +48,14 @@ export const Header139 = (props: Header139Props) => {
         <div className="px-[5%] py-16 md:py-24 lg:py-28">
           <div className="container">
             <div className="max-w-[540px]">
-              <h1 className="heading-1 text-white font-medium mt-20">
+              <motion.h1 className="heading-1 text-white font-medium mt-20"
+                initial={{ opacity: 0, y: 20 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+              >
                 {heading}
-              </h1>
+              </motion.h1>
             </div>
           </div>
         </div>

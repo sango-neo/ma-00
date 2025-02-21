@@ -1,5 +1,5 @@
 import { ContactForm } from "@/components/ContactForm";
-import { AssetManagement } from "@/sections/AssetManagement";
+import { AssetManagementOverview } from "@/sections/AssetManagementOverview";
 import { ProjectManagementOverview } from "@/sections/ProjectManagementOverview";
 import { Feature2 } from "@/sections/Feature2";
 import { MaintenanceOverview } from "@/sections/MaintenanceOverview";
@@ -14,7 +14,7 @@ export default function Home() {
     <div className="">
       <Header />
       <ServiceOverview />
-      <AssetManagement />
+      <AssetManagementOverview />
       <ScrollToTopButton />
       <MaintenanceOverview />
       <Feature2 />

@@ -41,7 +41,7 @@ const ServiceOverview = () => {
                 alt="ma-africa background icon"
                 width={610}
                 height={667}
-                className="absolute top-0 -right-[100px] w-2/3 md:w-auto"
+                className="absolute top-10 -right-[100px] w-2/3 md:w-auto"
             />
             <div className="container mx-auto">
                 <div className="flex flex-col justify-center items-center gap-14 ">

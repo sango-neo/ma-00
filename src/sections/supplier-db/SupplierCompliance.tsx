@@ -4,13 +4,13 @@ import { motion } from "framer-motion";
 
 export function SupplierCompliance() {
   const listVariants = {
-    hidden: { opacity: 0, x: -20 },
+    hidden: { opacity: 0, x: -50 },
     visible: (i: number) => ({
       opacity: 1,
       x: 0,
       transition: {
         delay: 0.1 * i,
-        duration: 0.5,
+        duration: 0.6,
         ease: "easeOut",
       },
     }),
@@ -23,10 +23,10 @@ export function SupplierCompliance() {
           <div>
             <motion.h1 
               className="heading-2"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
             >
               Enhanced Transparency and Compliance
             </motion.h1>
@@ -60,13 +60,9 @@ export function SupplierCompliance() {
             </ul>
           </div>
           <div>
-            <motion.div 
+            <div 
               className="relative"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-
+            
             >
               <div className="absolute inset-0 -z-10 bg-ma_blue blur-3xl opacity-20 scale-80" />
               <img
@@ -74,7 +70,7 @@ export function SupplierCompliance() {
                 className="w-full object-cover relative"
                 alt="Supplier Compliance Image"
               />
-            </motion.div>
+            </div>
           </div>
         </div>
       </div>

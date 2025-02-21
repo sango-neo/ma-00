@@ -39,7 +39,7 @@ const letterVariants = {
 
 const Header = () => {
   return (
-    <section className="px-[5%] py-40 mx-auto bg-ma_darkBlue pt-40">
+    <section className="px-[5%] py-40 mx-auto bg-ma_darkBlue pt-40 overflow-x-clip">
         <div className="container w-full mx-auto max-w-7xl">
           <div className="w-full flex flex-col gap-6 md:flex-row md:justify-between max-w-5xl mx-auto text-[#444]">
             <motion.div 
@@ -107,7 +107,7 @@ const Header = () => {
                         muted
                         playsInline
             />
-              <div className="absolute inset-0 bg-ma_blue/80 blur-3xl transform-gpu" />
+              <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2 }} className="absolute inset-0 bg-ma_blue/80 blur-3xl transform-gpu" />
             </div>
           </motion.div>
         </div>

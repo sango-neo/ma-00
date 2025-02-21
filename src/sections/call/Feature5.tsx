@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 
 export function Layout16() {
   return (
@@ -12,11 +11,7 @@ export function Layout16() {
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           
           <div className="relative">
-            <motion.div
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+            <div
               className="relative z-20"
             >
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80%] h-[80%] bg-ma_blue/50 rounded-full blur-[50px] z-10" />
@@ -25,16 +20,13 @@ export function Layout16() {
                 className="w-full object-cover relative z-20"
                 alt="Moago Call Center Ticket Alert Ilustration"
               />
-            </motion.div>
+            </div>
             <div className="w-full absolute -bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 z-[1]">
               <img src="/assets/images/cc-soundwaves-sm.svg" alt="Soundwaves Illustration" className="w-full object-cover opacity-50"/>
             </div>
           </div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+          <div
+           
           >
             <div>
               <p className="mb-3 font-medium text-ma_blue md:mb-4">Connected</p>
@@ -80,7 +72,7 @@ export function Layout16() {
                 </li>
               </ul>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -10,7 +10,7 @@ export function HeaderSDB() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut" }}
+            transition={{ duration: 0.5, ease: "easeInOut" }}
           >
             <h1 className="heading-1 text-ma_accent max-w-sm">
               Enhanced Supplier Management
@@ -20,7 +20,7 @@ export function HeaderSDB() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, ease: "easeOut", delay: 0.1 }}
+            transition={{ duration: 0.5, ease: "easeInOut", delay: 0.1 }}
           >
             <p className="text-white/70">
 

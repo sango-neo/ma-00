@@ -22,9 +22,6 @@ export function DataDriven() {
                     <a href="/contact-us" className="w-full h-full ma-primary-btn-accent">Schedule a consultation</a>
                 </button>
             </div>
-
-
-
           </div>
           <div>
 

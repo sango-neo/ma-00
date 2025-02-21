@@ -14,8 +14,9 @@ import { useState, useEffect, useRef } from "react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence, useInView } from "framer-motion"
 import { CheckCircle } from "lucide-react"
+import { useStepValidation } from "@/hooks/useStepValidation"
 
-const FORM_STEPS = [
+export const FORM_STEPS = [
   {
     title: "What challenges are you facing?",
     description: "Select the challenges that your organization is experiencing",
@@ -36,21 +37,25 @@ const FORM_STEPS = [
 export function ContactForm() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
-  const { formData, currentStep, updateFormData, setStep, resetForm } = useFormStore()
+  const { formData, currentStep, validSteps, updateFormData, setStep, resetForm } = useFormStore()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(false)
+  const form = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: formData,
+    mode: "onChange", // Add this line to enable real-time validation
+  })
+  const { validateStep } = useStepValidation(form, currentStep)
   
   useEffect(() => {
     resetForm()
     form.reset()
   }, [])
 
-  const form = useForm<ContactFormData>({
-    resolver: zodResolver(contactFormSchema),
-    defaultValues: formData,
-  })
+
 
   const onSubmit = async (data: ContactFormData) => {
+    
     try {
       setIsSubmitting(true)
       const response = await fetch('https://ma-00-api-server.vercel.app/api/submit-form', {
@@ -80,27 +85,17 @@ export function ContactForm() {
     }
   }
 
-  const nextStep = async () => {
-    const currentStepComponent = FORM_STEPS[currentStep].component.name
-    const fields = getFieldsForStep(currentStepComponent)
-    
-    if (currentStepComponent === 'ChallengesStep') {
-      const challenges = form.getValues('predefinedChallenges')
-      if (!challenges || challenges.length === 0) {
-        toast({
-          title: "Please select at least one challenge",
-          description: "You must select at least one challenge to proceed.",
-          variant: "destructive",
-        })
-        return
-      }
-    }
-    
-    const isValid = await form.trigger(fields as any)
-    
-    if (isValid) {
+  const nextStep = () => {
+    const stepName = FORM_STEPS[currentStep].component.name
+    if (validateStep(stepName)) {
       updateFormData(form.getValues())
       setStep(currentStep + 1)
+    } else {
+      toast({
+        title: "Please fill in required fields",
+        description: "Some required information is missing.",
+        variant: "destructive",
+      })
     }
   }
 
@@ -249,7 +244,7 @@ export function ContactForm() {
                             type="button" 
                             variant="outline"
                             onClick={previousStep}
-                            className="min-w-[120px] rounded border-ma_darkBlue text-ma_darkBlue hover:bg-ma_darkBlue hover:text-white transition-colors"
+                            className="min-w-fit sm:min-w-[120px] px-6 rounded border-ma_darkBlue text-ma_darkBlue hover:bg-ma_darkBlue hover:text-white transition-colors"
                         >
                             Back
                         </Button>
@@ -261,8 +256,9 @@ export function ContactForm() {
                     <Button 
                         type="button" 
                         onClick={nextStep}
+                        disabled={!validSteps[currentStep]}
                         className={cn(
-                        "min-w-[120px] ml-auto bg-ma_darkBlue text-white rounded",
+                        "min-w-fit sm:min-w-[120px] px-6 ml-auto bg-ma_darkBlue text-white rounded",
                         "hover:bg-ma_lightBlue transition-colors",
                         "disabled:opacity-50 disabled:cursor-not-allowed"
                         )}
@@ -272,9 +268,9 @@ export function ContactForm() {
                     ) : (
                     <Button 
                         type="submit"
-                        disabled={isSubmitting}
+                        disabled={isSubmitting || !validSteps[currentStep]}
                         className={cn(
-                        "min-w-[120px] ml-auto bg-ma_darkBlue text-white rounded",
+                        "min-w-fit sm:min-w-[120px] px-6 ml-auto bg-ma_darkBlue text-white rounded",
                         "hover:bg-ma_lightBlue transition-colors",
                         "disabled:opacity-50 disabled:cursor-not-allowed"
                         )}
@@ -317,7 +313,7 @@ export function ContactForm() {
 function getFieldsForStep(stepName: string): string[] {
   switch (stepName) {
     case 'ChallengesStep':
-      return ['predefinedChallenges']
+      return ['predefinedChallenges', 'customChallenges']
     case 'CompanyInfoStep':
       return ['companyName', 'industry']
     case 'PersonalInfoStep':

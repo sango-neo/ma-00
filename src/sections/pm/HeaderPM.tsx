@@ -1,22 +1,53 @@
 "use client";
 
-import React from "react";
+import { motion } from "framer-motion";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2
+    }
+  }
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
 
 export function HeaderPM() {
   return (
     <section id="relume" className="relative px-[5%] py-24 lg:py-36">
       <div className="container">
         <div className="flex justify-center md:justify-end">
-            <div className="w-full max-w-sm">
-            <h1 className="heading-1 text-ma_accent">
+            <motion.div className="w-full max-w-sm"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+              variants={containerVariants}
+            >
+            <motion.h1 className="heading-1 text-ma_accent"
+              variants={itemVariants}
+            > 
                 Project Management Simplified
-            </h1>
+            </motion.h1>
 
-            <p className="text-white">
+            <motion.p className="text-white"
+              variants={itemVariants}
+            >
                 Experience seamless project management from initiation to closure
                 with MOAGO’s comprehensive module.
-            </p>
-            </div>
+            </motion.p>
+            </motion.div>
         </div>
       </div>
       <div className="absolute inset-0 -z-10">

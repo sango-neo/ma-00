@@ -8,11 +8,8 @@ export function SupplierAlerts() {
         <img src="/assets/images/moago-bg-deco-icon.png" alt="Moago Icon" className="absolute top-1/2 -translate-y-1/2 right-0 w-[20vw] object-cover" />
       <div className="container">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+          <div
+            
           >
             <img
               src="/assets/images/email-noti.png"
@@ -21,7 +18,7 @@ export function SupplierAlerts() {
             />
 
 
-          </motion.div>
+          </div>
           
           <div className="max-w-md">
             <motion.p className="text-ma_blue text-sm font-medium mb-1"
@@ -39,7 +36,7 @@ export function SupplierAlerts() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
 
-              transition={{ duration: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
             >
               Stay Ahead with Automated Email Notifications
             </motion.h2>
@@ -49,7 +46,7 @@ export function SupplierAlerts() {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, ease: "easeOut", delay: 0.1 }}
+              transition={{ duration: 0.6, ease: "easeOut", delay: 0.2 }}
             >
               Automated Email Notifications play a crucial role in enhancing communication efficiency. By notifying suppliers of upcoming maintenance tasks, we ensure that they are well-prepared to meet deadlines.
             </motion.p>

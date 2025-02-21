@@ -1,7 +1,9 @@
-"use client"
+"use client";
 
 import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+import { useEffect } from "react";
+import { useHeader } from "@/contexts/HeaderContext";
 
 const textVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -38,6 +40,16 @@ const letterVariants = {
 };
 
 const Header = () => {
+  const { setHeaderLoaded } = useHeader();
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setHeaderLoaded(true);
+    }, 1000); // Adjust timing as needed
+
+    return () => clearTimeout(timer);
+  }, [setHeaderLoaded]);
+
   return (
     <section className="px-[5%] py-40 mx-auto bg-ma_darkBlue pt-40 overflow-x-clip" id="home-header-section">
         <div className="container w-full mx-auto max-w-7xl">

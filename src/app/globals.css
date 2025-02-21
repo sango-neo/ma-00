@@ -115,6 +115,11 @@ body {
   }
 }
 
+@keyframes dotFade {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1); }
+}
+
 @layer components {
   .heading-1 {
     @apply mb-5 text-3xl font-semibold md:mb-6 md:text-4xl lg:text-5xl text-ma_darkBlue;

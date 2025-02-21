@@ -6,6 +6,9 @@ import { Footer8 } from "@/sections/Footer8";
 import CookieBanner from "@/components/CookieBanner";
 import { Toaster } from "@/components/ui/toaster";
 import { DevelopmentBanner } from "@/components/DevelopmentBanner";
+import { HeaderProvider } from "@/contexts/HeaderContext";
+import { LoadingScreen } from "@/components/LoadingScreen";
+
 const interVF = localFont({
   src: "./fonts/InterVF.woff2",
   variable: "--font-inter",
@@ -27,12 +30,15 @@ export default function RootLayout({
       <body
         className={`${interVF.variable} antialiased font-sans bg-white text-[#222]`}
       >
-        <Navbar9 />
-        {children}
-        <Footer8 />
-        <CookieBanner />
-        <Toaster />
-        <DevelopmentBanner />
+        <HeaderProvider>
+          <LoadingScreen />
+          <Navbar9 />
+          {children}
+          <Footer8 />
+          <CookieBanner />
+          <Toaster />
+          <DevelopmentBanner />
+        </HeaderProvider>
       </body>
     </html>
   );

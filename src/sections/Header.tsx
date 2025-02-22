@@ -39,7 +39,7 @@ const letterVariants = {
 
 const Header = () => {
   return (
-    <section className="px-[5%] py-40 mx-auto bg-ma_darkBlue pt-40 overflow-x-clip" id="home-header-section">
+    <section className="px-[5%] py-40 mx-auto bg-ma_darkBlue pt-[130px] lg:pt-40 overflow-x-clip" id="home-header-section">
         <div className="container w-full mx-auto max-w-7xl">
           <div className="w-full flex flex-col gap-6 md:flex-row md:justify-between max-w-5xl mx-auto text-[#444]">
             <motion.div 
@@ -81,7 +81,7 @@ const Header = () => {
               </p>
               <motion.a 
                 href="#service-overview" 
-                className="mt-8 text-center py-2 text-white bg-ma_blue w-full rounded md:w-fit md:px-4 md:mt-4 flex items-center justify-center gap-2"
+                className="mt-8 text-center py-4 text-white bg-ma_blue w-full rounded md:w-fit md:py-3 md:px-6 md:mt-4 flex items-center justify-center gap-2"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >

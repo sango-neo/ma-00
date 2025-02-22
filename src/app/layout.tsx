@@ -6,6 +6,8 @@ import { Footer8 } from "@/sections/Footer8";
 import CookieBanner from "@/components/CookieBanner";
 import { Toaster } from "@/components/ui/toaster";
 import { DevelopmentBanner } from "@/components/DevelopmentBanner";
+import  TermlyCMP from "@/components/TermlyCMP";
+
 const interVF = localFont({
   src: "./fonts/InterVF.woff2",
   variable: "--font-inter",
@@ -30,7 +32,7 @@ export default function RootLayout({
         <Navbar9 />
         {children}
         <Footer8 />
-        <CookieBanner />
+        <TermlyCMP websiteUUID="e647e4cf-c73a-4a22-bf34-81eeacca8663" autoBlock masterConsentsOrigin />
         <Toaster />
         <DevelopmentBanner />
       </body>

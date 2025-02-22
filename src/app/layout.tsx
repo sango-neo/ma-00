@@ -3,7 +3,6 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { Navbar9 } from "@/components/Navbar9";
 import { Footer8 } from "@/sections/Footer8";
-import CookieBanner from "@/components/CookieBanner";
 import { Toaster } from "@/components/ui/toaster";
 import { DevelopmentBanner } from "@/components/DevelopmentBanner";
 import  TermlyCMP from "@/components/TermlyCMP";

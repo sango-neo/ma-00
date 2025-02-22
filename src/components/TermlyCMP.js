@@ -1,12 +1,16 @@
 'use client'
 
-import { useEffect, useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState, Suspense } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 
 const SCRIPT_SRC_BASE = 'https://app.termly.io'
 
-export default function TermlyCMP({ autoBlock, masterConsentsOrigin, websiteUUID }) {
+// Create a separate component that uses useSearchParams
+function TermlyCMPInner({ autoBlock, masterConsentsOrigin, websiteUUID }) {
   const [shouldRender, setShouldRender] = useState(false)
+  const pathname = usePathname()
+  const searchParams = useSearchParams()
+  
   const scriptSrc = useMemo(() => {
     const src = new URL(SCRIPT_SRC_BASE)
     src.pathname = `/resource-blocker/${websiteUUID}`
@@ -38,13 +42,19 @@ export default function TermlyCMP({ autoBlock, masterConsentsOrigin, websiteUUID
     isScriptAdded.current = true
   }, [scriptSrc, shouldRender])
 
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-
   useEffect(() => {
     if (!shouldRender) return
     window.Termly?.initialize()
   }, [pathname, searchParams, shouldRender])
 
   return null
+}
+
+// Main component with Suspense wrapper
+export default function TermlyCMP(props) {
+  return (
+    <Suspense fallback={null}>
+      <TermlyCMPInner {...props} />
+    </Suspense>
+  )
 }

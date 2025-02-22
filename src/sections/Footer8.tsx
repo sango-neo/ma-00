@@ -122,7 +122,7 @@ export const Footer8 = (props: Footer8Props) => {
           <ul className="grid grid-flow-row grid-cols-[max-content] gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0 lg:justify-center">
             {footerLinks.map((link, index) => (
               <li key={index} className="underline decoration-black underline-offset-1">
-                <a href={link.url}>{link.title}</a>
+                <a target="_blank" href={link.url}>{link.title}</a>
               </li>
             ))}
           </ul>
@@ -149,7 +149,7 @@ export const Footer8Defaults: Footer8Props = {
   footerText: "© 2024 Moago Africa. All rights reserved.",
   footerLinks: [
     { title: "Privacy Policy", url: "/legal/privacy.html"},
-    { title: "Terms of Service", url: "/legal/terms-and-conditions.html" },
+    { title: "Terms and Condtions", url: "/legal/terms-and-conditions.html" },
     { title: "Cookies Settings", url: "/legal/cookie-policy.html" },
   ],
 };

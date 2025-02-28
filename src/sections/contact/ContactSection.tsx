@@ -250,7 +250,7 @@ export const Contact9 = (props: Contact9Props) => {
                     <div className="space-y-1 leading-none">
                       <FormLabel className="text-sm font-medium leading-none">
                         I accept the{" "}
-                        <a className="text-primary underline" href="/legal/privacy.html">
+                        <a className="text-primary underline" target="_blank" href="/legal/privacy.html">
                           Privacy Policy
                         </a>
                       </FormLabel>

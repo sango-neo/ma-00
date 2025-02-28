@@ -4,6 +4,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { useRef } from "react";
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 type ImageProps = {
   src: string;
@@ -102,7 +103,7 @@ export const AssetManagementOverview = (props: AssetManagementOverviewProps) => 
                       {card.heading}
                     </h3>
                     <p>{card.description}</p>
-                    <a href={card.button.url} className={cn("ma-primary-btn mt-6", index % 2 === 0 ? "ma-primary-btn" : "ma-primary-btn-alt")}>{card.button.title}</a>
+                    <Link href={card.button.url} className={cn("ma-primary-btn mt-6", index % 2 === 0 ? "ma-primary-btn" : "ma-primary-btn-alt")}>{card.button.title}</Link>
                   </div>
                 </div>
               );

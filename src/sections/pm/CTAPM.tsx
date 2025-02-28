@@ -86,7 +86,7 @@ export function CTAPM() {
           <p className="text-red-400 text-sm mt-4">Something went wrong. Please try again.</p>
         )}
         <p className="text-white/50 text-xs mt-4">
-          By subscribing you agree to with our <a href="/legal/privacy.html" className="underline">Privacy Policy</a>.
+          By subscribing you agree to with our <a href="/legal/privacy.html" target="_blank" className="underline">Privacy Policy</a>.
         </p>
       </div>
       <div className="absolute inset-0 -z-10">

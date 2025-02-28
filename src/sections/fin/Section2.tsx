@@ -1,6 +1,7 @@
 "use client";
 
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import React, { useState } from "react";
 import { RxChevronRight } from "react-icons/rx";
 

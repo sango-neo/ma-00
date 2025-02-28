@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 
 export function Layout16() {
   return (
@@ -50,7 +52,7 @@ export function Layout16() {
               </li>
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <a href={"/contact-us"}><button className="ma-primary-btn">Schedule consultation</button></a>
+              <Link href={"/contact-us"}><button className="ma-primary-btn">Schedule consultation</button></Link>
             </div>
           </div>
           <div>

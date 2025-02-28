@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 type ImageProps = {
@@ -42,9 +43,9 @@ export const Layout438 = (props: Layout438Props) => {
               </div>
             </div>
             <div className="my-10">
-                <a href={"/contact-us"} className="">
+                <Link href={"/contact-us"} className="">
                   <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">Schedule consultation</button>
-                </a>
+                </Link>
             </div>
           </div>
           <img

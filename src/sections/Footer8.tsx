@@ -1,6 +1,7 @@
 "use client";
 
 
+import Link from "next/link";
 import { useState } from "react";
 
 type ImageProps = {
@@ -81,9 +82,9 @@ export const Footer8 = (props: Footer8Props) => {
       <div className="container mx-auto">
         <div className="grid grid-cols-1 items-start justify-between gap-x-[8vw] gap-y-12 pb-12 sm:gap-y-10 md:gap-y-14 md:pb-18 lg:grid-cols-[1fr_0.5fr] lg:pb-20">
           <div className="flex flex-col items-start">
-            <a href={`${logo.url}`} className="mb-8">
+            <Link href={`${logo.url}`} className="mb-8">
               <img src={logo.src} alt={logo.alt} className="inline-block" />
-            </a>
+            </Link>
           </div>
           <div className="max-w-md lg:min-w-[25rem]">
             <p className="mb-3 font-semibold md:mb-4">Keep up with the latest developments from MOAGO</p>
@@ -122,7 +123,7 @@ export const Footer8 = (props: Footer8Props) => {
           <ul className="grid grid-flow-row grid-cols-[max-content] gap-y-4 text-sm md:grid-flow-col md:gap-x-6 md:gap-y-0 lg:justify-center">
             {footerLinks.map((link, index) => (
               <li key={index} className="underline decoration-black underline-offset-1">
-                <a target="_blank" href={link.url}>{link.title}</a>
+                <Link target="_blank" href={link.url}>{link.title}</Link>
               </li>
             ))}
           </ul>
@@ -143,7 +144,7 @@ export const Footer8Defaults: Footer8Props = {
   termsAndConditions: `
   <p class='text-xs'>
     By subscribing you agree to with our 
-    <a href='/legal/privacy.html' class='underline'>Privacy Policy</a>.
+    <a href='/legal/privacy.html' target="_blank" class='underline'>Privacy Policy</a>.
   </p>
   `,
   footerText: "© 2024 Moago Africa. All rights reserved.",

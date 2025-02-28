@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 
 
 export function PlanningSection() {
@@ -20,7 +22,7 @@ export function PlanningSection() {
               meticulously planned, promoting collaboration and efficiency.
             </p>
             <button className="">
-                <a href="/contact-us" className="ma-primary-btn">Schedule consultation</a>
+                <Link href="/contact-us" className="ma-primary-btn">Schedule consultation</Link>
             </button>
           </div>
           <div className="relative w-full inline-flex justify-end items-center">

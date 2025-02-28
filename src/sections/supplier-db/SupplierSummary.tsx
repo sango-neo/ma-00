@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 
 export function SupplierSummary() {
@@ -21,9 +22,9 @@ export function SupplierSummary() {
             ))}
           </div>
         
-          <a href="/contact-us" className="">
+          <Link href="/contact-us" className="">
             <button className="ma-primary-btn bg-ma_blue border-ma_blue w-full">Schedule consultation</button>
-          </a>
+          </Link>
         </div>
 
 

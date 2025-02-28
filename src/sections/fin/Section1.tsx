@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 
 
 export function Section1() {
@@ -47,9 +49,9 @@ export function Section1() {
             </div>
             <div className="mt-6 flex flex-wrap gap-4 md:mt-8">
               
-              <a href="/contact-us" className="">
+              <Link href="/contact-us" className="">
                 <button className="px-6 py-3 rounded text-white bg-ma_darkBlue w-full">Schedule consultation</button>
-              </a>
+              </Link>
             </div>
           </div>
         </div>

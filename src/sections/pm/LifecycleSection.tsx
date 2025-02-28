@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 
 
 export function LifecycleSection() {
@@ -44,9 +46,9 @@ export function LifecycleSection() {
             </div>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
               
-              <a href="/contact-us" className="">
+              <Link href="/contact-us" className="">
                 <button className="ma-primary-btn bg-ma_altBlue border-ma_altBlue w-full">Schedule consultation</button>
-              </a>
+              </Link>
             </div>
           </div>
           <div>

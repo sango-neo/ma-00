@@ -1,3 +1,4 @@
+import Link from "next/link";
 
 
 type ImageProps = {
@@ -46,7 +47,7 @@ export const Layout16 = (props: Layout16Props) => {
               ))}
             </ul>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <a href={"/contact-us"}><button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full lg:w-fit">Schedule consultation</button></a>
+              <Link href={"/contact-us"}><button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full lg:w-fit">Schedule consultation</button></Link>
             </div>
           </div>
           <div>

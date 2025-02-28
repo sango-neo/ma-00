@@ -3,6 +3,7 @@
 import { useMediaQuery } from "@/hooks/useMediaQuery";
 import { cn } from "@/utils/utils";
 import { AnimatePresence, motion } from "framer-motion";
+import Link from "next/link";
 import { useState, ComponentPropsWithoutRef, Fragment, useEffect,  } from "react";
 
 type ImageProps = {
@@ -84,22 +85,27 @@ export const Navbar9 = (props: Navbar9Props) => {
     return () => window.removeEventListener('scroll', handleScroll);
   });
 
+  const handleLinkClick = () => {
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav className={cn(`fixed z-[70] flex min-h-20 w-full items-center bg-white px-[5%] border-b border-ma_darkBlue/5 text-black md:min-h-18 shadow-xlarge shadow-gray-400/30 transition duration-300`, visible ? '' : '-translate-y-full')}>
       <div className="mx-auto flex size-full max-w-7xl items-center justify-between">
-        <a href={`${logo.url}`}>
+        <Link href={`${logo.url}`}>
           <img src={logo.src} alt={logo.alt!} width={150} height={36} />
-        </a>
+        </Link>
         <div className="absolute hidden h-[calc(100vh-80px)] overflow-auto bg-white px-[5%] pb-24 pt-4 md:pb-0 xl:static xl:ml-6 xl:flex xl:h-auto xl:flex-1 xl:items-center xl:justify-end xl:gap-32 xl:border-none xl:bg-none xl:px-0 xl:pt-0">
           <div className="flex flex-col items-center xl:flex-row">
             {navLinks.map((navLink, index) => (
               <div key={index}>
                 {navLink.megaMenu ? (
-                  <SubMenu megaMenu={navLink.megaMenu} title={navLink.title} isMobile={isMobile} />
+                  <SubMenu megaMenu={navLink.megaMenu} title={navLink.title} isMobile={isMobile} onLinkClick={handleLinkClick} />
                 ) : (
                   <a
                     href={navLink.url}
                     className="relative block w-auto py-3 text-md xl:inline-block xl:px-4 xl:py-6 xl:text-base hover:text-ma_blue"
+                    onClick={handleLinkClick}
                   >
                     {navLink.title}
                   </a>
@@ -108,9 +114,9 @@ export const Navbar9 = (props: Navbar9Props) => {
             ))}
           </div>
           <div className="flex items-center gap-4">
-            <a href="/contact-us">
+            <Link href="/contact-us" onClick={handleLinkClick}>
               <button className="border border-ma_accent py-2 px-4 rounded text-white bg-ma_accent transition">Contact Us</button>
-            </a>
+            </Link>
           </div>
         </div>
         <button
@@ -166,18 +172,19 @@ export const Navbar9 = (props: Navbar9Props) => {
                         megaMenu={navLink.megaMenu}
                         title={navLink.title}
                         isMobile={isMobile}
+                        onLinkClick={handleLinkClick}
                       />
                     ) : (
-                      <a href={navLink.url} className="block py-3 text-md">
+                      <Link href={navLink.url} className="block py-3 text-md" onClick={handleLinkClick}>
                         {navLink.title}
-                      </a>
+                      </Link>
                     )}
                   </div>
                 ))}
                 <div className="mt-6 flex flex-col gap-4">
-                    <a href="/contact-us">
+                    <Link href="/contact-us" onClick={handleLinkClick}>
                         <button className="ma-primary-btn">Contact Us</button>
-                    </a>
+                    </Link>
                 </div>
               </div>
             </motion.div>
@@ -192,12 +199,19 @@ const SubMenu = ({
   title,
   megaMenu,
   isMobile,
+  onLinkClick,
 }: {
   title: string;
   megaMenu: MegaMenuProps;
   isMobile: boolean;
+  onLinkClick: () => void;
 }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const handleSubMenuLinkClick = () => {
+    setIsDropdownOpen(false);
+    onLinkClick();
+  };
 
   return (
     <div
@@ -248,11 +262,11 @@ const SubMenu = ({
                   {megaMenu.linkGroups.map((linkGroup, index) => (
                     <Fragment key={index}>
                       {linkGroup.subMenuLinks.map((subMenuLink, index) => (
-                        <div className="relative group/item">
+                        <div className="relative group/item" key={index}>
                           <a
-                            key={index}
                             href={subMenuLink.url}
                             className="grid w-full auto-cols-fr grid-cols-[max-content_1fr] items-start gap-x-3 gap-y-3 p-6 rounded border border-ma_blue/20 md:border-transparent hover:bg-ma_transBlue/30 hover:border-ma_blue/20"
+                            onClick={handleSubMenuLinkClick}
                           >
                               <div className="flex size-6 flex-col items-center justify-center">
                                 <img
@@ -271,14 +285,7 @@ const SubMenu = ({
                                 <img src={subMenuLink.animation} width={60} height={60} alt="submenu link icon" />
                               </div>
                           </a>
-                          {/* <motion.div className="z-20 hidden h-0 border border-black group-hover/item:block group-hover/item:h-fit transition-all">
-                              <ul>
-                                <li>Item 1</li>
-                                <li>Item 2</li>
-                                <li>Item 3</li>
-                                <li>Item 4</li>
-                              </ul>
-                          </motion.div> */}
+                         
                         </div>
                       ))}
                     </Fragment>
@@ -291,9 +298,9 @@ const SubMenu = ({
               <div className="absolute -left-[50vw] -right-[50vw] bottom-0 top-0 w-[200vw] bg-background-secondary" />
               <div className="relative z-10 mr-auto flex flex-col gap-y-4 sm:mx-auto sm:grid sm:auto-cols-fr sm:grid-cols-[max-content_max-content] sm:gap-x-1">
                 <p>{megaMenu.dropdownFooter.title}</p>
-                <a href={megaMenu.dropdownFooter.url} className="underline">
+                <Link href={megaMenu.dropdownFooter.url} className="underline">
                   {megaMenu.dropdownFooter.link}
-                </a>
+                </Link>
               </div>
             </div>
           </motion.nav>

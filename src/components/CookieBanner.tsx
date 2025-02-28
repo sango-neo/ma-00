@@ -44,7 +44,7 @@ export default function CookieBanner() {
     <div className="z-50 fixed bottom-10 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] md:w-fit md:translate-x-0 md:left-auto md:bottom-14 md:right-8 gap-4 bg-white/90 backdrop-blur-sm text-ma_darkBlue p-4 rounded-lg shadow-large shadow-ma_darkBlue/10 flex flex-col md:flex-row justify-between items-center">
       <p className="text-sm text-center md:text-left">
         We use essential cookies to ensure this website functions properly.
-        <a href="/legal/privacy.html" className="underline ml-1">
+        <a target="_blank" href="/legal/privacy.html" className="underline ml-1">
           Learn more
         </a>
       </p>

@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 
 
 export function DataDriven() {
@@ -19,7 +21,7 @@ export function DataDriven() {
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
                 <button>
-                    <a href="/contact-us" className="w-full h-full ma-primary-btn-accent">Schedule a consultation</a>
+                    <Link href="/contact-us" className="w-full h-full ma-primary-btn-accent">Schedule a consultation</Link>
                 </button>
             </div>
           </div>

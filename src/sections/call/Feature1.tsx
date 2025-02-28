@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 
 
 export function Layout30() {
@@ -46,7 +48,7 @@ export function Layout30() {
               <button 
                 className=""
               >
-                <a className="ma-primary-btn-accent" href="/contact-us">Schedule a consultation</a>
+                <Link className="ma-primary-btn-accent" href="/contact-us">Schedule a consultation</Link>
               </button>
             </div>
           </div>

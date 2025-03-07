@@ -175,16 +175,16 @@ export const Navbar9 = (props: Navbar9Props) => {
                         onLinkClick={handleLinkClick}
                       />
                     ) : (
-                      <Link href={navLink.url} className="block py-3 text-md" onClick={handleLinkClick}>
+                      <a href={navLink.url} className="block py-3 text-md" onClick={handleLinkClick}>
                         {navLink.title}
-                      </Link>
+                      </a>
                     )}
                   </div>
                 ))}
                 <div className="mt-6 flex flex-col gap-4">
-                    <Link href="/contact-us" onClick={handleLinkClick}>
+                    <a href="/contact-us" onClick={handleLinkClick}>
                         <button className="ma-primary-btn">Contact Us</button>
-                    </Link>
+                    </a>
                 </div>
               </div>
             </motion.div>
@@ -298,9 +298,9 @@ const SubMenu = ({
               <div className="absolute -left-[50vw] -right-[50vw] bottom-0 top-0 w-[200vw] bg-background-secondary" />
               <div className="relative z-10 mr-auto flex flex-col gap-y-4 sm:mx-auto sm:grid sm:auto-cols-fr sm:grid-cols-[max-content_max-content] sm:gap-x-1">
                 <p>{megaMenu.dropdownFooter.title}</p>
-                <Link href={megaMenu.dropdownFooter.url} className="underline">
+                <a href={megaMenu.dropdownFooter.url} className="underline">
                   {megaMenu.dropdownFooter.link}
-                </Link>
+                </a>
               </div>
             </div>
           </motion.nav>

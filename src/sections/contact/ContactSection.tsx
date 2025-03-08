@@ -125,7 +125,7 @@ export const Contact9 = (props: Contact9Props) => {
   }
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 min-h-screen bg-gradient-to-tr from-ma_darkBlue/90 via-ma_altBlue/90 to-ma_altBlue/90">
+    <section id="contact-page-section" className="px-[5%] py-16 md:py-24 lg:py-28 min-h-screen bg-gradient-to-tr from-ma_darkBlue/90 via-ma_altBlue/90 to-ma_altBlue/90">
       <div className="container grid grid-cols-1 gap-y-12 md:grid-flow-row md:grid-cols-2 md:gap-x-12 md:grid-rows-4">
 
         <div className="rounded-lg bg-white p-8 md:row-span-4">

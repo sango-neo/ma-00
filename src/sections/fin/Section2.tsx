@@ -89,7 +89,7 @@ export function Section2() {
             <div className="absolute inset-0 flex size-full flex-col items-center justify-center self-start">
               <img
                 src="/assets/images/fin-exp.jpg"
-                alt="Relume placeholder image 2"
+                alt="Export financial data image"
                 className="size-full object-cover"
               />
             </div>

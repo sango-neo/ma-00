@@ -59,7 +59,7 @@ export const About = (props: AboutProps) => {
   }, []);
 
   return (
-    <section className="px-[5%] scroll-smooth">
+    <section className="px-[5%] scroll-smooth overflow-hidden">
       <div className="container">
         <div className="relative grid gap-x-12 py-16 sm:gap-y-12 md:grid-cols-2 md:py-0 lg:gap-x-20">
           <div className="sticky top-0 hidden h-screen md:flex md:flex-col md:items-center md:justify-center">
@@ -131,7 +131,29 @@ export const About = (props: AboutProps) => {
                    
                   </div>
                   <div className="mt-10 block w-full md:hidden">
-                    <img src={content.image.src} className="w-full rounded-lg" alt={content.image.alt} />
+                    {index === 1 ? (
+                      <div className="relative">
+                      {/* Glowing background effect */}
+                      <div className="absolute inset-0 -z-10 bg-ma_blue/50 blur-2xl transform-gpu" />
+                      
+                      {/* Video container with overlay */}
+                      <div className="relative">
+                        <video
+                          className="w-full rounded-lg"
+                          src="/assets/animated/mission.mp4"
+                          preload="auto"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                          controls={false}
+                        />
+                      
+                      </div>
+                    </div>
+                    ) : (
+                      <img src={content.image.src} className="w-full rounded-lg" alt={content.image.alt} />
+                    )}
                   </div>
                   <div
                     className={cn(
@@ -177,7 +199,7 @@ export const AboutDefaults: Props = {
           "To deliver professional services that facilitate, support, and implement innovative Engineering and Technology (ET) solutions, enhancing decision-making processes and improving service delivery in both the government and private sectors.",
         
         image: {
-          src: "/assets/images/primary-logo.svg",
+          src: "/assets/animated/mission.mp4",
           alt: "Img-2 - Mission",
         },
       },
@@ -221,7 +243,7 @@ export const AboutDefaults: Props = {
       alt: "Img-1 - Vision",
     },
     {
-      src: "/assets/images/mission.mp4",
+      src: "/assets/animated/mission.mp4",
       alt: "Img-2 - Mission",
     },
     {
@@ -236,9 +258,5 @@ export const AboutDefaults: Props = {
       src: "/assets/images/collab.jpg",
       alt: "Img-5 - Our Collaborations",
     },
-    // {
-    //   src: "/assets/images/primary-logo.svg",
-    //   alt: "Relume placeholder image 4",
-    // },
   ],
 };

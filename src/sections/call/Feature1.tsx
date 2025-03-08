@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export function Layout30() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="call-center-overview" className="px-[5%] py-16 md:py-24 lg:py-28">
       <div className="container">
         <div className="grid grid-cols-1 items-center gap-y-12 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           <div>
@@ -43,13 +43,9 @@ export function Layout30() {
               ))}
             </div>
             <div 
-              className="mt-6 flex flex-wrap items-center gap-4 md:mt-8"
+              className="mt-10 flex flex-wrap items-center gap-4 md:mt-12"
             >
-              <button 
-                className=""
-              >
-                <Link className="ma-primary-btn-accent" href="/contact-us">Schedule a consultation</Link>
-              </button>
+              <Link className="ma-primary-btn-accent text-center md:text-start" href="/contact-us">Schedule a consultation</Link>
             </div>
           </div>
           <img

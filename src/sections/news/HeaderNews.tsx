@@ -26,7 +26,7 @@ const itemVariants = {
 
 export function HeaderNews() {
   return (
-    <section id="relume" className="relative px-[5%]">
+    <section id="news-header-section" className="relative px-[5%] py-10">
       <div className="container relative z-10">
 
         <div className="flex max-h-[60rem] items-center justify-start py-16 md:py-24 lg:py-36">
@@ -55,7 +55,7 @@ export function HeaderNews() {
       <div className="absolute inset-0 z-0">
         <img
           src="/assets/images/insights.jpg"
-          className="size-full object-cover"
+          className="size-full object-cover object-right-top"
           alt="background image"
         />
 

@@ -117,7 +117,7 @@ export const AssetManagementOverview = (props: AssetManagementOverviewProps) => 
 export const AssetManagementOverviewDefaults: Props = {
   image: {
     src: "/assets/images/asset-reg.jpg",
-    alt: "Relume placeholder image",
+    alt: "Asset Register Screenshot",
   },
   tagline: "Advanced Asset Register",
   heading: "A Fully-featured Centralised Asset Register with Real-Time Data",

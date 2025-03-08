@@ -13,16 +13,14 @@ export function DataDriven() {
             <h2 className="heading-1">
               Data-driven Insights
             </h2>
-            <p className="md:text-md">
+            <p className="md:text-md my-10">
               Our integrated Call Center collects detailed call logs and support
               trends, enabling you to optimize resources effectively. With
               comprehensive maintenance data, you can predict future needs and
               enhance service delivery.
             </p>
             <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-                <button>
-                    <Link href="/contact-us" className="w-full h-full ma-primary-btn-accent">Schedule a consultation</Link>
-                </button>
+              <Link href="/contact-us" className="w-full ma-primary-btn-accent md:w-fit text-center md:text-start">Schedule a consultation</Link>
             </div>
           </div>
           <div>

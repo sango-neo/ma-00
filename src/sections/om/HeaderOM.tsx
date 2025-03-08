@@ -47,8 +47,8 @@ export const Header139 = (props: Header139Props) => {
       >
         <div className="px-[5%] py-16 md:py-24 lg:py-28">
           <div className="container">
-            <div className="max-w-[540px]">
-              <motion.h1 className="heading-1 text-white font-medium mt-20"
+            <div className="max-w-xs xl:max-w-[540px]">
+              <motion.h1 className="heading-2 xl:heading-1 xl:text-white text-white font-medium mt-20"
                 initial={{ opacity: 0, y: 20 }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -61,7 +61,9 @@ export const Header139 = (props: Header139Props) => {
         </div>
         <motion.div className="absolute inset-0 -z-10" style={imageTranslate}>
           <img src={image.src} alt={image.alt} className="size-full object-cover" />
-          {/* <div className="absolute inset-0 bg-ma_darkBlue/50" /> */}
+          <div className="absolute inset-0 top-1/2 -translate-y-1/2 mt-10 left-1/2 hidden lg:inline-block xl:translate-x-[5vw]">
+            <img src="/assets/images/om-header-list.svg" alt="operations maintenance list example" className="object-contain" />
+          </div>
           {/* <div className="absolute inset-0 bg-gradient-to-r from-ma_darkBlue to-transparent" /> */}
         </motion.div>
         {/* <Dialog>
@@ -97,7 +99,7 @@ export const Header139 = (props: Header139Props) => {
 export const Header139Defaults: Props = {
   heading: "Proactive Maintenance: Improve Operational Efficiency. Reduce Costs.",
   image: {
-    src: "/assets/images/ops&maintenance-hero.jpg",
+    src: "/assets/images/o&m-hero-overlayed.jpg",
     alt: "Operations and Maintenance Hero Image",
   },
 };

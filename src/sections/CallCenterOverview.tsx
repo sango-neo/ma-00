@@ -48,7 +48,7 @@ export function CallCenterOverview() {
             <img
               src="/assets/images/call-center-4.png"
               className="w-full object-cover"
-              alt="Relume placeholder image"
+              alt="Call Center Feature Overview"
             />
           </div>
         </div>

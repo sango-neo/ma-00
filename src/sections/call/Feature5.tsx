@@ -4,7 +4,7 @@ import React from "react";
 
 export function Layout16() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 my-48 bg-ma_darkBlue text-white relative overflow-x-clip
+    <section id="cc-connected-section" className="px-[5%] py-16 md:py-24 lg:py-28 my-48 bg-ma_darkBlue text-white relative overflow-x-clip
       before:content-[''] before:bg-ma_darkBlue before:w-full before:h-[150px] before:absolute before:-top-16 before:left-0 before:-skew-y-3
       after:content-[''] after:bg-ma_darkBlue after:w-full after:h-[150px] after:absolute after:-bottom-16 after:left-0 after:-skew-y-3">
       <div className="container">

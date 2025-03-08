@@ -29,7 +29,7 @@ export const Layout61 = (props: Layout61Props) => {
     ...props,
   };
   return (
-    <section id="relume" className="relative px-[5%] py-16 md:py-24 lg:py-28 h-fit">
+    <section id="space-utilisation-section" className="relative px-[5%] py-16 md:py-24 lg:py-28 h-fit">
       <div className="container">
         <div className="grid grid-cols-1 items-start gap-5 md:grid-cols-2 md:gap-x-12 lg:gap-x-20">
           <div>

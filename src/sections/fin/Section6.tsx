@@ -36,7 +36,7 @@ export function Section6() {
   }, [isInView]);
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-28 lg:py-48">
+    <section id="fin-audit-section" className="px-[5%] py-16 md:py-28 lg:py-48">
       <div className="container">
         <div className="grid grid-cols-1 items-center gap-12 md:grid-cols-2 lg:gap-x-20">
           <div className="order-2 md:order-1">

@@ -19,7 +19,7 @@ export const Feature2 = (props: Feature2Props) => {
     ...props,
   };
   return (
-    <section className="px-[5%] py-16 md:py-24 lg:py-48 bg-ma_altBlue">
+    <section className="px-[5%] py-16 md:py-24 lg:py-36 bg-ma_altBlue">
       <div className="container max-w-7xl mx-auto">
         <div className="grid grid-cols-1 gap-y-12 md:grid-cols-2 md:items-center md:gap-x-12 lg:gap-x-20">
           <div className="max-w-md mx-auto text-center md:text-start md:max-w-none md:mx-0">

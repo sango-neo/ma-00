@@ -45,7 +45,7 @@ export function SupplierCompliance() {
                   <div className="mr-4 flex-none self-start">
                     <img
                       src="/assets/images/ma-icon-alt.svg"
-                      alt="Relume logo 1"
+                      alt="moago africa alternative icon"
                       className="size-6"
                     />
                   </div>

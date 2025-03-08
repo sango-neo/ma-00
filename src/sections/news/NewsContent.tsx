@@ -40,7 +40,7 @@ export function NewsContent() {
   const categories = ["all", "Industry News", "Expert Opinions", "Feature Updates", "Best Practices"];
 
   return (
-    <section id="" className="px-[5%] py-16 md:py-24 lg:py-28">
+    <section id="" className="px-[5%] py-16 md:py-24 lg:py-28 overflow-clip">
       <div className="container">
         <div className="mb-12 md:mb-18 lg:mb-20">
           <div className="mx-auto w-full max-w-lg text-center">
@@ -52,8 +52,8 @@ export function NewsContent() {
             </p>
           </div>
         </div>
-        <div className="flex flex-col justify-start">
-          <div className="no-scrollbar mb-12 ml-[-5vw] flex w-screen items-center justify-start overflow-scroll pl-[5vw] md:mb-16 md:ml-0 md:w-full md:justify-center md:overflow-hidden md:pl-0">
+        <div className="flex flex-col justify-start W-4/5 mx-auto">
+          <div className="no-scrollbar mb-12 flex w-screen items-center border border-gray-200 py-4 px-6 justify-start overflow-scroll md:mb-16 md:ml-0 md:w-full md:justify-center md:overflow-hidden">
             {categories.map((category) => (
               <a
                 key={category}
@@ -64,7 +64,7 @@ export function NewsContent() {
                 }}
                 className={`focus-visible:ring-border-primary inline-flex items-center justify-center whitespace-nowrap ring-offset-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 text-text-primary gap-2 border px-4 py-2 ${
                   activeCategory === category
-                    ? "bg-background-primary border-border-primary"
+                    ? "bg-gray-100 border border-gray-200"
                     : "border-transparent"
                 }`}
               >

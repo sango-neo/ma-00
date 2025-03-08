@@ -41,7 +41,7 @@ export const Layout494 = (props: Layout494Props) => {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-36">
+    <section id="asset-register-section" className="px-[5%] py-16 md:py-24 lg:py-36">
       <div className="container">
         <div className="relative flex flex-col md:flex-row">
           <div className="w-full md:w-1/2 md:pr-6 lg:pr-10">
@@ -123,9 +123,9 @@ export const Layout494 = (props: Layout494Props) => {
                 ))}
               </div>
             </div>
-            <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Link href={"/contact-us"}><button className="w-full md:w-fit mt-5 px-6 py-3 rounded bg-ma_blue text-white font-medium">Schedule consultation</button></Link>
-            </div>
+            
+            <Link href={"/contact-us"}><button className="w-full md:w-fit mt-10 px-6 py-3 rounded bg-ma_blue text-white font-medium">Schedule consultation</button></Link>
+            
           </div>
         </div>
       </div>

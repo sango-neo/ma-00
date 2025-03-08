@@ -2,7 +2,7 @@
 
 export function PrioList() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_darkBlue relative">
+    <section id="om-priority-list-section" className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_darkBlue relative">
         <div className="absolute right-0 bottom-0 opacity-90">
             <img src="/assets/images/bg-ring-lg.png" alt="decorative illustration" />
         </div>

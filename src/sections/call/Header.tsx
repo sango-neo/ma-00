@@ -3,10 +3,11 @@ import { motion } from "framer-motion";
 
 export function Header5() {
   return (
-    <section id="relume" className="relative px-[5%]">
+    <section id="cc-header-section" className="relative px-[5%]">
       <div className="container text-ma_darkBlue">
-        <div className="flex max-h-[60rem] min-h-[80vh] items-start py-16 md:py-24 lg:py-28 relative">
-          <div className="max-w-md mt-10 z-10">
+        <div className="flex max-h-[60rem] min-h-[80vh] items-center lg:items-start
+         py-16 md:py-24 lg:py-28 relative">
+          <div className="max-w-sm lg:max-w-md mt-10 z-10 -translate-y-16 sm:-translate-y-20 lg:translate-y-0">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               transition={{ duration: 0.5, ease: "easeOut" }}
@@ -36,7 +37,7 @@ export function Header5() {
         <img
           src="/assets/images/cc-hero-img.jpg"
           className="size-full object-cover"
-          alt="Relume placeholder image"
+          alt="cc-hero background image"
         />
         {/* <div className="absolute inset-0 bg-black/50" /> */}
       </div>

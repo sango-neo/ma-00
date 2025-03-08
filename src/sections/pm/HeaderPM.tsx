@@ -26,7 +26,7 @@ const itemVariants = {
 
 export function HeaderPM() {
   return (
-    <section id="relume" className="relative px-[5%] py-24 lg:py-36">
+    <section id="pm-header-section" className="relative px-[5%] py-36">
       <div className="container">
         <div className="flex justify-center md:justify-end">
             <motion.div className="w-full max-w-sm"

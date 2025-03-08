@@ -15,17 +15,15 @@ export function PlanningSection() {
               Streamlined Planning and Design for Projects
             </h2>
 
-            <p className="mb-5 text-base md:mb-6">
+            <p className="my-10 text-base">
               Our Project Management module simplifies the planning and design
               phases by integrating essential tools for scheduling, budgeting,
               and resource allocation. This ensures that every project aspect is
               meticulously planned, promoting collaboration and efficiency.
             </p>
-            <button className="">
-                <Link href="/contact-us" className="ma-primary-btn">Schedule consultation</Link>
-            </button>
+            <Link href="/contact-us" className="ma-primary-btn">Schedule consultation</Link>
           </div>
-          <div className="relative w-full inline-flex justify-end items-center">
+          <div className="relative w-full inline-flex justify-end items-center mt-4">
             <img
               src="/assets/images/planning&design.jpg"
               className="w-fullll md:w-[90%] aspect-square rounded-lg object-cover z-10"

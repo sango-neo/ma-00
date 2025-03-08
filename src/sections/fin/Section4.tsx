@@ -6,9 +6,9 @@ import Link from "next/link";
 
 export function Section4() {
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-32 bg-ma_darkBlue text-white/90 relative">
+    <section id="fin-alerts-section" className="px-[5%] py-16 md:py-24 lg:py-32 bg-ma_darkBlue text-white/90 relative z-0">
     
-      <div className="absolute right-0 bottom-0">
+      <div className="absolute right-0 bottom-0 -z-10">
             <img src="/assets/images/bg-ring-lg.png" alt="decorative illustration" />
       </div>
       <div className="container">
@@ -23,7 +23,7 @@ export function Section4() {
             to maintain financial control and avoid overspending.
           </p>
         </div>
-        <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12">
+        <div className="grid grid-cols-1 gap-y-8 lg:grid-cols-3 lg:gap-x-8 lg:gap-y-12 mb-10">
           <div className="border border-ma_blue rounded-xl p-8 text-center">
             <p className="mb-8 font-semibold text-4xl md:text-5xl px-6 py-3 rounded-xl bg-ma_blue/25 w-full text-ma_altBlue border border-ma_blue text-center">
               -25% <span className="text-sm font-medium">from last year</span>
@@ -60,11 +60,9 @@ export function Section4() {
             <p className="mt-2">Improve your financial reporting.</p>
           </div>
         </div>
-        <div className="mt-10 flex flex-wrap items-center gap-4 md:mt-14 lg:mt-16">
-          <Link href="/contact-us" className="">
-            <button className="ma-primary-btn-accent w-full">Schedule consultation</button>
+          <Link href="/contact-us" className="mt-10 lg:mt-16 w-full lg:w-fit">
+            <button className="ma-primary-btn-accent w-full lg:w-fit">Schedule consultation</button>
           </Link>
-        </div>
       </div>
     </section>
 

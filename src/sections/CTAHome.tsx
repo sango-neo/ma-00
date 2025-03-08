@@ -44,7 +44,7 @@ export function CTAHome() {
         <img
           src="/assets/images/call-center-bg-dark.jpg"
           className="size-full object-cover"
-          alt="Relume placeholder image"
+          alt="Section background image"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>

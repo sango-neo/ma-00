@@ -46,9 +46,7 @@ export const Layout16 = (props: Layout16Props) => {
                 </li>
               ))}
             </ul>
-            <div className="mt-6 flex flex-wrap items-center gap-4 md:mt-8">
-              <Link href={"/contact-us"}><button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full lg:w-fit">Schedule consultation</button></Link>
-            </div>
+            <Link href={"/contact-us"}><button className="px-6 py-3 bg-ma_darkBlue text-white rounded w-full md:w-fit mt-8">Schedule consultation</button></Link>
           </div>
           <div>
             <img src={image.src} className="w-full object-cover rounded-xl" alt={image.alt} />
@@ -61,14 +59,14 @@ export const Layout16 = (props: Layout16Props) => {
 
 export const Layout16Defaults: Props = {
   tagline: "FUNCTIONAL PERFORMANCE INDEX",
-  heading: "Optimize Asset Performance with Functional Ratings",
+  heading: "Optimise Asset Performance with Functional Ratings",
   description:
     "The FPI dashboard provides a snapshot of facilities needing decommissioning or significant refurbishment, serving as a vital tool for the infrastructure planning team to make informed asset management decisions. Government infrastructure assets should strive for an A1–B2 Functional Performance Index (FPI) rating, as stated in the National Department of Public Works’ User Asset Management Plan (UAMP). An A1 rating indicates optimal performance and suitability, while lower ratings suggest reduced reliability, possibly leading to asset surrender or disposal.",
   features: [
     {
       icon: { src: "/assets/images/ma-icon.svg", alt: "moago icon 1" },
       paragraphTopic: "Condition Rating",
-      paragraph: "The condition rating is the key factor in the Facility Performance Index (FPI). Keeping facilities and equipment in good condition through preventive maintenance ensures optimal performance and efficiency.",
+      paragraph: "The c`o`ndition rating is the key factor in the Facility Performance Index (FPI). Keeping facilities and equipment in good condition through preventive maintenance ensures optimal performance and efficiency.",
     },
     {
       icon: { src: "/assets/images/ma-icon.svg", alt: "moago icon 2" },

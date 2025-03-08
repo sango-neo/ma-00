@@ -21,7 +21,7 @@ export function CTASupplier() {
         <img
           src="/assets/images/call-center-bg-dark.jpg"
           className="size-full object-cover"
-          alt="Relume placeholder image"
+          alt="section background image"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>

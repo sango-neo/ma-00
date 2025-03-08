@@ -59,7 +59,7 @@ export function CTAPM() {
           We're working on something exciting! Subscribe to be the first to know when our Project Management module launches and get exclusive early access.
         </p>
         <form className="flex flex-col items-center gap-4 sm:flex-row sm:justify-center" onSubmit={handleSubmit(onSubmit)}>
-          <div className="w-full max-w-[300px]">
+          <div className="w-full md:max-w-[300px]">
             <input
               type="email"
               placeholder="Enter your email"
@@ -93,7 +93,7 @@ export function CTAPM() {
         <img
           src="/assets/images/call-center-bg-dark.jpg"
           className="size-full object-cover"
-          alt="Relume placeholder image"
+          alt="section background image"
         />
         <div className="absolute inset-0 bg-black/50" />
       </div>

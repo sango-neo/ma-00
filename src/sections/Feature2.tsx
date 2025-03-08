@@ -53,7 +53,7 @@ export const Feature2 = (props: Feature2Props) => {
   const scales = calculateScales(featureSections.length, scrollYProgress);
 
   return (
-    <section id="relume" className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_transBlue">
+    <section id="service-rolodex-section" className="px-[5%] py-16 md:py-24 lg:py-28 bg-ma_transBlue">
       <div className="container max-w-7xl mx-auto">
         <div className="mx-auto mb-12 w-full max-w-xs text-center md:mb-18 lg:mb-20">
           <h2 className="mb-5 text-2xl font-semibold text-ma_darkBlue tracking-tighter md:mb-6 lg:text-3xl xl:text-4xl">{heading}</h2>

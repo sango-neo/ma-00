@@ -61,7 +61,7 @@ type ImageProps = {
       "Ensuring compliance with Occupational Health and Safety (OHS) standards is more than meeting legal requirements—it’s a commitment to safeguarding employee health and fostering a culture of safety. Our system integrates a robust OHS checklist to streamline safety management and embed it into daily operations, offering critical benefits for your organization.",
     image: {
       src: "/assets/images/ma-icon.svg",
-      alt: "Relume placeholder image",
+      alt: "Icon Image",
     },
     features: [
       {

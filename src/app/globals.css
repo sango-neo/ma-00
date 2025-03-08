@@ -133,7 +133,7 @@ body {
   }
 
   .ma-primary-btn {
-    @apply py-3 px-6 bg-ma_darkBlue border-ma_darkBlue border text-white rounded md:w-fit w-full;
+    @apply py-3 px-6 bg-ma_darkBlue border-ma_darkBlue border text-white rounded w-full md:w-fit;
   }
 
   .ma-primary-btn-alt {

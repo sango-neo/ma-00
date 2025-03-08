@@ -38,7 +38,7 @@ type Props = {
     };
 
     return (
-      <section id="relume" className="px-[5%] py-16 bg-[#f9f9f9] md:py-24 lg:py-36">
+      <section id="about-header" className="px-[5%] bg-[#f9f9f9] py-28 lg:py-36">
         <motion.div 
           className="container max-w-md text-center"
           variants={containerVariants}

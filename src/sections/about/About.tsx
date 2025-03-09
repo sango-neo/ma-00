@@ -59,7 +59,7 @@ export const About = (props: AboutProps) => {
   }, []);
 
   return (
-    <section className="px-[5%] scroll-smooth overflow-hidden">
+    <section className="px-[5%] scroll-smooth">
       <div className="container">
         <div className="relative grid gap-x-12 py-16 sm:gap-y-12 md:grid-cols-2 md:py-0 lg:gap-x-20">
           <div className="sticky top-0 hidden h-screen md:flex md:flex-col md:items-center md:justify-center">

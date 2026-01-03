@@ -36,7 +36,7 @@ const ServiceOverview = () => {
     };
 
     return (
-        <section id="service-overview" className="bg-gradient-to-b from-ma_darkBlue to-[#05121E] text-white py-20 px-[5%] relative overflow-clip lg:py-36">
+        <section id="service-overview" className="bg-gradient-to-b from-ma_blue to-[#05121E] text-white py-20 px-[5%] relative overflow-clip lg:py-36">
             <img
                 src="/assets/images/ma-bg-africa.png"
                 alt="ma-africa background icon"

@@ -3,7 +3,7 @@
 import { useForm } from "react-hook-form"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useFormStore } from "@/store/form-store"
-import { contactFormSchema, type ContactFormData } from "@/lib/schemas/contact-form-schema"
+import { contactFormSchema, type ContactFormData, DROPDOWN_CHALLENGES } from "@/lib/schemas/contact-form-schema"
 import { Form } from "@/components/ui/form"
 import { Button } from "@/components/ui/button"
 import { ChallengesStep } from "./steps/ChallengesStep"
@@ -40,6 +40,10 @@ export function ContactForm() {
   const { formData, currentStep, validSteps, updateFormData, setStep, resetForm } = useFormStore()
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmissionSuccess, setIsSubmissionSuccess] = useState(false)
+  const [submittedData, setSubmittedData] = useState<ContactFormData | null>(null)
+  const [submittedChallenges, setSubmittedChallenges] = useState<
+    { category: string; challenges: string[]; impact: string }[]
+  >([])
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
     defaultValues: formData,
@@ -59,14 +63,29 @@ export function ContactForm() {
     useFormStore.getState().setStepValidity(currentStep, isValid)
   }, [currentStep])
 
+  const buildChallengeSummary = (selected: string[]) =>
+    DROPDOWN_CHALLENGES.map((group) => {
+      const chosen = group.challenges.filter((c) => selected.includes(c))
+      return { category: group.category, challenges: chosen, impact: group.impact }
+    }).filter((entry) => entry.challenges.length > 0)
+
   const onSubmit = async (data: ContactFormData) => {
-    
+    const challengeSummary = buildChallengeSummary(data.predefinedChallenges || [])
+    const payload = {
+      ...data,
+      challengeImpacts: challengeSummary.map(({ category, impact, challenges }) => ({
+        category,
+        impact,
+        challenges
+      }))
+    }
+
     try {
       setIsSubmitting(true)
-      const response = await fetch('https://ma-00-api-server.vercel.app/api/submit-form', {
+      const response = await fetch('http://localhost:3001/api/submit-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
+        body: JSON.stringify(payload),
       })
 
       if (!response.ok) throw new Error('Form submission failed')
@@ -76,6 +95,8 @@ export function ContactForm() {
         description: "We'll be in touch with you shortly to discuss your challenges.",
       })
       
+      setSubmittedData(data)
+      setSubmittedChallenges(challengeSummary)
       resetForm()
       form.reset()
       setIsSubmissionSuccess(true)
@@ -122,20 +143,120 @@ export function ContactForm() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="w-[80vw] mx-auto px-4 my-16 lg:px-0 min-h-[50vh] flex flex-col items-center justify-center"
         >
-          <div className="bg-white rounded-2xl shadow-large p-10 text-center w-full">
+          <div className="bg-white rounded-2xl shadow-large p-10 w-full space-y-8">
+            <div className="text-center space-y-4">
             <CheckCircle 
-              className="w-20 h-20 text-green-500 mx-auto mb-6" 
-              strokeWidth={1.5}
+              className="w-10 h-10 text-green-500 mx-auto mb-6" 
+              strokeWidth={2}
             />
-            <h2 className="text-2xl font-semibold text-ma_darkBlue mb-4">
-              Thank You for Reaching Out!
-            </h2>
-            <p className="text-ma_grey text-lg mb-6">
-              We've received your message and will get back to you shortly to engage with you.
-            </p>
-            <p className="text-ma_grey">
-              You can continue to navigate the Moago Africa website.
-            </p>
+            <div className="text-center">
+              <h2 className="text-2xl font-semibold text-ma_darkBlue mb-2">
+                Thank You for Reaching Out!
+              </h2>
+              <p className="text-ma_grey text-sm">
+                We've received your message and will get back to you shortly to engage with you.
+              </p>
+            </div>
+            </div>
+
+            {submittedData && (
+              <div className="grid gap-4 md:grid-cols-2">
+                <div className="space-y-3 p-4 rounded-xl border border-ma_grey/20 bg-slate-50/60">
+                  <h3 className="text-ma_darkBlue font-semibold">Selected Challenges</h3>
+                  <div className="space-y-3">
+                    {submittedChallenges.length === 0 && (
+                      <p className="text-ma_grey text-sm">No predefined challenges selected.</p>
+                    )}
+                    {submittedChallenges.map(({ category, challenges }) => (
+                      <div key={category} className="space-y-1">
+                        <p className="text-sm font-medium text-ma_darkBlue">{category}</p>
+                        <ul className="list-disc list-inside text-sm text-ma_grey space-y-1">
+                          {challenges.map((item) => (
+                            <li key={item}>{item}</li>
+                          ))}
+                        </ul>
+                      </div>
+                    ))}
+                    {submittedData.customChallenges && (
+                      <div className="space-y-1">
+                        <p className="text-sm font-medium text-ma_darkBlue">Other Challenges</p>
+                        <p className="text-sm text-ma_grey whitespace-pre-line">{submittedData.customChallenges}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+
+                <div className="space-y-3 p-4 rounded-xl border border-ma_grey/20 bg-slate-50/60">
+                  <h3 className="text-ma_darkBlue font-semibold">Your Details</h3>
+                  <div className="grid grid-cols-1 gap-2 text-sm text-ma_grey">
+                    <div className="flex justify-between gap-3">
+                      <span className="text-ma_darkBlue font-medium">Name</span>
+                      <span className="text-right">{submittedData.firstName} {submittedData.lastName}</span>
+                    </div>
+                    <div className="flex justify-between gap-3">
+                      <span className="text-ma_darkBlue font-medium">Email</span>
+                      <span className="text-right">{submittedData.email}</span>
+                    </div>
+                    {submittedData.phone && (
+                      <div className="flex justify-between gap-3">
+                        <span className="text-ma_darkBlue font-medium">Phone</span>
+                        <span className="text-right">{submittedData.phone}</span>
+                      </div>
+                    )}
+                    <div className="flex justify-between gap-3">
+                      <span className="text-ma_darkBlue font-medium">Company</span>
+                      <span className="text-right">{submittedData.companyName}</span>
+                    </div>
+                    <div className="flex justify-between gap-3">
+                      <span className="text-ma_darkBlue font-medium">Industry</span>
+                      <span className="text-right capitalize">{submittedData.industry}</span>
+                    </div>
+                    <div className="flex justify-between gap-3">
+                      <span className="text-ma_darkBlue font-medium">Sector</span>
+                      <span className="text-right capitalize">{submittedData.sector}</span>
+                    </div>
+                    {submittedData.jobTitle && (
+                      <div className="flex justify-between gap-3">
+                        <span className="text-ma_darkBlue font-medium">Job Title</span>
+                        <span className="text-right">{submittedData.jobTitle}</span>
+                      </div>
+                    )}
+                    {submittedData.companySize && (
+                      <div className="flex justify-between gap-3">
+                        <span className="text-ma_darkBlue font-medium">Company Size</span>
+                        <span className="text-right">{submittedData.companySize}</span>
+                      </div>
+                    )}
+                    {submittedData.message && (
+                      <div className="space-y-1">
+                        <p className="text-ma_darkBlue font-medium">Message</p>
+                        <p className="text-ma_grey text-sm whitespace-pre-line text-right">{submittedData.message}</p>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            <div className="flex flex-col items-center gap-3 text-center">
+              <p className="text-ma_grey">
+                You can continue to navigate the Moago Africa website or start a new submission.
+              </p>
+              <Button 
+                type="button"
+                variant="outline"
+                onClick={() => {
+                  setSubmittedData(null)
+                  setSubmittedChallenges([])
+                  setIsSubmissionSuccess(false)
+                  resetForm()
+                  form.reset()
+                  setStep(0)
+                }}
+              >
+                Start a new submission
+              </Button>
+            </div>
           </div>
         </motion.div>
       </section>
@@ -151,7 +272,7 @@ export function ContactForm() {
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="w-full mx-auto px-4 my-16 lg:px-0"
         >
-        <div className="w-full bg-white rounded-2xl shadow-large hover:shadow-xlarge hover:scale-[1.01] transition-all duration-150 overflow-hidden">
+        <div className="w-full bg-white rounded-2xl shadow-large hover:shadow-xlarge transition-all duration-150 overflow-hidden">
             {/* Progress indicator */}
             <div className="px-6 py-3 bg-white">
             <div className="flex items-center justify-center mb-2 w-fit p-4 mx-auto">

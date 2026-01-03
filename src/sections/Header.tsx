@@ -45,7 +45,7 @@ const Header = () => {
                 alt="ma-globe background icon"
                 width={500}
                 height={500}
-                className="-z-10 absolute -bottom-28 md:-left-96 lg:-left-[500px] w-2/3 md:w-auto opacity-15 pointer-events-none select-none"
+                className="-z-10 absolute hidden md:block -bottom-28 md:-left-96 lg:-left-[500px] w-2/3 md:w-auto opacity-15 pointer-events-none select-none"
                 aria-hidden="true"
         />
         <div className=" z-10 container w-full mx-auto max-w-7xl">

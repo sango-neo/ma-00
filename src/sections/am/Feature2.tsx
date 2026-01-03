@@ -66,7 +66,7 @@ export const Layout16Defaults: Props = {
     {
       icon: { src: "/assets/images/ma-icon.svg", alt: "moago icon 1" },
       paragraphTopic: "Condition Rating",
-      paragraph: "The c`o`ndition rating is the key factor in the Facility Performance Index (FPI). Keeping facilities and equipment in good condition through preventive maintenance ensures optimal performance and efficiency.",
+      paragraph: "The condition rating is the key factor in the Facility Performance Index (FPI). Keeping facilities and equipment in good condition through preventive maintenance ensures optimal performance and efficiency.",
     },
     {
       icon: { src: "/assets/images/ma-icon.svg", alt: "moago icon 2" },

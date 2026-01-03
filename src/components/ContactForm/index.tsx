@@ -82,7 +82,7 @@ export function ContactForm() {
 
     try {
       setIsSubmitting(true)
-      const response = await fetch('http://localhost:3001/api/submit-form', {
+      const response = await fetch('https://ma-00-api-server.vercel.app/api/submit-form', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload),
